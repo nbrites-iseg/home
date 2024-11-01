@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Data structures | Mathematical Methods in Finance</title>
+  <meta name="description" content="3 Data structures | Mathematical Methods in Finance" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Data structures | Mathematical Methods in Finance" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Data structures | Mathematical Methods in Finance" />
+  
+  
+  
+
+<meta name="author" content="Nuno M. Brites" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="r-basics.html"/>
+<link rel="next" href="loops-and-flow-control.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#about-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> About R and RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#the-prompt"><i class="fa fa-check"></i><b>1.3</b> The prompt</a></li>
+<li class="chapter" data-level="1.4" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#assignments"><i class="fa fa-check"></i><b>1.4</b> Assignments</a></li>
+<li class="chapter" data-level="1.5" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#rules-for-defining-variables"><i class="fa fa-check"></i><b>1.5</b> Rules for defining variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basic-operations"><i class="fa fa-check"></i><b>2.1</b> Basic operations</a></li>
+<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#precision"><i class="fa fa-check"></i><b>2.2</b> Precision</a></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#infinity-or-not-defined-and-missings"><i class="fa fa-check"></i><b>2.3</b> Infinity or not defined, and missings</a></li>
+<li class="chapter" data-level="2.4" data-path="r-basics.html"><a href="r-basics.html#important-commands"><i class="fa fa-check"></i><b>2.4</b> Important commands</a></li>
+<li class="chapter" data-level="2.5" data-path="r-basics.html"><a href="r-basics.html#internal-help-function"><i class="fa fa-check"></i><b>2.5</b> Internal help function</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3</b> Data structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structures.html"><a href="data-structures.html#vector"><i class="fa fa-check"></i><b>3.1</b> Vector</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-structures.html"><a href="data-structures.html#constructing-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Constructing vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-structures.html"><a href="data-structures.html#index-and-logical-index"><i class="fa fa-check"></i><b>3.1.2</b> Index and logical index</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-structures.html"><a href="data-structures.html#matrix"><i class="fa fa-check"></i><b>3.2</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structures.html"><a href="data-structures.html#constructing-matrices"><i class="fa fa-check"></i><b>3.2.1</b> Constructing matrices</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structures.html"><a href="data-structures.html#index-and-logical-index-1"><i class="fa fa-check"></i><b>3.2.2</b> Index and logical index</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-structures.html"><a href="data-structures.html#properties-of-vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Properties of vectors and matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-structures.html"><a href="data-structures.html#naming-rows-and-columns-in-a-matrix"><i class="fa fa-check"></i><b>3.2.4</b> Naming rows and columns in a matrix</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-structures.html"><a href="data-structures.html#matrix-multiplication"><i class="fa fa-check"></i><b>3.2.5</b> Matrix multiplication</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-structures.html"><a href="data-structures.html#additional-functions"><i class="fa fa-check"></i><b>3.2.6</b> Additional functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structures.html"><a href="data-structures.html#simple-functions"><i class="fa fa-check"></i><b>3.3</b> Simple Functions</a></li>
+<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html#default-arguments"><i class="fa fa-check"></i><b>3.4</b> Default arguments</a></li>
+<li class="chapter" data-level="3.5" data-path="data-structures.html"><a href="data-structures.html#integrals-and-derivatives"><i class="fa fa-check"></i><b>3.5</b> Integrals and derivatives</a></li>
+<li class="chapter" data-level="3.6" data-path="data-structures.html"><a href="data-structures.html#simple-plots"><i class="fa fa-check"></i><b>3.6</b> Simple plots</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-structures.html"><a href="data-structures.html#histogram-and-boxplot"><i class="fa fa-check"></i><b>3.6.1</b> Histogram and boxplot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html"><i class="fa fa-check"></i><b>4</b> Loops and flow control</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#loops-with-for"><i class="fa fa-check"></i><b>4.1</b> Loops with <code>for</code></a></li>
+<li class="chapter" data-level="4.2" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#flow-control-if-and-if-else-statements"><i class="fa fa-check"></i><b>4.2</b> Flow control: if and if else statements</a></li>
+<li class="chapter" data-level="4.3" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#while-loop-example"><i class="fa fa-check"></i><b>4.3</b> While loop example</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>5</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="simulation.html"><a href="simulation.html#the-set.seedfunction"><i class="fa fa-check"></i><b>5.1</b> The <code>set.seed()</code>function</a></li>
+<li class="chapter" data-level="5.2" data-path="simulation.html"><a href="simulation.html#random-numbers-and-probability-distributions"><i class="fa fa-check"></i><b>5.2</b> Random numbers and probability distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#monte-carlo-integration-example"><i class="fa fa-check"></i><b>5.3</b> Monte Carlo integration (example)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphics-in-r-exploratory-learning.html"><a href="graphics-in-r-exploratory-learning.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (exploratory learning)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="graphics-in-r-exploratory-learning.html"><a href="graphics-in-r-exploratory-learning.html#base"><i class="fa fa-check"></i><b>6.1</b> <code>base</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html"><i class="fa fa-check"></i><b>7</b> Mathematical Methods in Finance</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-binomial-model"><i class="fa fa-check"></i><b>7.2</b> The binomial model</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#one-period-binomial-model"><i class="fa fa-check"></i><b>7.2.1</b> One-period binomial model</a></li>
+<li class="chapter" data-level="7.2.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#multiperiod-binomial-model"><i class="fa fa-check"></i><b>7.2.2</b> Multiperiod binomial model</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-black-scholes-model"><i class="fa fa-check"></i><b>7.3</b> The Black-Scholes model</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#preliminars-brownian-motion"><i class="fa fa-check"></i><b>7.3.1</b> Preliminars: Brownian motion</a></li>
+<li class="chapter" data-level="7.3.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-black-scholes-formula"><i class="fa fa-check"></i><b>7.3.2</b> The Black-Scholes formula</a></li>
+<li class="chapter" data-level="7.3.3" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#greeks"><i class="fa fa-check"></i><b>7.3.3</b> Greeks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exercises.html"><a href="exercises.html#related-to-chapters-1-to-6"><i class="fa fa-check"></i><b>8.1</b> Related to Chapters 1 to 6</a></li>
+<li class="chapter" data-level="8.2" data-path="exercises.html"><a href="exercises.html#related-to-chapter-7"><i class="fa fa-check"></i><b>8.2</b> Related to Chapter 7</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Mathematical Methods in Finance</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-structures" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Data structures<a href="data-structures.html#data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>In R we have objects which are functions and objects which are data.</p>
+<ul>
+<li>Function examples:
+<ul>
+<li><p><code>sin()</code></p></li>
+<li><p><code>integrate()</code></p></li>
+<li><p><code>plot()</code></p></li>
+<li><p><code>paste()</code></p></li>
+</ul></li>
+<li>Data examples:
+<ul>
+<li><p>42</p></li>
+<li><p>1:5</p></li>
+<li><p>“R”</p></li>
+<li><p>matrix(1:12, nrow=4, ncol=3)</p></li>
+<li><p>data.frame(a=1:5, tmt=c(“a”,“b”,“a”,“b”,“a”))</p></li>
+<li><p>list(x=2, y=“abc”, x=1:10)</p></li>
+</ul></li>
+</ul>
+<div id="vector" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Vector<a href="data-structures.html#vector" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data-structures.html#cb10-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Vector of numbers, e.g:</span></span>
+<span id="cb10-2"><a href="data-structures.html#cb10-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="fl">1.2</span>, pi, <span class="fu">exp</span>(<span class="dv">1</span>))</span>
+<span id="cb10-3"><a href="data-structures.html#cb10-3" tabindex="-1"></a><span class="do">## [1] 1.000 1.200 3.142 2.718</span></span>
+<span id="cb10-4"><a href="data-structures.html#cb10-4" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb10-5"><a href="data-structures.html#cb10-5" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># We can have vectors of other things too, e.g:</span></span>
+<span id="cb10-6"><a href="data-structures.html#cb10-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span>)</span>
+<span id="cb10-7"><a href="data-structures.html#cb10-7" tabindex="-1"></a><span class="do">## [1]  TRUE FALSE</span></span>
+<span id="cb10-8"><a href="data-structures.html#cb10-8" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;ab&quot;</span>, <span class="st">&quot;abc&quot;</span>)</span>
+<span id="cb10-9"><a href="data-structures.html#cb10-9" tabindex="-1"></a><span class="do">## [1] &quot;a&quot;   &quot;ab&quot;  &quot;abc&quot;</span></span>
+<span id="cb10-10"><a href="data-structures.html#cb10-10" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb10-11"><a href="data-structures.html#cb10-11" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># But not combinations, e.g:</span></span>
+<span id="cb10-12"><a href="data-structures.html#cb10-12" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="dv">5</span>, <span class="dv">1</span> <span class="sc">==</span> <span class="dv">2</span>)</span>
+<span id="cb10-13"><a href="data-structures.html#cb10-13" tabindex="-1"></a><span class="do">## [1] &quot;a&quot;     &quot;5&quot;     &quot;FALSE&quot;</span></span>
+<span id="cb10-14"><a href="data-structures.html#cb10-14" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Notice that R just turned everything into characters!</span></span></code></pre></div>
+<div id="constructing-vectors" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Constructing vectors<a href="data-structures.html#constructing-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data-structures.html#cb11-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Integers from 9 to 17</span></span>
+<span id="cb11-2"><a href="data-structures.html#cb11-2" tabindex="-1"></a><span class="er">&gt;</span> x <span class="ot">&lt;-</span> <span class="dv">9</span><span class="sc">:</span><span class="dv">17</span></span>
+<span id="cb11-3"><a href="data-structures.html#cb11-3" tabindex="-1"></a><span class="sc">&gt;</span> x</span>
+<span id="cb11-4"><a href="data-structures.html#cb11-4" tabindex="-1"></a><span class="do">## [1]  9 10 11 12 13 14 15 16 17</span></span>
+<span id="cb11-5"><a href="data-structures.html#cb11-5" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb11-6"><a href="data-structures.html#cb11-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># A sequence of 11 numbers from 0 to 1</span></span>
+<span id="cb11-7"><a href="data-structures.html#cb11-7" tabindex="-1"></a><span class="er">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length =</span> <span class="dv">11</span>)</span>
+<span id="cb11-8"><a href="data-structures.html#cb11-8" tabindex="-1"></a><span class="sc">&gt;</span> y</span>
+<span id="cb11-9"><a href="data-structures.html#cb11-9" tabindex="-1"></a><span class="do">##  [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0</span></span>
+<span id="cb11-10"><a href="data-structures.html#cb11-10" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb11-11"><a href="data-structures.html#cb11-11" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># The same number or the same vector several times</span></span>
+<span id="cb11-12"><a href="data-structures.html#cb11-12" tabindex="-1"></a><span class="er">&gt;</span> z <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="dv">5</span>)</span>
+<span id="cb11-13"><a href="data-structures.html#cb11-13" tabindex="-1"></a><span class="sc">&gt;</span> z</span>
+<span id="cb11-14"><a href="data-structures.html#cb11-14" tabindex="-1"></a><span class="do">##  [1] 1 2 1 2 1 2 1 2 1 2</span></span>
+<span id="cb11-15"><a href="data-structures.html#cb11-15" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb11-16"><a href="data-structures.html#cb11-16" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Combine numbers, vectors or both into a new vector</span></span>
+<span id="cb11-17"><a href="data-structures.html#cb11-17" tabindex="-1"></a><span class="er">&gt;</span> xz10 <span class="ot">&lt;-</span> <span class="fu">c</span>(x, z, <span class="dv">10</span>)</span>
+<span id="cb11-18"><a href="data-structures.html#cb11-18" tabindex="-1"></a><span class="sc">&gt;</span> xz10</span>
+<span id="cb11-19"><a href="data-structures.html#cb11-19" tabindex="-1"></a><span class="do">##  [1]  9 10 11 12 13 14 15 16 17  1  2  1  2  1  2  1  2  1  2 10</span></span></code></pre></div>
+</div>
+<div id="index-and-logical-index" class="section level3 hasAnchor" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Index and logical index<a href="data-structures.html#index-and-logical-index" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="data-structures.html#cb12-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># Define a vector with integers from (-5) to 5 and extract the numbers with</span></span>
+<span id="cb12-2"><a href="data-structures.html#cb12-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># absolute value less than 3:</span></span>
+<span id="cb12-3"><a href="data-structures.html#cb12-3" tabindex="-1"></a><span class="er">&gt;</span> x <span class="ot">&lt;-</span> (<span class="sc">-</span><span class="dv">5</span>)<span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb12-4"><a href="data-structures.html#cb12-4" tabindex="-1"></a><span class="sc">&gt;</span> x</span>
+<span id="cb12-5"><a href="data-structures.html#cb12-5" tabindex="-1"></a><span class="do">##  [1] -5 -4 -3 -2 -1  0  1  2  3  4  5</span></span>
+<span id="cb12-6"><a href="data-structures.html#cb12-6" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb12-7"><a href="data-structures.html#cb12-7" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># by their index in the vector:</span></span>
+<span id="cb12-8"><a href="data-structures.html#cb12-8" tabindex="-1"></a><span class="er">&gt;</span> x[<span class="dv">4</span><span class="sc">:</span><span class="dv">8</span>]</span>
+<span id="cb12-9"><a href="data-structures.html#cb12-9" tabindex="-1"></a><span class="do">## [1] -2 -1  0  1  2</span></span>
+<span id="cb12-10"><a href="data-structures.html#cb12-10" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb12-11"><a href="data-structures.html#cb12-11" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># or, by negative selection (set a minus in front of the indices we don&#39;t</span></span>
+<span id="cb12-12"><a href="data-structures.html#cb12-12" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># want):</span></span>
+<span id="cb12-13"><a href="data-structures.html#cb12-13" tabindex="-1"></a><span class="er">&gt;</span> x[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="dv">9</span><span class="sc">:</span><span class="dv">11</span>)]</span>
+<span id="cb12-14"><a href="data-structures.html#cb12-14" tabindex="-1"></a><span class="do">## [1] -2 -1  0  1  2</span></span>
+<span id="cb12-15"><a href="data-structures.html#cb12-15" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb12-16"><a href="data-structures.html#cb12-16" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># A logical vector can be defined by:</span></span>
+<span id="cb12-17"><a href="data-structures.html#cb12-17" tabindex="-1"></a><span class="er">&gt;</span> index <span class="ot">&lt;-</span> <span class="fu">abs</span>(x) <span class="sc">&lt;</span> <span class="dv">3</span></span>
+<span id="cb12-18"><a href="data-structures.html#cb12-18" tabindex="-1"></a><span class="sc">&gt;</span> index</span>
+<span id="cb12-19"><a href="data-structures.html#cb12-19" tabindex="-1"></a><span class="do">##  [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE FALSE FALSE FALSE</span></span>
+<span id="cb12-20"><a href="data-structures.html#cb12-20" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb12-21"><a href="data-structures.html#cb12-21" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Now this vector can be used to extract the wanted numbers:</span></span>
+<span id="cb12-22"><a href="data-structures.html#cb12-22" tabindex="-1"></a><span class="er">&gt;</span> x[index]</span>
+<span id="cb12-23"><a href="data-structures.html#cb12-23" tabindex="-1"></a><span class="do">## [1] -2 -1  0  1  2</span></span></code></pre></div>
+</div>
+</div>
+<div id="matrix" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Matrix<a href="data-structures.html#matrix" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Similar to vectors we can have matrices of objects of the same type, e.g:</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="data-structures.html#cb13-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>) <span class="sc">+</span> pi, <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb13-2"><a href="data-structures.html#cb13-2" tabindex="-1"></a><span class="do">##       [,1]  [,2]  [,3]</span></span>
+<span id="cb13-3"><a href="data-structures.html#cb13-3" tabindex="-1"></a><span class="do">## [1,] 4.142 6.142 8.142</span></span>
+<span id="cb13-4"><a href="data-structures.html#cb13-4" tabindex="-1"></a><span class="do">## [2,] 5.142 7.142 9.142</span></span>
+<span id="cb13-5"><a href="data-structures.html#cb13-5" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb13-6"><a href="data-structures.html#cb13-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>) <span class="sc">+</span> pi, <span class="at">nrow =</span> <span class="dv">2</span>) <span class="sc">&lt;</span> <span class="dv">6</span></span>
+<span id="cb13-7"><a href="data-structures.html#cb13-7" tabindex="-1"></a><span class="do">##      [,1]  [,2]  [,3]</span></span>
+<span id="cb13-8"><a href="data-structures.html#cb13-8" tabindex="-1"></a><span class="do">## [1,] TRUE FALSE FALSE</span></span>
+<span id="cb13-9"><a href="data-structures.html#cb13-9" tabindex="-1"></a><span class="do">## [2,] TRUE FALSE FALSE</span></span>
+<span id="cb13-10"><a href="data-structures.html#cb13-10" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb13-11"><a href="data-structures.html#cb13-11" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># We can create higher order arrays, e.g:</span></span>
+<span id="cb13-12"><a href="data-structures.html#cb13-12" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">array</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">24</span>), <span class="at">dim =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb13-13"><a href="data-structures.html#cb13-13" tabindex="-1"></a><span class="do">## , , 1</span></span>
+<span id="cb13-14"><a href="data-structures.html#cb13-14" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb13-15"><a href="data-structures.html#cb13-15" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb13-16"><a href="data-structures.html#cb13-16" tabindex="-1"></a><span class="do">## [1,]    1    5    9</span></span>
+<span id="cb13-17"><a href="data-structures.html#cb13-17" tabindex="-1"></a><span class="do">## [2,]    2    6   10</span></span>
+<span id="cb13-18"><a href="data-structures.html#cb13-18" tabindex="-1"></a><span class="do">## [3,]    3    7   11</span></span>
+<span id="cb13-19"><a href="data-structures.html#cb13-19" tabindex="-1"></a><span class="do">## [4,]    4    8   12</span></span>
+<span id="cb13-20"><a href="data-structures.html#cb13-20" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb13-21"><a href="data-structures.html#cb13-21" tabindex="-1"></a><span class="do">## , , 2</span></span>
+<span id="cb13-22"><a href="data-structures.html#cb13-22" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb13-23"><a href="data-structures.html#cb13-23" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb13-24"><a href="data-structures.html#cb13-24" tabindex="-1"></a><span class="do">## [1,]   13   17   21</span></span>
+<span id="cb13-25"><a href="data-structures.html#cb13-25" tabindex="-1"></a><span class="do">## [2,]   14   18   22</span></span>
+<span id="cb13-26"><a href="data-structures.html#cb13-26" tabindex="-1"></a><span class="do">## [3,]   15   19   23</span></span>
+<span id="cb13-27"><a href="data-structures.html#cb13-27" tabindex="-1"></a><span class="do">## [4,]   16   20   24</span></span></code></pre></div>
+<div id="constructing-matrices" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Constructing matrices<a href="data-structures.html#constructing-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="data-structures.html#cb14-1" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb14-2"><a href="data-structures.html#cb14-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Combine rows into a matrix</span></span>
+<span id="cb14-3"><a href="data-structures.html#cb14-3" tabindex="-1"></a><span class="er">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb14-4"><a href="data-structures.html#cb14-4" tabindex="-1"></a><span class="sc">&gt;</span> A</span>
+<span id="cb14-5"><a href="data-structures.html#cb14-5" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb14-6"><a href="data-structures.html#cb14-6" tabindex="-1"></a><span class="do">## [1,]    1    2    3</span></span>
+<span id="cb14-7"><a href="data-structures.html#cb14-7" tabindex="-1"></a><span class="do">## [2,]    1    1    2</span></span>
+<span id="cb14-8"><a href="data-structures.html#cb14-8" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb14-9"><a href="data-structures.html#cb14-9" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Or columns</span></span>
+<span id="cb14-10"><a href="data-structures.html#cb14-10" tabindex="-1"></a><span class="er">&gt;</span> B <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb14-11"><a href="data-structures.html#cb14-11" tabindex="-1"></a><span class="sc">&gt;</span> B</span>
+<span id="cb14-12"><a href="data-structures.html#cb14-12" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb14-13"><a href="data-structures.html#cb14-13" tabindex="-1"></a><span class="do">## [1,]    1    1</span></span>
+<span id="cb14-14"><a href="data-structures.html#cb14-14" tabindex="-1"></a><span class="do">## [2,]    2    1</span></span>
+<span id="cb14-15"><a href="data-structures.html#cb14-15" tabindex="-1"></a><span class="do">## [3,]    3    2</span></span>
+<span id="cb14-16"><a href="data-structures.html#cb14-16" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb14-17"><a href="data-structures.html#cb14-17" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Define a matrix from one long vector</span></span>
+<span id="cb14-18"><a href="data-structures.html#cb14-18" tabindex="-1"></a><span class="er">&gt;</span> C <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb14-19"><a href="data-structures.html#cb14-19" tabindex="-1"></a><span class="sc">&gt;</span> C</span>
+<span id="cb14-20"><a href="data-structures.html#cb14-20" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb14-21"><a href="data-structures.html#cb14-21" tabindex="-1"></a><span class="do">## [1,]    1    1    1</span></span>
+<span id="cb14-22"><a href="data-structures.html#cb14-22" tabindex="-1"></a><span class="do">## [2,]    0    1    1</span></span>
+<span id="cb14-23"><a href="data-structures.html#cb14-23" tabindex="-1"></a><span class="do">## [3,]    0    0    1</span></span>
+<span id="cb14-24"><a href="data-structures.html#cb14-24" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb14-25"><a href="data-structures.html#cb14-25" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Can also be done by rows by adding &#39;byrow=TRUE&#39; before the last parenthesis.</span></span>
+<span id="cb14-26"><a href="data-structures.html#cb14-26" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Try!</span></span></code></pre></div>
+</div>
+<div id="index-and-logical-index-1" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Index and logical index<a href="data-structures.html#index-and-logical-index-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="data-structures.html#cb15-1" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>((<span class="sc">-</span><span class="dv">4</span>)<span class="sc">:</span><span class="dv">5</span>, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb15-2"><a href="data-structures.html#cb15-2" tabindex="-1"></a><span class="sc">&gt;</span> A</span>
+<span id="cb15-3"><a href="data-structures.html#cb15-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb15-4"><a href="data-structures.html#cb15-4" tabindex="-1"></a><span class="do">## [1,]   -4   -2    0    2    4</span></span>
+<span id="cb15-5"><a href="data-structures.html#cb15-5" tabindex="-1"></a><span class="do">## [2,]   -3   -1    1    3    5</span></span>
+<span id="cb15-6"><a href="data-structures.html#cb15-6" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb15-7"><a href="data-structures.html#cb15-7" tabindex="-1"></a><span class="er">&gt;</span> </span>
+<span id="cb15-8"><a href="data-structures.html#cb15-8" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Negative values</span></span>
+<span id="cb15-9"><a href="data-structures.html#cb15-9" tabindex="-1"></a><span class="er">&gt;</span> A[A <span class="sc">&lt;</span> <span class="dv">0</span>]</span>
+<span id="cb15-10"><a href="data-structures.html#cb15-10" tabindex="-1"></a><span class="do">## [1] -4 -3 -2 -1</span></span>
+<span id="cb15-11"><a href="data-structures.html#cb15-11" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb15-12"><a href="data-structures.html#cb15-12" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Assignments</span></span>
+<span id="cb15-13"><a href="data-structures.html#cb15-13" tabindex="-1"></a><span class="er">&gt;</span> A[A <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb15-14"><a href="data-structures.html#cb15-14" tabindex="-1"></a><span class="sc">&gt;</span> A</span>
+<span id="cb15-15"><a href="data-structures.html#cb15-15" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4] [,5]</span></span>
+<span id="cb15-16"><a href="data-structures.html#cb15-16" tabindex="-1"></a><span class="do">## [1,]    0    0    0    2    4</span></span>
+<span id="cb15-17"><a href="data-structures.html#cb15-17" tabindex="-1"></a><span class="do">## [2,]    0    0    1    3    5</span></span>
+<span id="cb15-18"><a href="data-structures.html#cb15-18" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb15-19"><a href="data-structures.html#cb15-19" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Matrix rows can be selected by</span></span>
+<span id="cb15-20"><a href="data-structures.html#cb15-20" tabindex="-1"></a><span class="er">&gt;</span> A[<span class="dv">2</span>, ]</span>
+<span id="cb15-21"><a href="data-structures.html#cb15-21" tabindex="-1"></a><span class="do">## [1] 0 0 1 3 5</span></span>
+<span id="cb15-22"><a href="data-structures.html#cb15-22" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb15-23"><a href="data-structures.html#cb15-23" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># and similarly for columns</span></span>
+<span id="cb15-24"><a href="data-structures.html#cb15-24" tabindex="-1"></a><span class="er">&gt;</span> A[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>)]</span>
+<span id="cb15-25"><a href="data-structures.html#cb15-25" tabindex="-1"></a><span class="do">##      [,1] [,2]</span></span>
+<span id="cb15-26"><a href="data-structures.html#cb15-26" tabindex="-1"></a><span class="do">## [1,]    0    2</span></span>
+<span id="cb15-27"><a href="data-structures.html#cb15-27" tabindex="-1"></a><span class="do">## [2,]    0    3</span></span></code></pre></div>
+</div>
+<div id="properties-of-vectors-and-matrices" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Properties of vectors and matrices<a href="data-structures.html#properties-of-vectors-and-matrices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>The <code>R</code> function <code>mode()</code> when applied to a vector or to a matrix detects the type of singles that is stored:</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="data-structures.html#cb16-1" tabindex="-1"></a><span class="sc">&gt;</span> A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rep</span>(<span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>), <span class="dv">2</span>), <span class="at">nrow =</span> <span class="dv">2</span>)</span>
+<span id="cb16-2"><a href="data-structures.html#cb16-2" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb16-3"><a href="data-structures.html#cb16-3" tabindex="-1"></a><span class="er">&gt;</span> B <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">4</span>)</span>
+<span id="cb16-4"><a href="data-structures.html#cb16-4" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb16-5"><a href="data-structures.html#cb16-5" tabindex="-1"></a><span class="er">&gt;</span> C <span class="ot">&lt;-</span> <span class="fu">matrix</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>], <span class="at">nrow =</span> <span class="dv">3</span>)</span>
+<span id="cb16-6"><a href="data-structures.html#cb16-6" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb16-7"><a href="data-structures.html#cb16-7" tabindex="-1"></a><span class="er">&gt;</span> A</span>
+<span id="cb16-8"><a href="data-structures.html#cb16-8" tabindex="-1"></a><span class="do">##       [,1]  [,2]</span></span>
+<span id="cb16-9"><a href="data-structures.html#cb16-9" tabindex="-1"></a><span class="do">## [1,]  TRUE  TRUE</span></span>
+<span id="cb16-10"><a href="data-structures.html#cb16-10" tabindex="-1"></a><span class="do">## [2,] FALSE FALSE</span></span>
+<span id="cb16-11"><a href="data-structures.html#cb16-11" tabindex="-1"></a><span class="sc">&gt;</span> B</span>
+<span id="cb16-12"><a href="data-structures.html#cb16-12" tabindex="-1"></a><span class="do">## [1]  0.2828  1.2518 -0.1151  0.8643</span></span>
+<span id="cb16-13"><a href="data-structures.html#cb16-13" tabindex="-1"></a><span class="sc">&gt;</span> C</span>
+<span id="cb16-14"><a href="data-structures.html#cb16-14" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb16-15"><a href="data-structures.html#cb16-15" tabindex="-1"></a><span class="do">## [1,] &quot;A&quot;  &quot;D&quot;  &quot;G&quot; </span></span>
+<span id="cb16-16"><a href="data-structures.html#cb16-16" tabindex="-1"></a><span class="do">## [2,] &quot;B&quot;  &quot;E&quot;  &quot;H&quot; </span></span>
+<span id="cb16-17"><a href="data-structures.html#cb16-17" tabindex="-1"></a><span class="do">## [3,] &quot;C&quot;  &quot;F&quot;  &quot;I&quot;</span></span>
+<span id="cb16-18"><a href="data-structures.html#cb16-18" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb16-19"><a href="data-structures.html#cb16-19" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">mode</span>(A)</span>
+<span id="cb16-20"><a href="data-structures.html#cb16-20" tabindex="-1"></a><span class="do">## [1] &quot;logical&quot;</span></span>
+<span id="cb16-21"><a href="data-structures.html#cb16-21" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mode</span>(B)</span>
+<span id="cb16-22"><a href="data-structures.html#cb16-22" tabindex="-1"></a><span class="do">## [1] &quot;numeric&quot;</span></span>
+<span id="cb16-23"><a href="data-structures.html#cb16-23" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mode</span>(C)</span>
+<span id="cb16-24"><a href="data-structures.html#cb16-24" tabindex="-1"></a><span class="do">## [1] &quot;character&quot;</span></span></code></pre></div>
+<ul>
+<li>Vectors and matrices have lengths: the length is the number of elements:</li>
+</ul>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="data-structures.html#cb17-1" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">2</span><span class="sc">:</span><span class="dv">12</span>), <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb17-2"><a href="data-structures.html#cb17-2" tabindex="-1"></a><span class="sc">&gt;</span> x</span>
+<span id="cb17-3"><a href="data-structures.html#cb17-3" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb17-4"><a href="data-structures.html#cb17-4" tabindex="-1"></a><span class="do">## [1,]   NA    5    9</span></span>
+<span id="cb17-5"><a href="data-structures.html#cb17-5" tabindex="-1"></a><span class="do">## [2,]    2    6   10</span></span>
+<span id="cb17-6"><a href="data-structures.html#cb17-6" tabindex="-1"></a><span class="do">## [3,]    3    7   11</span></span>
+<span id="cb17-7"><a href="data-structures.html#cb17-7" tabindex="-1"></a><span class="do">## [4,]    4    8   12</span></span>
+<span id="cb17-8"><a href="data-structures.html#cb17-8" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb17-9"><a href="data-structures.html#cb17-9" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">length</span>(x[<span class="dv">1</span>, ])</span>
+<span id="cb17-10"><a href="data-structures.html#cb17-10" tabindex="-1"></a><span class="do">## [1] 3</span></span>
+<span id="cb17-11"><a href="data-structures.html#cb17-11" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb17-12"><a href="data-structures.html#cb17-12" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">length</span>(x)</span>
+<span id="cb17-13"><a href="data-structures.html#cb17-13" tabindex="-1"></a><span class="do">## [1] 12</span></span>
+<span id="cb17-14"><a href="data-structures.html#cb17-14" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb17-15"><a href="data-structures.html#cb17-15" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># The dimension of a matrix is the number of rows and columns: The number of</span></span>
+<span id="cb17-16"><a href="data-structures.html#cb17-16" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># columns is the second element:</span></span>
+<span id="cb17-17"><a href="data-structures.html#cb17-17" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">dim</span>(x)</span>
+<span id="cb17-18"><a href="data-structures.html#cb17-18" tabindex="-1"></a><span class="do">## [1] 4 3</span></span>
+<span id="cb17-19"><a href="data-structures.html#cb17-19" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">dim</span>(x)[<span class="dv">2</span>]</span>
+<span id="cb17-20"><a href="data-structures.html#cb17-20" tabindex="-1"></a><span class="do">## [1] 3</span></span></code></pre></div>
+</div>
+<div id="naming-rows-and-columns-in-a-matrix" class="section level3 hasAnchor" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Naming rows and columns in a matrix<a href="data-structures.html#naming-rows-and-columns-in-a-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li>We can add names to a matrix with the <code>colnames()</code> and <code>rownames()</code> functions:</li>
+</ul>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="data-structures.html#cb18-1" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">12</span>), <span class="at">nrow =</span> <span class="dv">4</span>)</span>
+<span id="cb18-2"><a href="data-structures.html#cb18-2" tabindex="-1"></a><span class="sc">&gt;</span> x</span>
+<span id="cb18-3"><a href="data-structures.html#cb18-3" tabindex="-1"></a><span class="do">##         [,1]     [,2]    [,3]</span></span>
+<span id="cb18-4"><a href="data-structures.html#cb18-4" tabindex="-1"></a><span class="do">## [1,] -1.4674 -2.11745 -0.4322</span></span>
+<span id="cb18-5"><a href="data-structures.html#cb18-5" tabindex="-1"></a><span class="do">## [2,] -1.7250 -0.02905  0.3034</span></span>
+<span id="cb18-6"><a href="data-structures.html#cb18-6" tabindex="-1"></a><span class="do">## [3,]  2.5618  2.40387 -0.2860</span></span>
+<span id="cb18-7"><a href="data-structures.html#cb18-7" tabindex="-1"></a><span class="do">## [4,] -0.5431  0.55772 -0.4009</span></span>
+<span id="cb18-8"><a href="data-structures.html#cb18-8" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb18-9"><a href="data-structures.html#cb18-9" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">colnames</span>(x) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;data&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb18-10"><a href="data-structures.html#cb18-10" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb18-11"><a href="data-structures.html#cb18-11" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rownames</span>(x) <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">&quot;obs&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">sep =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb18-12"><a href="data-structures.html#cb18-12" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb18-13"><a href="data-structures.html#cb18-13" tabindex="-1"></a><span class="er">&gt;</span> x</span>
+<span id="cb18-14"><a href="data-structures.html#cb18-14" tabindex="-1"></a><span class="do">##        data1    data2   data3</span></span>
+<span id="cb18-15"><a href="data-structures.html#cb18-15" tabindex="-1"></a><span class="do">## obs1 -1.4674 -2.11745 -0.4322</span></span>
+<span id="cb18-16"><a href="data-structures.html#cb18-16" tabindex="-1"></a><span class="do">## obs2 -1.7250 -0.02905  0.3034</span></span>
+<span id="cb18-17"><a href="data-structures.html#cb18-17" tabindex="-1"></a><span class="do">## obs3  2.5618  2.40387 -0.2860</span></span>
+<span id="cb18-18"><a href="data-structures.html#cb18-18" tabindex="-1"></a><span class="do">## obs4 -0.5431  0.55772 -0.4009</span></span>
+<span id="cb18-19"><a href="data-structures.html#cb18-19" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb18-20"><a href="data-structures.html#cb18-20" tabindex="-1"></a><span class="er">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">15</span>), <span class="at">nrow =</span> <span class="dv">5</span>)</span>
+<span id="cb18-21"><a href="data-structures.html#cb18-21" tabindex="-1"></a><span class="sc">&gt;</span> y</span>
+<span id="cb18-22"><a href="data-structures.html#cb18-22" tabindex="-1"></a><span class="do">##         [,1]     [,2]    [,3]</span></span>
+<span id="cb18-23"><a href="data-structures.html#cb18-23" tabindex="-1"></a><span class="do">## [1,] -0.4613  0.93541  1.5811</span></span>
+<span id="cb18-24"><a href="data-structures.html#cb18-24" tabindex="-1"></a><span class="do">## [2,]  0.3347  0.05065 -1.3580</span></span>
+<span id="cb18-25"><a href="data-structures.html#cb18-25" tabindex="-1"></a><span class="do">## [3,]  1.3099  1.77019  0.4667</span></span>
+<span id="cb18-26"><a href="data-structures.html#cb18-26" tabindex="-1"></a><span class="do">## [4,] -0.2948 -0.49271 -0.4951</span></span>
+<span id="cb18-27"><a href="data-structures.html#cb18-27" tabindex="-1"></a><span class="do">## [5,] -0.8083 -1.25855  0.4335</span></span>
+<span id="cb18-28"><a href="data-structures.html#cb18-28" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb18-29"><a href="data-structures.html#cb18-29" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">colnames</span>(y) <span class="ot">&lt;-</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(y)]</span>
+<span id="cb18-30"><a href="data-structures.html#cb18-30" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb18-31"><a href="data-structures.html#cb18-31" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">rownames</span>(y) <span class="ot">&lt;-</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(y)]</span>
+<span id="cb18-32"><a href="data-structures.html#cb18-32" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb18-33"><a href="data-structures.html#cb18-33" tabindex="-1"></a><span class="er">&gt;</span> y</span>
+<span id="cb18-34"><a href="data-structures.html#cb18-34" tabindex="-1"></a><span class="do">##         A        B       C</span></span>
+<span id="cb18-35"><a href="data-structures.html#cb18-35" tabindex="-1"></a><span class="do">## a -0.4613  0.93541  1.5811</span></span>
+<span id="cb18-36"><a href="data-structures.html#cb18-36" tabindex="-1"></a><span class="do">## b  0.3347  0.05065 -1.3580</span></span>
+<span id="cb18-37"><a href="data-structures.html#cb18-37" tabindex="-1"></a><span class="do">## c  1.3099  1.77019  0.4667</span></span>
+<span id="cb18-38"><a href="data-structures.html#cb18-38" tabindex="-1"></a><span class="do">## d -0.2948 -0.49271 -0.4951</span></span>
+<span id="cb18-39"><a href="data-structures.html#cb18-39" tabindex="-1"></a><span class="do">## e -0.8083 -1.25855  0.4335</span></span></code></pre></div>
+</div>
+<div id="matrix-multiplication" class="section level3 hasAnchor" number="3.2.5">
+<h3><span class="header-section-number">3.2.5</span> Matrix multiplication<a href="data-structures.html#matrix-multiplication" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="data-structures.html#cb19-1" tabindex="-1"></a><span class="sc">&gt;</span> M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>), <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">5</span>)</span>
+<span id="cb19-2"><a href="data-structures.html#cb19-2" tabindex="-1"></a><span class="sc">&gt;</span> N <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">15</span>), <span class="at">nrow =</span> <span class="dv">5</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb19-3"><a href="data-structures.html#cb19-3" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb19-4"><a href="data-structures.html#cb19-4" tabindex="-1"></a><span class="er">&gt;</span> M <span class="sc">%*%</span> N</span>
+<span id="cb19-5"><a href="data-structures.html#cb19-5" tabindex="-1"></a><span class="do">##          [,1]    [,2]     [,3]</span></span>
+<span id="cb19-6"><a href="data-structures.html#cb19-6" tabindex="-1"></a><span class="do">## [1,] -0.74193  2.3186 -0.26987</span></span>
+<span id="cb19-7"><a href="data-structures.html#cb19-7" tabindex="-1"></a><span class="do">## [2,] -0.70372 -0.3569  0.51286</span></span>
+<span id="cb19-8"><a href="data-structures.html#cb19-8" tabindex="-1"></a><span class="do">## [3,] -0.78080  1.0136 -0.08753</span></span>
+<span id="cb19-9"><a href="data-structures.html#cb19-9" tabindex="-1"></a><span class="do">## [4,]  0.04846 -0.4733  0.30275</span></span>
+<span id="cb19-10"><a href="data-structures.html#cb19-10" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb19-11"><a href="data-structures.html#cb19-11" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># Can we perform N*M? No! A and B are not compatible!! Try to run: N%*%M</span></span></code></pre></div>
+</div>
+<div id="additional-functions" class="section level3 hasAnchor" number="3.2.6">
+<h3><span class="header-section-number">3.2.6</span> Additional functions<a href="data-structures.html#additional-functions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="data-structures.html#cb20-1" tabindex="-1"></a><span class="sc">&gt;</span> M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">16</span>), <span class="at">nrow =</span> <span class="dv">4</span>, <span class="at">ncol =</span> <span class="dv">4</span>)</span>
+<span id="cb20-2"><a href="data-structures.html#cb20-2" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb20-3"><a href="data-structures.html#cb20-3" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">dim</span>(M)</span>
+<span id="cb20-4"><a href="data-structures.html#cb20-4" tabindex="-1"></a><span class="do">## [1] 4 4</span></span>
+<span id="cb20-5"><a href="data-structures.html#cb20-5" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb20-6"><a href="data-structures.html#cb20-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">t</span>(M)</span>
+<span id="cb20-7"><a href="data-structures.html#cb20-7" tabindex="-1"></a><span class="do">##         [,1]     [,2]    [,3]    [,4]</span></span>
+<span id="cb20-8"><a href="data-structures.html#cb20-8" tabindex="-1"></a><span class="do">## [1,]  0.2179  0.50001 -0.4868  1.4590</span></span>
+<span id="cb20-9"><a href="data-structures.html#cb20-9" tabindex="-1"></a><span class="do">## [2,] -0.3014 -0.03050  1.7561  0.8646</span></span>
+<span id="cb20-10"><a href="data-structures.html#cb20-10" tabindex="-1"></a><span class="do">## [3,] -0.6529  0.05847  0.5901 -0.4382</span></span>
+<span id="cb20-11"><a href="data-structures.html#cb20-11" tabindex="-1"></a><span class="do">## [4,]  1.0106  0.76520 -0.8804  0.2014</span></span>
+<span id="cb20-12"><a href="data-structures.html#cb20-12" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb20-13"><a href="data-structures.html#cb20-13" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">det</span>(M)</span>
+<span id="cb20-14"><a href="data-structures.html#cb20-14" tabindex="-1"></a><span class="do">## [1] 1.509</span></span>
+<span id="cb20-15"><a href="data-structures.html#cb20-15" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb20-16"><a href="data-structures.html#cb20-16" tabindex="-1"></a><span class="er">&gt;</span> (invM <span class="ot">&lt;-</span> <span class="fu">solve</span>(M))</span>
+<span id="cb20-17"><a href="data-structures.html#cb20-17" tabindex="-1"></a><span class="do">##         [,1]    [,2]     [,3]    [,4]</span></span>
+<span id="cb20-18"><a href="data-structures.html#cb20-18" tabindex="-1"></a><span class="do">## [1,] -0.6866 0.32134 -0.38309  0.5500</span></span>
+<span id="cb20-19"><a href="data-structures.html#cb20-19" tabindex="-1"></a><span class="do">## [2,]  0.4628 0.04103  0.59313  0.1147</span></span>
+<span id="cb20-20"><a href="data-structures.html#cb20-20" tabindex="-1"></a><span class="do">## [3,] -1.1190 1.59946  0.01999 -0.3743</span></span>
+<span id="cb20-21"><a href="data-structures.html#cb20-21" tabindex="-1"></a><span class="do">## [4,]  0.5526 0.97628  0.27243 -0.3262</span></span>
+<span id="cb20-22"><a href="data-structures.html#cb20-22" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb20-23"><a href="data-structures.html#cb20-23" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">eigen</span>(M)</span>
+<span id="cb20-24"><a href="data-structures.html#cb20-24" tabindex="-1"></a><span class="do">## eigen() decomposition</span></span>
+<span id="cb20-25"><a href="data-structures.html#cb20-25" tabindex="-1"></a><span class="do">## $values</span></span>
+<span id="cb20-26"><a href="data-structures.html#cb20-26" tabindex="-1"></a><span class="do">## [1]  1.6490 -1.2244  1.1851 -0.6308</span></span>
+<span id="cb20-27"><a href="data-structures.html#cb20-27" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb20-28"><a href="data-structures.html#cb20-28" tabindex="-1"></a><span class="do">## $vectors</span></span>
+<span id="cb20-29"><a href="data-structures.html#cb20-29" tabindex="-1"></a><span class="do">##          [,1]    [,2]    [,3]     [,4]</span></span>
+<span id="cb20-30"><a href="data-structures.html#cb20-30" tabindex="-1"></a><span class="do">## [1,]  0.45181 -0.2806 -0.2549  0.50829</span></span>
+<span id="cb20-31"><a href="data-structures.html#cb20-31" tabindex="-1"></a><span class="do">## [2,]  0.47611 -0.3449 -0.5510 -0.41440</span></span>
+<span id="cb20-32"><a href="data-structures.html#cb20-32" tabindex="-1"></a><span class="do">## [3,] -0.04433  0.5869 -0.4160  0.75216</span></span>
+<span id="cb20-33"><a href="data-structures.html#cb20-33" tabindex="-1"></a><span class="do">## [4,]  0.75314  0.6767 -0.6770 -0.06452</span></span></code></pre></div>
+</div>
+</div>
+<div id="simple-functions" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Simple Functions<a href="data-structures.html#simple-functions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>The above functions are built-in functions. However, it is simple to write your own functions:</li>
+</ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="data-structures.html#cb21-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="co"># a square function</span></span>
+<span id="cb21-2"><a href="data-structures.html#cb21-2" tabindex="-1"></a><span class="er">&gt;</span> square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb21-3"><a href="data-structures.html#cb21-3" tabindex="-1"></a><span class="sc">+</span>     x <span class="sc">*</span> x</span>
+<span id="cb21-4"><a href="data-structures.html#cb21-4" tabindex="-1"></a><span class="sc">+</span> }</span>
+<span id="cb21-5"><a href="data-structures.html#cb21-5" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb21-6"><a href="data-structures.html#cb21-6" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">square</span>(<span class="dv">2</span>)</span>
+<span id="cb21-7"><a href="data-structures.html#cb21-7" tabindex="-1"></a><span class="do">## [1] 4</span></span>
+<span id="cb21-8"><a href="data-structures.html#cb21-8" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">square</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb21-9"><a href="data-structures.html#cb21-9" tabindex="-1"></a><span class="do">## [1]  1  4  9 16 25</span></span>
+<span id="cb21-10"><a href="data-structures.html#cb21-10" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb21-11"><a href="data-structures.html#cb21-11" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># a power function with two arguments</span></span>
+<span id="cb21-12"><a href="data-structures.html#cb21-12" tabindex="-1"></a><span class="er">&gt;</span> power <span class="ot">&lt;-</span> <span class="cf">function</span>(x, pow) {</span>
+<span id="cb21-13"><a href="data-structures.html#cb21-13" tabindex="-1"></a><span class="sc">+</span>     x<span class="sc">^</span>pow</span>
+<span id="cb21-14"><a href="data-structures.html#cb21-14" tabindex="-1"></a><span class="sc">+</span> }</span>
+<span id="cb21-15"><a href="data-structures.html#cb21-15" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb21-16"><a href="data-structures.html#cb21-16" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">power</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb21-17"><a href="data-structures.html#cb21-17" tabindex="-1"></a><span class="do">## [1] 8</span></span>
+<span id="cb21-18"><a href="data-structures.html#cb21-18" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">power</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">3</span>)</span>
+<span id="cb21-19"><a href="data-structures.html#cb21-19" tabindex="-1"></a><span class="do">## [1]   1   8  27  64 125</span></span></code></pre></div>
+</div>
+<div id="default-arguments" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Default arguments<a href="data-structures.html#default-arguments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>A function can have default arguments:</li>
+</ul>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="data-structures.html#cb22-1" tabindex="-1"></a><span class="sc">&gt;</span> power <span class="ot">&lt;-</span> <span class="cf">function</span>(x, <span class="at">pow =</span> <span class="dv">2</span>) {</span>
+<span id="cb22-2"><a href="data-structures.html#cb22-2" tabindex="-1"></a><span class="sc">+</span>     x<span class="sc">^</span>pow</span>
+<span id="cb22-3"><a href="data-structures.html#cb22-3" tabindex="-1"></a><span class="sc">+</span> }</span>
+<span id="cb22-4"><a href="data-structures.html#cb22-4" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb22-5"><a href="data-structures.html#cb22-5" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">power</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<span id="cb22-6"><a href="data-structures.html#cb22-6" tabindex="-1"></a><span class="do">## [1]  1  4  9 16 25</span></span>
+<span id="cb22-7"><a href="data-structures.html#cb22-7" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb22-8"><a href="data-structures.html#cb22-8" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">power</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">4</span>)</span>
+<span id="cb22-9"><a href="data-structures.html#cb22-9" tabindex="-1"></a><span class="do">## [1]   1  16  81 256 625</span></span></code></pre></div>
+</div>
+<div id="integrals-and-derivatives" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Integrals and derivatives<a href="data-structures.html#integrals-and-derivatives" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="data-structures.html#cb23-1" tabindex="-1"></a><span class="sc">&gt;</span> f <span class="ot">&lt;-</span> <span class="cf">function</span>(x) (x<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">exp</span>(x)</span>
+<span id="cb23-2"><a href="data-structures.html#cb23-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">integrate</span>(f, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb23-3"><a href="data-structures.html#cb23-3" tabindex="-1"></a><span class="do">## 0.7183 with absolute error &lt; 8e-15</span></span>
+<span id="cb23-4"><a href="data-structures.html#cb23-4" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb23-5"><a href="data-structures.html#cb23-5" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># check: str(integrate(f,0,1)).</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="data-structures.html#cb24-1" tabindex="-1"></a><span class="sc">&gt;</span> f <span class="ot">&lt;-</span> <span class="fu">expression</span>((x<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">exp</span>(x))</span>
+<span id="cb24-2"><a href="data-structures.html#cb24-2" tabindex="-1"></a><span class="sc">&gt;</span> (df <span class="ot">&lt;-</span> <span class="fu">D</span>(f, <span class="st">&quot;x&quot;</span>))</span>
+<span id="cb24-3"><a href="data-structures.html#cb24-3" tabindex="-1"></a><span class="do">## 2 * x * exp(x) + (x^2) * exp(x)</span></span>
+<span id="cb24-4"><a href="data-structures.html#cb24-4" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb24-5"><a href="data-structures.html#cb24-5" tabindex="-1"></a><span class="er">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">10</span>)</span>
+<span id="cb24-6"><a href="data-structures.html#cb24-6" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">eval</span>(df)</span>
+<span id="cb24-7"><a href="data-structures.html#cb24-7" tabindex="-1"></a><span class="do">## [1]       0.0     301.3 2643175.9</span></span></code></pre></div>
+</div>
+<div id="simple-plots" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> Simple plots<a href="data-structures.html#simple-plots" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="data-structures.html#cb25-1" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="at">length =</span> <span class="dv">100</span>)</span>
+<span id="cb25-2"><a href="data-structures.html#cb25-2" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb25-3"><a href="data-structures.html#cb25-3" tabindex="-1"></a><span class="er">&gt;</span> y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="dv">3</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb25-4"><a href="data-structures.html#cb25-4" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb25-5"><a href="data-structures.html#cb25-5" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(x, y)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="data-structures.html#cb26-1" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb26-2"><a href="data-structures.html#cb26-2" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">plot</span>(sin, <span class="dv">0</span>, <span class="dv">2</span> <span class="sc">*</span> pi)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-26-2.png" width="480" style="display: block; margin: auto;" /></p>
+<div id="histogram-and-boxplot" class="section level3 hasAnchor" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> Histogram and boxplot<a href="data-structures.html#histogram-and-boxplot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="data-structures.html#cb27-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>), <span class="at">main =</span> <span class="st">&quot;My histogram&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;X&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Y&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="data-structures.html#cb28-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">boxplot</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span>), <span class="at">main =</span> <span class="st">&quot;My boxplot&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-27-2.png" width="480" style="display: block; margin: auto;" /></p>
+<hr />
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="r-basics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="loops-and-flow-control.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

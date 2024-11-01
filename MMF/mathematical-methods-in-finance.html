@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Mathematical Methods in Finance | Mathematical Methods in Finance</title>
+  <meta name="description" content="7 Mathematical Methods in Finance | Mathematical Methods in Finance" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Mathematical Methods in Finance | Mathematical Methods in Finance" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Mathematical Methods in Finance | Mathematical Methods in Finance" />
+  
+  
+  
+
+<meta name="author" content="Nuno M. Brites" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="graphics-in-r-exploratory-learning.html"/>
+<link rel="next" href="exercises.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#about-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> About R and RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#the-prompt"><i class="fa fa-check"></i><b>1.3</b> The prompt</a></li>
+<li class="chapter" data-level="1.4" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#assignments"><i class="fa fa-check"></i><b>1.4</b> Assignments</a></li>
+<li class="chapter" data-level="1.5" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#rules-for-defining-variables"><i class="fa fa-check"></i><b>1.5</b> Rules for defining variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basic-operations"><i class="fa fa-check"></i><b>2.1</b> Basic operations</a></li>
+<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#precision"><i class="fa fa-check"></i><b>2.2</b> Precision</a></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#infinity-or-not-defined-and-missings"><i class="fa fa-check"></i><b>2.3</b> Infinity or not defined, and missings</a></li>
+<li class="chapter" data-level="2.4" data-path="r-basics.html"><a href="r-basics.html#important-commands"><i class="fa fa-check"></i><b>2.4</b> Important commands</a></li>
+<li class="chapter" data-level="2.5" data-path="r-basics.html"><a href="r-basics.html#internal-help-function"><i class="fa fa-check"></i><b>2.5</b> Internal help function</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3</b> Data structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structures.html"><a href="data-structures.html#vector"><i class="fa fa-check"></i><b>3.1</b> Vector</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-structures.html"><a href="data-structures.html#constructing-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Constructing vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-structures.html"><a href="data-structures.html#index-and-logical-index"><i class="fa fa-check"></i><b>3.1.2</b> Index and logical index</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-structures.html"><a href="data-structures.html#matrix"><i class="fa fa-check"></i><b>3.2</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structures.html"><a href="data-structures.html#constructing-matrices"><i class="fa fa-check"></i><b>3.2.1</b> Constructing matrices</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structures.html"><a href="data-structures.html#index-and-logical-index-1"><i class="fa fa-check"></i><b>3.2.2</b> Index and logical index</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-structures.html"><a href="data-structures.html#properties-of-vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Properties of vectors and matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-structures.html"><a href="data-structures.html#naming-rows-and-columns-in-a-matrix"><i class="fa fa-check"></i><b>3.2.4</b> Naming rows and columns in a matrix</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-structures.html"><a href="data-structures.html#matrix-multiplication"><i class="fa fa-check"></i><b>3.2.5</b> Matrix multiplication</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-structures.html"><a href="data-structures.html#additional-functions"><i class="fa fa-check"></i><b>3.2.6</b> Additional functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structures.html"><a href="data-structures.html#simple-functions"><i class="fa fa-check"></i><b>3.3</b> Simple Functions</a></li>
+<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html#default-arguments"><i class="fa fa-check"></i><b>3.4</b> Default arguments</a></li>
+<li class="chapter" data-level="3.5" data-path="data-structures.html"><a href="data-structures.html#integrals-and-derivatives"><i class="fa fa-check"></i><b>3.5</b> Integrals and derivatives</a></li>
+<li class="chapter" data-level="3.6" data-path="data-structures.html"><a href="data-structures.html#simple-plots"><i class="fa fa-check"></i><b>3.6</b> Simple plots</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-structures.html"><a href="data-structures.html#histogram-and-boxplot"><i class="fa fa-check"></i><b>3.6.1</b> Histogram and boxplot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html"><i class="fa fa-check"></i><b>4</b> Loops and flow control</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#loops-with-for"><i class="fa fa-check"></i><b>4.1</b> Loops with <code>for</code></a></li>
+<li class="chapter" data-level="4.2" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#flow-control-if-and-if-else-statements"><i class="fa fa-check"></i><b>4.2</b> Flow control: if and if else statements</a></li>
+<li class="chapter" data-level="4.3" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#while-loop-example"><i class="fa fa-check"></i><b>4.3</b> While loop example</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>5</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="simulation.html"><a href="simulation.html#the-set.seedfunction"><i class="fa fa-check"></i><b>5.1</b> The <code>set.seed()</code>function</a></li>
+<li class="chapter" data-level="5.2" data-path="simulation.html"><a href="simulation.html#random-numbers-and-probability-distributions"><i class="fa fa-check"></i><b>5.2</b> Random numbers and probability distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#monte-carlo-integration-example"><i class="fa fa-check"></i><b>5.3</b> Monte Carlo integration (example)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphics-in-r-exploratory-learning.html"><a href="graphics-in-r-exploratory-learning.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (exploratory learning)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="graphics-in-r-exploratory-learning.html"><a href="graphics-in-r-exploratory-learning.html#base"><i class="fa fa-check"></i><b>6.1</b> <code>base</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html"><i class="fa fa-check"></i><b>7</b> Mathematical Methods in Finance</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-binomial-model"><i class="fa fa-check"></i><b>7.2</b> The binomial model</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#one-period-binomial-model"><i class="fa fa-check"></i><b>7.2.1</b> One-period binomial model</a></li>
+<li class="chapter" data-level="7.2.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#multiperiod-binomial-model"><i class="fa fa-check"></i><b>7.2.2</b> Multiperiod binomial model</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-black-scholes-model"><i class="fa fa-check"></i><b>7.3</b> The Black-Scholes model</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#preliminars-brownian-motion"><i class="fa fa-check"></i><b>7.3.1</b> Preliminars: Brownian motion</a></li>
+<li class="chapter" data-level="7.3.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-black-scholes-formula"><i class="fa fa-check"></i><b>7.3.2</b> The Black-Scholes formula</a></li>
+<li class="chapter" data-level="7.3.3" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#greeks"><i class="fa fa-check"></i><b>7.3.3</b> Greeks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exercises.html"><a href="exercises.html#related-to-chapters-1-to-6"><i class="fa fa-check"></i><b>8.1</b> Related to Chapters 1 to 6</a></li>
+<li class="chapter" data-level="8.2" data-path="exercises.html"><a href="exercises.html#related-to-chapter-7"><i class="fa fa-check"></i><b>8.2</b> Related to Chapter 7</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Mathematical Methods in Finance</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="mathematical-methods-in-finance" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> Mathematical Methods in Finance<a href="mathematical-methods-in-finance.html#mathematical-methods-in-finance" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Introduction<a href="mathematical-methods-in-finance.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A <strong>derivative</strong> is a <strong>contract</strong> which promises to make a <strong>payment</strong> at a specified time in the future, the amount of which depends upon the behavior of some <strong>underlying asset</strong> (or market variable) up to and including the <strong>time</strong> of the payment. Examples:</p>
+<ul>
+<li><p>Options on stocks: the underlying asset is the price of stock shares.</p></li>
+<li><p>Futures contract on wheat: the underlying asset is the price of wheat.</p></li>
+<li><p>Forward contract for selling US dollars: the underlying asset is the exchange rate EUR-USD.</p></li>
+</ul>
+<p>Derivatives may depend on many other variables: interest rates, indexes, electricity price, etc. Other derivatives are credit derivatives, insurance derivatives, weather derivatives, etc…</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-1" class="definition"><strong>Definition 7.1  </strong></span>We will work with European options. Remember some definitions on Options:</p>
+<ul>
+<li><p><strong>Call option</strong> (“call”): A call option gives the holder the right (but not
+the obligation) to <strong>buy</strong> the underlying asset by a certain date <span class="math inline">\(T\)</span> for a
+certain price <span class="math inline">\(K\)</span>.</p></li>
+<li><p><strong>Put option</strong> (“put”): A put option gives the holder the right (but not
+the obligation) to <strong>sell</strong> the underlying asset by a certain date <span class="math inline">\(T\)</span> for a
+certain price <span class="math inline">\(K\)</span>.</p></li>
+<li><p>The price <span class="math inline">\(K\)</span> in the contract is known as the exercise price or <strong>strike</strong>
+price.</p></li>
+<li><p>The date <span class="math inline">\(T\)</span> in the contract is known as the expiration date or
+<strong>maturity</strong>.</p></li>
+<li><p>European options can be exercised only on the expiration date itself.</p></li>
+<li><p>American options can be exercised at any time up to the expiration
+date.</p></li>
+<li><p>Long position: investor that buys the option.</p></li>
+<li><p>Short position: investor that sells the option (writer of the option).</p></li>
+<li><p>Long position on a “call”: <span class="math inline">\(\mbox{Payoff}=\max\{S_T-K,0\}\)</span>.</p></li>
+<li><p>Short position on a “call”: <span class="math inline">\(\mbox{Payoff}=-\max\{S_T-K,0\}=\min\{K-S_T,0\}\)</span>.</p></li>
+<li><p>Long position on a “put”: <span class="math inline">\(\mbox{Payoff}=\max\{K-S_T,0\}\)</span>.</p></li>
+<li><p>Short position on a “put”: <span class="math inline">\(\mbox{Payoff}=-\max\{K-S_T,0\}=\min\{S_T-K,0\}\)</span>.</p></li>
+</ul>
+</div>
+<!-- ::: example -->
+<!-- Investor buys 200 contracts of call options - each one over 1 -->
+<!-- share of AXA with strike $K = 18$ and maturity $T =1$ year. Consider -->
+<!-- that the price (in EUR) of each option ("premium") is 1.2. Hence, the initial investment is $200 \times 1.2=240$. -->
+<!-- If on maturity $T$ the share price is $S_T < 18$, the investor does not exercise the option and has a loss of 240. If $S_T > 18$, the investor exercises the option. For instance, if $S_T = 25$, the total profit is $(25-18) \times 200-240 = 1160$. -->
+<!-- ::: -->
+<!-- ::: example -->
+<!-- Investor buys 100 put options - each one over 1 -->
+<!-- share of BNP Paribas with strike $K = 60$ and maturity $T =6$ months. Consider -->
+<!-- that the price (in EUR) of an option on one share is 4 and the initial investment is $100 \times 4=400$. -->
+<!-- If on maturity $T$ the share price is $S_T < 60$, the investor exercises the option. For instance, if $S_T = 50$, the total profit is $(60-50) \times 100-400 = 600$. If $S_T > 60$, the investor does not exercise the option and has a loss of -->
+<!-- 400 euros. -->
+<!-- ::: -->
+<div class="remark">
+<p><span id="unlabeled-div-2" class="remark"><em>Remark</em>. </span>Notation:</p>
+<ul>
+<li><span class="math inline">\(t\)</span> is the current time.</li>
+<li><span class="math inline">\(S_t\)</span> is the underlying share price at time <span class="math inline">\(t\)</span>.</li>
+<li><span class="math inline">\(K\)</span> is the strike or exercise price.</li>
+<li><span class="math inline">\(T\)</span> is the option expiry date.</li>
+<li><span class="math inline">\(C_t\)</span> is the price at time <span class="math inline">\(t\)</span> of European call options.</li>
+<li><span class="math inline">\(P_t\)</span> is the price at time <span class="math inline">\(t\)</span> of European put options.</li>
+<li><span class="math inline">\(c_t\)</span> is the price at time <span class="math inline">\(t\)</span> of American call options.</li>
+<li><span class="math inline">\(p_t\)</span> is the price at time <span class="math inline">\(t\)</span> of American put options.</li>
+<li><span class="math inline">\(r\)</span> is the risk-free rate of interest (assumed constant).</li>
+</ul>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-3" class="remark"><em>Remark</em>. </span>Terminology:</p>
+<ul>
+<li><p>A call option is:</p>
+<ul>
+<li>in-the-money if <span class="math inline">\(S_t&gt;K\)</span>.</li>
+<li>out-of-money if <span class="math inline">\(S_t&lt;K\)</span>.</li>
+<li>at-the-money if <span class="math inline">\(S_t=K\)</span>.</li>
+</ul></li>
+<li><p>A put option is:</p>
+<ul>
+<li>in-the-money if <span class="math inline">\(S_t&lt;K\)</span>.</li>
+<li>out-of-money if <span class="math inline">\(S_t&gt;K\)</span>.</li>
+<li>at-the-money if <span class="math inline">\(S_t=K\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div id="the-binomial-model" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> The binomial model<a href="mathematical-methods-in-finance.html#the-binomial-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li><p>This section introduces the binomial tree model and uses it to <strong>compute arbitrage-free prices for European-style options</strong>.</p></li>
+<li><p>Although the mathematical description of this model involves only simple algebra, it is a powerful tool to understand arbitrage pricing theory.</p></li>
+<li><p>The main idea of the binomial model is to break the time to maturity of an option into periods.</p></li>
+<li><p>Then, in each period, and given the underlying asset’s price at the beginning of the period, it assumes that the stock price will change to one of two possible values at the end of the period.</p></li>
+<li><p>Thus, we can then determine the <strong>value of the option</strong> recursively by starting at the maturity date, evaluating the option’s value under each possibility for the final prices of the stock, and then moving backward through the (binomial) tree.</p></li>
+<li><p>The binomial model is a model in <strong>discrete time</strong> and it leads to the celebrated Black-Scholes model (a <strong>continuous time model</strong>) as a limiting case.</p></li>
+<li><p>Basic assumptions of the binomial model: (1) no trading costs or taxes; (2) no minimum or maximum units of trading; (3) stocks and bounds can only be traded at discrete times (<span class="math inline">\(t=1, 2, 3, \ldots\)</span>); (4) the principle of no arbitrage holds.</p></li>
+</ul>
+<div id="one-period-binomial-model" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> One-period binomial model<a href="mathematical-methods-in-finance.html#one-period-binomial-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We start with the one-period version of the model. The model assumes that we have two
+assets: a risk-free asset (e.g., a treasury bond, currency, …) and a stock. Here, we denote by <span class="math inline">\(B_t\)</span> and
+<span class="math inline">\(S_t\)</span> the bond and stock prices at time <span class="math inline">\(t\)</span>, respectively. Typically, time <span class="math inline">\(t = 0\)</span>
+represents the present time, and <span class="math inline">\(t = 1\)</span> denotes some future time.</p>
+<p>Let us begin by describing the behavior of the stock prices. If at time <span class="math inline">\(t= 0\)</span> the price is
+<span class="math inline">\(S_0\)</span>, then the stock price at time <span class="math inline">\(t = 1\)</span>, <span class="math inline">\(S_1\)</span>, is given by the following random
+variable</p>
+<p><span class="math display">\[
+S_1 = \left\{ \begin{matrix}
+  u S_0\,,  &amp; \text{with probability } p_u \text{ (i.e., if the price goes up) } \\
+  d S_0\,, &amp; \text{with probability } p_d \text{ (i.e., if the price goes down) } ,
+\end{matrix}\right.
+\]</span>
+where <span class="math inline">\(u&gt;1\)</span>, <span class="math inline">\(d&lt;1\)</span>, <span class="math inline">\(p_u\)</span>, and <span class="math inline">\(p_d\)</span> are positive positive constants satisfying <span class="math inline">\(d&lt;u\)</span>, and
+<span class="math inline">\(p_u+p_d =1\)</span>. Figure <a href="mathematical-methods-in-finance.html#fig:bintreeoneper">7.1</a> shows the development of the price of a stock
+under the above specification.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bintreeoneper"></span>
+<img src="_main_files/figure-html/bintreeoneper-1.png" alt="Stock prices in a one-period binomial tree." width="65%" />
+<p class="caption">
+Figure 7.1: Stock prices in a one-period binomial tree.
+</p>
+</div>
+<p>It is often convenient to write instead
+<span class="math display">\[S_1 = S_0 Z,\]</span>
+where <span class="math inline">\(Z\)</span> is a random variable defined as
+<span class="math display">\[
+Z = \left\{ \begin{matrix}
+  u \,,  &amp; \text{with probability } p_u \,,\\
+  d \,,  &amp; \text{with probability } p_d \,.
+\end{matrix}\right.
+\]</span></p>
+<p>On the other hand, the bond price is deterministic and given by
+<span class="math display">\[\begin{align*}
+&amp; B_0 = 1 \,, \\
+&amp; B_1 = 1 + R \,,
+\end{align*}\]</span> where R is the interest rate for the period.</p>
+<div class="remark">
+<p><span id="unlabeled-div-4" class="remark"><em>Remark</em>. </span>We may consider a bond with a continuous interest rate, i.e.,
+<span class="math display">\[B_1=e^{R}, \quad R&gt;0.\]</span>
+Remember: <span class="math inline">\(e^x\approx 1+x\)</span>.</p>
+</div>
+<div id="portfolios-and-arbitrage" class="section level4 unnumbered hasAnchor">
+<h4>Portfolios and arbitrage<a href="mathematical-methods-in-finance.html#portfolios-and-arbitrage" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We will consider portfolios constituted of risky assets <span class="math inline">\(S\)</span> and bonds <span class="math inline">\(B\)</span>. More
+specifically, we will denote by <span class="math inline">\(x\)</span> the number of bonds we hold in our portfolio, <span class="math inline">\(y\)</span> the
+number of stock units held, and let <span class="math inline">\(h = (x,y)\)</span>. Consider now a fixed portfolio
+<span class="math inline">\(h = (x, y)\)</span>. Then, the value of the portfolio at time <span class="math inline">\(t\)</span>, <span class="math inline">\(V_{t}^h\)</span>, is given by <span class="math display">\[
+V_{t}^h = x B_t + y S_t \,.
+\]</span> Note that this portfolio has a deterministic value at <span class="math inline">\(t = 0\)</span>, <span class="math inline">\(V_{0}^h = x B_0 + y S_0\)</span>, and a stochastic value at
+<span class="math inline">\(t = 1\)</span>, <span class="math inline">\(V_{1}^h = x B_1 + y S_1=x B_1 + y S_0Z\)</span>, where <span class="math inline">\(Z\)</span> is a r.v.</p>
+<p>We now introduce one of the central concepts of the theory in this section: arbitrage. An arbitrage opportunity is a strategy where we can make a sure profit with no risk (“a free lunch”). Generally speaking, an arbitrage strategy can be created by:</p>
+<ul>
+<li><p>Start at time zero with a portfolio that has a net value of zero (implying that we are long in some assets and short in others);</p></li>
+<li><p>At some future time <span class="math inline">\(T\)</span>:</p></li>
+</ul>
+<p><span class="math display">\[P(&quot;loss&quot;)=0 \quad \text{and} \quad P(&quot;positive ~ profit&quot;)&gt;0.\]</span>.</p>
+<ul>
+<li>If an arbitrage opportunity exists, all the market participants would exploit it, and the market prices of the assets in the portfolio would quickly change to remove the arbitrage opportunity. Formally,</li>
+</ul>
+<div class="definition">
+<p><span id="def:unlabeled-div-5" class="definition"><strong>Definition 7.2  </strong></span>An <strong>arbitrage</strong> portfolio is a portfolio <span class="math inline">\(h\)</span> with the properties <span class="math display">\[\begin{align*}
+&amp;V_{0}^h = 0 \,,\\
+&amp; V_{1}^h &gt;0 \quad \text{with probability } 1 \,.
+\end{align*}\]</span></p>
+</div>
+<p>Here we will consider the <strong>Principle of No Arbitrage</strong>: arbitrage strategies do not exist. If there are no arbitrage than any two portfolios that give exactly the same payments must have the same price (“Law of One Price”).</p>
+<p>Essentially an arbitrage portfolio is a deterministic money-making machine. Hence, we can
+interpret the existence of an arbitrage portfolio as a severe case of mispricing on the
+market. Therefore, it is natural to investigate when a given market model is arbitrage-free.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-6" class="example"><strong>Example 7.1  </strong></span>Suppose a stock is listed on both the NYSE and NASDAQ stock exchanges and consider the following steps:</p>
+<ul>
+<li><p>A trader observes that the current price of the stock on the NYSE is $10.10 and that on the NASDAQ it is $10.20.</p></li>
+<li><p>They purchase 10,000 of the lower-priced shares (on the NYSE), costing $101,000 and simultaneously sell the same quantity of 10,000 higher-priced shares, costing $102,000.</p></li>
+<li><p>They manage to pocket the difference (102,000-101,000 = $1000) as profit (assuming there is no commissions).</p></li>
+<li><p>Effectively, arbitrage is risk-free profit. At the end of the two transactions (if executed successfully), the trader is not holding any stock position (so they are risk-free), yet they have made a profit!</p></li>
+</ul>
+</div>
+<p>It turns out that our binomial model above is free of arbitrage if and only if the following
+conditions hold:</p>
+<p><span class="math display">\[d \leq 1 + R \leq u \,.\]</span>
+Remark: or, in continuous time, <span class="math inline">\(d &lt; e^R&lt;u\)</span>.</p>
+<p>Moreover, the above no arbitrage condition is equivalent to saying that <span class="math inline">\(1 + R\)</span> is a convex
+combination of <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span>, i.e.,</p>
+<p><span class="math display">\[1 + R = u q_u + d q_d \,,\]</span></p>
+<p>where <span class="math inline">\(q_u, q_d \geq0\)</span> and <span class="math inline">\(q_u + q_d = 1\)</span>. In particular, the weights <span class="math inline">\(q_u\)</span> and <span class="math inline">\(q_d\)</span>
+can be interpreted as probabilities for a “new probability measure <span class="math inline">\(Q\)</span>” with the property
+<span class="math inline">\(Q(Z = u) = q_u\)</span>, <span class="math inline">\(Q(Z = d) = q_d\)</span>. Denoting the expectation w.r.t. this measure by
+<span class="math inline">\(\mathbb{E}^Q\)</span>, it is easy to see that <span class="math display">\[
+S_0 = \frac{1}{1+R} \mathbb{E}^Q[S_1] \,.
+\]</span> <span class="math inline">\(Q\)</span> is known as the “<strong>risk-neutral measure</strong>”. Furthermore, <span class="math inline">\(q_u\)</span> and <span class="math inline">\(q_d\)</span> are explicit
+and given by
+<span class="math display">\[\begin{align*}
+&amp; q_u = \frac{(1 +R) - d}{u - d} \,, \\
+&amp; q_d = \frac{u - (1 +R)}{u - d} \,.
+\end{align*}\]</span> These are known as the <strong>risk-neutral probabilities</strong> and will play an
+essential role in option pricing.</p>
+<p>The above motivates the concept of <strong>risk-neutral valuation</strong>: the price of an asset is the
+expectation at time 1, calculated using the risk-neutral probabilities, and then discounted
+using the risk-free rate of interest.</p>
+<div class="exercise">
+<p><span id="exr:unlabeled-div-7" class="exercise"><strong>Exercise 7.1  </strong></span>Obtain <span class="math inline">\(q_u\)</span> and <span class="math inline">\(q_d\)</span>.</p>
+</div>
+</div>
+<div id="risk-neutral-pricing" class="section level4 unnumbered hasAnchor">
+<h4>Risk-neutral pricing<a href="mathematical-methods-in-finance.html#risk-neutral-pricing" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div class="definition">
+<p><span id="def:unlabeled-div-8" class="definition"><strong>Definition 7.3  </strong></span>A <strong>contingent claim</strong> (eg: a financial derivative such as an option) is any random variable <span class="math inline">\(X\)</span> of the form
+<span class="math inline">\(X = \Phi(S_1)\)</span>, where <span class="math inline">\(\Phi\)</span> is some given real valued function known as the <em>contract function</em>. The interpretation is that the contract holder <strong>receives the stochastic amount</strong> <span class="math inline">\(X\)</span> <strong>at time</strong> <span class="math inline">\(t = 1\)</span>.</p>
+</div>
+<p>Two important examples are the European call and put options. For an European call
+option with strike <span class="math inline">\(K\)</span>, we have that the <span class="math inline">\(X = \max(S_1 -K, 0)\)</span>, while for the European put
+option with same strike <span class="math inline">\(K\)</span>, the claim is <span class="math inline">\(X = \max(K -S_1, 0)\)</span>. In what follows, we will
+denote by <span class="math inline">\(\Phi(u)\)</span> and <span class="math inline">\(\Phi(d)\)</span>, the evaluations <span class="math inline">\(\Phi(u S_0)\)</span> and <span class="math inline">\(\Phi(d S_0)\)</span>,
+respectively.</p>
+<p>Our main problem is now determining the “fair” price for a given contingent claim <span class="math inline">\(X\)</span>. We
+denote the price of <span class="math inline">\(X\)</span> at time <span class="math inline">\(t\)</span> by <span class="math inline">\(\Pi(t; X)\)</span>. For a one-period model one have <span class="math inline">\(\Pi(1; X)=X\)</span>, i.e. the contract holder receives the stochastic amount <span class="math inline">\(X\)</span> at time <span class="math inline">\(t = 1\)</span>.</p>
+<p>However, the hard part of the problem is determining <span class="math inline">\(\Pi(0;X)\)</span>. The way to solve this
+problem is to find a portfolio <span class="math inline">\(h\)</span> such that <span class="math display">\[
+V_{1}^h = X \,.
+\]</span> We call to <span class="math inline">\(h\)</span> a <strong>hedging</strong> portfolio or a <strong>replicating</strong> portfolio (because it replicates the payoff at time 1 on the derivative without any risk). The price at
+<span class="math inline">\(t = 0\)</span> of the claim <span class="math inline">\(X\)</span> is given by <span class="math display">\[
+\Pi(0;X) = V_0^h \,.
+\]</span> Let us now find the replicating portfolio <span class="math inline">\(h = (x, y)\)</span> for a contingent
+claim <span class="math inline">\(X\)</span> with contract function <span class="math inline">\(\Phi\)</span>. The value of the portfolio at time <span class="math inline">\(t=1\)</span> is</p>
+<span class="math display">\[\begin{align*}
+&amp; V_1^h = X = \Phi(S_1) = \Phi(uS_0) = \Phi(u) \quad \text{if} \quad Z = u \,, \\
+&amp; V_1^h = X = \Phi(S_1) = \Phi(dS_0) = \Phi(d) \quad \text{if} \quad Z = d \,.
+\end{align*}\]</span>
+<p>Substituting the expression for the value of the portfolio, we obtain the following system
+of equations:</p>
+<span class="math display">\[\begin{align*}
+&amp; V_1^h = \Phi(u) \iff x B_1 + y u S_0 = \Phi(u) \iff x (1 +R) + y u S_0 = \Phi(u)\,,  \\
+&amp; V_1^h = \Phi(d) \iff x B_1 + y d S_0 = \Phi(d) \iff x (1 +R) + y d S_0 = \Phi(d) \,.
+\end{align*}\]</span>
+<p>Solving for <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> in the above system gives <span class="math display">\[\begin{align*}
+&amp; x  = \frac{1}{1 + R} \frac{u\Phi(d) - d \Phi(u)}{u- d}\,,  \\
+&amp; y  = \frac{1}{S_0} \frac{\Phi(u) - \Phi(d)}{u- d} \,.
+\end{align*}\]</span></p>
+<p>Then, the price at <span class="math inline">\(t = 0\)</span> of the claim <span class="math inline">\(X\)</span>, <span class="math inline">\(\Pi(0;X)\)</span>, can be written as</p>
+<p><span class="math display">\[\begin{align*}
+\Pi(0;X) &amp; =  V_0^h   \\
+         &amp; =  xB_0 + y S_0   \\
+         &amp; =  x + y S_0   \\
+         &amp; = \frac{1}{1 + R} \left( \frac{(1+R) - d }{u- d}\Phi(u) + \frac{u - (1+R) }{u- d}\Phi(d) \right) \,.
+\end{align*}\]</span></p>
+<p>Here, we recognize the risk-neutral probabilities <span class="math inline">\(q_u\)</span> and <span class="math inline">\(q_d\)</span>, and we can
+rewrite the pricing formula above as</p>
+<span class="math display">\[\begin{align*}
+\Pi(0;X)  = \frac{1}{1 + R} \left( \Phi(u) q_u + \Phi(d) q_d \right) \,.
+\end{align*}\]</span>
+<p>Thus, the right-hand side can now be interpreted as an expected value under the risk-neutral
+probability measure <span class="math inline">\(Q\)</span>. More specifically, we have that <span class="math display">\[\begin{align*}
+\Pi(0;X)  = \frac{1}{1 + R} \mathbb{E}^Q[X]\,.
+\end{align*}\]</span></p>
+<div class="example">
+<p><span id="exm:unlabeled-div-9" class="example"><strong>Example 7.2  </strong></span>Consider a stock currently with price <span class="math inline">\(S_0 = 50\)</span>. The Stock’s price is expected to
+increase to 60 or decrease to 40 during the next year. The risk-free interest rate is 5%
+compounded annually. Compute the current price of a 1-year European call option with a strike price
+of 55.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-10" class="solution"><em>Solution</em>. </span><span class="math inline">\(\,\)</span></p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="mathematical-methods-in-finance.html#cb54-1" tabindex="-1"></a>S0 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb54-2"><a href="mathematical-methods-in-finance.html#cb54-2" tabindex="-1"></a>Sd <span class="ot">&lt;-</span> <span class="dv">40</span></span>
+<span id="cb54-3"><a href="mathematical-methods-in-finance.html#cb54-3" tabindex="-1"></a>Su <span class="ot">&lt;-</span> <span class="dv">60</span></span>
+<span id="cb54-4"><a href="mathematical-methods-in-finance.html#cb54-4" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fl">0.05</span></span>
+<span id="cb54-5"><a href="mathematical-methods-in-finance.html#cb54-5" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">55</span></span>
+<span id="cb54-6"><a href="mathematical-methods-in-finance.html#cb54-6" tabindex="-1"></a>u <span class="ot">&lt;-</span> Su<span class="sc">/</span>S0</span>
+<span id="cb54-7"><a href="mathematical-methods-in-finance.html#cb54-7" tabindex="-1"></a>d <span class="ot">&lt;-</span> Sd<span class="sc">/</span>S0</span>
+<span id="cb54-8"><a href="mathematical-methods-in-finance.html#cb54-8" tabindex="-1"></a></span>
+<span id="cb54-9"><a href="mathematical-methods-in-finance.html#cb54-9" tabindex="-1"></a><span class="co"># Note that d &lt;= (1 + R) &lt;= u is satisfied</span></span>
+<span id="cb54-10"><a href="mathematical-methods-in-finance.html#cb54-10" tabindex="-1"></a>d</span></code></pre></div>
+<pre><code>## [1] 0.8</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="mathematical-methods-in-finance.html#cb56-1" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> R</span></code></pre></div>
+<pre><code>## [1] 1.05</code></pre>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="mathematical-methods-in-finance.html#cb58-1" tabindex="-1"></a>u</span></code></pre></div>
+<pre><code>## [1] 1.2</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="mathematical-methods-in-finance.html#cb60-1" tabindex="-1"></a><span class="co"># Risk-neutral probabilities</span></span>
+<span id="cb60-2"><a href="mathematical-methods-in-finance.html#cb60-2" tabindex="-1"></a>qu <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> R <span class="sc">-</span> d)<span class="sc">/</span>(u <span class="sc">-</span> d)</span>
+<span id="cb60-3"><a href="mathematical-methods-in-finance.html#cb60-3" tabindex="-1"></a>qu</span></code></pre></div>
+<pre><code>## [1] 0.625</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="mathematical-methods-in-finance.html#cb62-1" tabindex="-1"></a>qd <span class="ot">&lt;-</span> (u <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">+</span> R))<span class="sc">/</span>(u <span class="sc">-</span> d)</span>
+<span id="cb62-2"><a href="mathematical-methods-in-finance.html#cb62-2" tabindex="-1"></a>qd</span></code></pre></div>
+<pre><code>## [1] 0.375</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="mathematical-methods-in-finance.html#cb64-1" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb64-2"><a href="mathematical-methods-in-finance.html#cb64-2" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> qu</span>
+<span id="cb64-3"><a href="mathematical-methods-in-finance.html#cb64-3" tabindex="-1"></a>qd</span></code></pre></div>
+<pre><code>## [1] 0.375</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="mathematical-methods-in-finance.html#cb66-1" tabindex="-1"></a>phiu <span class="ot">&lt;-</span> <span class="fu">max</span>(Su <span class="sc">-</span> K, <span class="dv">0</span>)</span>
+<span id="cb66-2"><a href="mathematical-methods-in-finance.html#cb66-2" tabindex="-1"></a>phiu</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="mathematical-methods-in-finance.html#cb68-1" tabindex="-1"></a>phid <span class="ot">&lt;-</span> <span class="fu">max</span>(Sd <span class="sc">-</span> K, <span class="dv">0</span>)</span>
+<span id="cb68-2"><a href="mathematical-methods-in-finance.html#cb68-2" tabindex="-1"></a>phid</span></code></pre></div>
+<pre><code>## [1] 0</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="mathematical-methods-in-finance.html#cb70-1" tabindex="-1"></a><span class="co"># Current price, pi(0;X):</span></span>
+<span id="cb70-2"><a href="mathematical-methods-in-finance.html#cb70-2" tabindex="-1"></a>price <span class="ot">&lt;-</span> (phiu <span class="sc">*</span> qu <span class="sc">+</span> phid <span class="sc">*</span> qd)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> R)</span>
+<span id="cb70-3"><a href="mathematical-methods-in-finance.html#cb70-3" tabindex="-1"></a>price</span></code></pre></div>
+<pre><code>## [1] 2.976</code></pre>
+</div>
+</div>
+</div>
+<div id="multiperiod-binomial-model" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Multiperiod binomial model<a href="mathematical-methods-in-finance.html#multiperiod-binomial-model" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We now extend the one-period binomial model to multiperiod. To do so, we now let the time index <span class="math inline">\(t\)</span> run from <span class="math inline">\(t = 0\)</span> to <span class="math inline">\(t = T\)</span>, where <span class="math inline">\(T\)</span> is fixed. As previously, we have a bond with price <span class="math inline">\(B_t\)</span> and a stock with price <span class="math inline">\(S_t\)</span> at time <span class="math inline">\(t\)</span>. More specifically, the bond prices are deterministic and given by</p>
+<p><span class="math display">\[\begin{align*}
+&amp; B_0 = 1 \,, \\
+&amp; B_{n+1} = (1 + R) B_n \,, \quad n = 0, \dots, T-1
+\end{align*}\]</span></p>
+<p>On the other hand, if at time <span class="math inline">\(t= 0\)</span> the price of the stock is <span class="math inline">\(S_0\)</span>, then
+the future stock prices are random and given by <span class="math display">\[\begin{align*}
+S_{n+1} = Z_n S_n \,, \quad n = 0, \dots, T-1
+\end{align*}\]</span> where <span class="math inline">\(Z_{0}, . . . , Z_{T-1}\)</span> are iid random variables, taking only the two
+values <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> with probabilities <span class="math display">\[\begin{align*}
+\mathbb{P}(Z_n =u)=p_u \,, \quad
+\mathbb{P}(Z_n = d) = p_d \,.
+\end{align*}\]</span> In other words, during each time step, the stock price either moves up to <span class="math inline">\(u\)</span>
+times its initial value or moves down to <span class="math inline">\(d\)</span> times its initial value. Figure
+<a href="mathematical-methods-in-finance.html#fig:bintree">7.2</a> shows the behavior of the stock price for <span class="math inline">\(T = 2\)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bintree"></span>
+<img src="_main_files/figure-html/bintree-1.png" alt="Multiperiod binomial tree." width="65%" />
+<p class="caption">
+Figure 7.2: Multiperiod binomial tree.
+</p>
+</div>
+<p>Note that the prices of the stock at time <span class="math inline">\(t\)</span> can be written as
+<span class="math display">\[S_t = u^{k}d^{t-k} S_0 \,, \quad k = 0,\dots,t\,,\]</span> where <span class="math inline">\(k\)</span> denotes the number of
+up-moves that have occurred. Thus, each node in the binomial tree can be represented by a
+pair <span class="math inline">\((t,k)\)</span> with <span class="math inline">\(k = 0,\dots,t\)</span>.</p>
+<p>Figure <a href="mathematical-methods-in-finance.html#fig:bintreestr">7.3</a> shows the representation of the nodes of a binomial tree for <span class="math inline">\(T = 2\)</span>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bintreestr"></span>
+<img src="_main_files/figure-html/bintreestr-1.png" alt="Nodes of a multiperiod binomial tree." width="65%" />
+<p class="caption">
+Figure 7.3: Nodes of a multiperiod binomial tree.
+</p>
+</div>
+<p>Recall that the main aim is to find the arbitrage-free price of a given contingent claim
+(a financial derivative, for instance). In particular, we will only work with contingent claims of the form
+<span class="math display">\[X = \Phi (S_T) \,,\]</span> that is, <strong>claims whose value only depends on the stock price at the
+final time</strong> <span class="math inline">\(T\)</span>, <span class="math inline">\(S_T\)</span>. This type of contingent claims is typically called <em>simple</em>. Note
+that the European Call and Put options are examples of simple claims.</p>
+<p>As in the one-period model, the problem is solved by finding a portfolio <span class="math inline">\(h\)</span> that replicates
+the final value of the contingent claim, that is, if <span class="math inline">\(V_t^h\)</span> denotes the value of the
+portfolio at time <span class="math inline">\(t\)</span>, we require that (recall the definition of contingent claim)
+<span class="math display">\[
+V_T^h = X = \Phi(S_T)\,.
+\]</span> Then, the price of the derivative <span class="math inline">\(\Pi(0;X)\)</span> at time <span class="math inline">\(t = 0\)</span> must be the price of the
+portfolio <span class="math inline">\(V_0^h\)</span> to avoid arbitrage opportunities. More specifically, <span class="math display">\[
+\Pi(0;X) = V_0^h \,.
+\]</span></p>
+<p>It turns out that to find the price of this portfolio (and hence of the claim), we only need
+to repeatedly and recursively apply the principles of the one-step binomial model. We
+illustrate this in a binomial model 2 periods, i.e., <span class="math inline">\(T = 2\)</span>. First, we need to introduce further
+notation. We denote by <span class="math inline">\(V_t(k)\)</span> the value of the replicating portfolio of the claim at the
+node <span class="math inline">\((t,k)\)</span>. Next, we need to split the tree in Figure <a href="mathematical-methods-in-finance.html#fig:bintreestr">7.3</a> into two
+(one-period) sub trees as shown in Figures <a href="mathematical-methods-in-finance.html#fig:bintreesep1">7.4</a> and <a href="mathematical-methods-in-finance.html#fig:bintreesep2">7.5</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bintreesep1"></span>
+<img src="_main_files/figure-html/bintreesep1-1.png" alt="One-period subtree (up)." width="65%" />
+<p class="caption">
+Figure 7.4: One-period subtree (up).
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bintreesep2"></span>
+<img src="_main_files/figure-html/bintreesep2-1.png" alt="One-period subtree (down)." width="65%" />
+<p class="caption">
+Figure 7.5: One-period subtree (down).
+</p>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-11" class="remark"><em>Remark</em>. </span>Note that <span class="math inline">\(u^2S_0, udS_0\)</span> and <span class="math inline">\(d^2S_0\)</span> are the values of <span class="math inline">\(S_t\)</span> and <span class="math inline">\(X=\Phi(S_t)\)</span>. Thus, one have <span class="math inline">\(X=\Phi(u^2S_0), X=\Phi(udS_0)\)</span> and <span class="math inline">\(X=\Phi(d^2S_0)\)</span> (confirm with Figures <a href="mathematical-methods-in-finance.html#fig:bintreesep1">7.4</a> and <a href="mathematical-methods-in-finance.html#fig:bintreesep2">7.5</a>).</p>
+</div>
+<p>Then, we can apply the principles of the one-period binomial model to compute <span class="math inline">\(V_1(1)\)</span> and
+<span class="math inline">\(V_1(0)\)</span> as follows <span class="math display">\[\begin{align*}
+&amp; V_1(1) = \frac{1}{(1 +R)}(q_u \Phi(u^{2} S_0 ) + q_d \Phi(ud S_0 )  ) \,, \\
+&amp; V_1(0) = \frac{1}{(1 +R)}(q_u \Phi(u d S_0 )  + q_d \Phi(d^{2} S_0 )  ) \,,
+\end{align*}\]</span> where <span class="math inline">\(q_u\)</span> and <span class="math inline">\(q_d\)</span> are the risk neutral probabilities given by
+<span class="math display">\[\begin{align*}
+&amp; q_u = \frac{(1 +R) - d}{u - d} \,, \\
+&amp; q_d = \frac{u - (1 +R)}{u - d} \,.
+\end{align*}\]</span></p>
+<p>Thus, we now obtain the one-period binomial tree given in Figure <a href="mathematical-methods-in-finance.html#fig:bintreesep0">7.6</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:bintreesep0"></span>
+<img src="_main_files/figure-html/bintreesep0-1.png" alt="One-period subtree." width="65%" />
+<p class="caption">
+Figure 7.6: One-period subtree.
+</p>
+</div>
+<p>Please notice that <span class="math inline">\(V_1(1)\)</span> is computed using <span class="math inline">\(u^2S_0\)</span> and <span class="math inline">\(udS_0\)</span>. Also, <span class="math inline">\(V_1(0)\)</span> is computed using <span class="math inline">\(d^2S_0\)</span> and <span class="math inline">\(udS_0\)</span>. So, it seems natural to compute <span class="math inline">\(V_0(0)\)</span> using the information on <span class="math inline">\(V_1(0)\)</span> and <span class="math inline">\(V_1(1)\)</span>. Finally, using this, we compute the initial price of the portfolio <span class="math inline">\(V_0(0)\)</span> as</p>
+<p><span class="math display">\[V_0(0) = \frac{1}{(1 +R)}(q_u V_{1}(1) + q_d V_{1}(0)).\]</span></p>
+<div class="example">
+<p><span id="exm:mulbin" class="example"><strong>Example 7.3  </strong></span>Consider a stock currently with price <span class="math inline">\(S_0 = 50\)</span>. The Stock’s price is expected to
+increase to 10% or decrease 8% during the next two six-month periods. The risk-free interest
+rate is 5% compounded annually. Compute the price of a 1-year European put option with a
+strike price of 55.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-12" class="solution"><em>Solution</em>. </span><span class="math inline">\(\,\)</span></p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="mathematical-methods-in-finance.html#cb72-1" tabindex="-1"></a>S0 <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb72-2"><a href="mathematical-methods-in-finance.html#cb72-2" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fl">1.1</span></span>
+<span id="cb72-3"><a href="mathematical-methods-in-finance.html#cb72-3" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fl">0.92</span></span>
+<span id="cb72-4"><a href="mathematical-methods-in-finance.html#cb72-4" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">55</span></span>
+<span id="cb72-5"><a href="mathematical-methods-in-finance.html#cb72-5" tabindex="-1"></a></span>
+<span id="cb72-6"><a href="mathematical-methods-in-finance.html#cb72-6" tabindex="-1"></a><span class="co"># Risk-free rate for the period of six months = (1 + r/n)^p - 1, where: r =</span></span>
+<span id="cb72-7"><a href="mathematical-methods-in-finance.html#cb72-7" tabindex="-1"></a><span class="co"># risk-free interest rate compounded annually n = compounding periods in a year</span></span>
+<span id="cb72-8"><a href="mathematical-methods-in-finance.html#cb72-8" tabindex="-1"></a><span class="co"># (2 semesters = 1 year); n = 2 p = number of compounding periods the rate is</span></span>
+<span id="cb72-9"><a href="mathematical-methods-in-finance.html#cb72-9" tabindex="-1"></a><span class="co"># required for (1 semester); p = 1</span></span>
+<span id="cb72-10"><a href="mathematical-methods-in-finance.html#cb72-10" tabindex="-1"></a></span>
+<span id="cb72-11"><a href="mathematical-methods-in-finance.html#cb72-11" tabindex="-1"></a>R <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.05</span><span class="sc">/</span><span class="dv">2</span>)<span class="sc">^</span><span class="dv">1</span> <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb72-12"><a href="mathematical-methods-in-finance.html#cb72-12" tabindex="-1"></a>R</span></code></pre></div>
+<pre><code>## [1] 0.025</code></pre>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="mathematical-methods-in-finance.html#cb74-1" tabindex="-1"></a><span class="co"># Number of periods (2 semesters)</span></span>
+<span id="cb74-2"><a href="mathematical-methods-in-finance.html#cb74-2" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb74-3"><a href="mathematical-methods-in-finance.html#cb74-3" tabindex="-1"></a></span>
+<span id="cb74-4"><a href="mathematical-methods-in-finance.html#cb74-4" tabindex="-1"></a><span class="co"># Future stock prices: S_t=u^k.d^(t-k).S0</span></span>
+<span id="cb74-5"><a href="mathematical-methods-in-finance.html#cb74-5" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>n</span>
+<span id="cb74-6"><a href="mathematical-methods-in-finance.html#cb74-6" tabindex="-1"></a>St <span class="ot">&lt;-</span> u<span class="sc">^</span>k <span class="sc">*</span> d<span class="sc">^</span>(n <span class="sc">-</span> k) <span class="sc">*</span> S0</span>
+<span id="cb74-7"><a href="mathematical-methods-in-finance.html#cb74-7" tabindex="-1"></a>St</span></code></pre></div>
+<pre><code>## [1] 42.32 50.60 60.50</code></pre>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="mathematical-methods-in-finance.html#cb76-1" tabindex="-1"></a><span class="co"># Risk-neutral probabilities</span></span>
+<span id="cb76-2"><a href="mathematical-methods-in-finance.html#cb76-2" tabindex="-1"></a>qu <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> R <span class="sc">-</span> d)<span class="sc">/</span>(u <span class="sc">-</span> d)</span>
+<span id="cb76-3"><a href="mathematical-methods-in-finance.html#cb76-3" tabindex="-1"></a>qu</span></code></pre></div>
+<pre><code>## [1] 0.5833</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="mathematical-methods-in-finance.html#cb78-1" tabindex="-1"></a>qd <span class="ot">&lt;-</span> (u <span class="sc">-</span> (<span class="dv">1</span> <span class="sc">+</span> R))<span class="sc">/</span>(u <span class="sc">-</span> d)</span>
+<span id="cb78-2"><a href="mathematical-methods-in-finance.html#cb78-2" tabindex="-1"></a>qd</span></code></pre></div>
+<pre><code>## [1] 0.4167</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="mathematical-methods-in-finance.html#cb80-1" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb80-2"><a href="mathematical-methods-in-finance.html#cb80-2" tabindex="-1"></a>qd <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> qu</span>
+<span id="cb80-3"><a href="mathematical-methods-in-finance.html#cb80-3" tabindex="-1"></a></span>
+<span id="cb80-4"><a href="mathematical-methods-in-finance.html#cb80-4" tabindex="-1"></a><span class="co"># Value of the contingent claim at maturity: X = phi(S_T); T = 2 pmax: parallel</span></span>
+<span id="cb80-5"><a href="mathematical-methods-in-finance.html#cb80-5" tabindex="-1"></a><span class="co"># maxima between two vectors Eg: X1=(2,5,7) and X2=(4,0,1).</span></span>
+<span id="cb80-6"><a href="mathematical-methods-in-finance.html#cb80-6" tabindex="-1"></a><span class="co"># pmax(X1,X2)=(4,5,7).</span></span>
+<span id="cb80-7"><a href="mathematical-methods-in-finance.html#cb80-7" tabindex="-1"></a>phi <span class="ot">&lt;-</span> <span class="fu">pmax</span>(K <span class="sc">-</span> St, <span class="dv">0</span>)</span>
+<span id="cb80-8"><a href="mathematical-methods-in-finance.html#cb80-8" tabindex="-1"></a>phi</span></code></pre></div>
+<pre><code>## [1] 12.68  4.40  0.00</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="mathematical-methods-in-finance.html#cb82-1" tabindex="-1"></a><span class="co"># Note: phi[1] -&gt; k=0 (k is the number of up-moves) phi[2] -&gt; k=1 phi[3] -&gt; k=2</span></span>
+<span id="cb82-2"><a href="mathematical-methods-in-finance.html#cb82-2" tabindex="-1"></a></span>
+<span id="cb82-3"><a href="mathematical-methods-in-finance.html#cb82-3" tabindex="-1"></a></span>
+<span id="cb82-4"><a href="mathematical-methods-in-finance.html#cb82-4" tabindex="-1"></a><span class="co"># Price of the option</span></span>
+<span id="cb82-5"><a href="mathematical-methods-in-finance.html#cb82-5" tabindex="-1"></a></span>
+<span id="cb82-6"><a href="mathematical-methods-in-finance.html#cb82-6" tabindex="-1"></a><span class="co"># V_1(0)</span></span>
+<span id="cb82-7"><a href="mathematical-methods-in-finance.html#cb82-7" tabindex="-1"></a>vu <span class="ot">&lt;-</span> (qu <span class="sc">*</span> phi[<span class="dv">3</span>] <span class="sc">+</span> qd <span class="sc">*</span> phi[<span class="dv">2</span>])<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> R)</span>
+<span id="cb82-8"><a href="mathematical-methods-in-finance.html#cb82-8" tabindex="-1"></a>vu</span></code></pre></div>
+<pre><code>## [1] 1.789</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="mathematical-methods-in-finance.html#cb84-1" tabindex="-1"></a><span class="co"># V_1(1)</span></span>
+<span id="cb84-2"><a href="mathematical-methods-in-finance.html#cb84-2" tabindex="-1"></a>vd <span class="ot">&lt;-</span> (qu <span class="sc">*</span> phi[<span class="dv">2</span>] <span class="sc">+</span> qd <span class="sc">*</span> phi[<span class="dv">1</span>])<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> R)</span>
+<span id="cb84-3"><a href="mathematical-methods-in-finance.html#cb84-3" tabindex="-1"></a>vd</span></code></pre></div>
+<pre><code>## [1] 7.659</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="mathematical-methods-in-finance.html#cb86-1" tabindex="-1"></a><span class="co"># V_0(0)</span></span>
+<span id="cb86-2"><a href="mathematical-methods-in-finance.html#cb86-2" tabindex="-1"></a>v0 <span class="ot">&lt;-</span> (qu <span class="sc">*</span> vu <span class="sc">+</span> qd <span class="sc">*</span> vd)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> R)</span>
+<span id="cb86-3"><a href="mathematical-methods-in-finance.html#cb86-3" tabindex="-1"></a>v0</span></code></pre></div>
+<pre><code>## [1] 4.131</code></pre>
+</div>
+<p>We now give the general binomial algorithm.</p>
+<div class="proposition">
+<p><span id="prp:binalg" class="proposition"><strong>Proposition 7.1  </strong></span>Consider a claim <span class="math inline">\(X = \Phi(S_T)\)</span>. Then <span class="math inline">\(V_t(k)\)</span> can be computed recursively as
+<span class="math display">\[\begin{align*}
+&amp; V_t(k) = \frac{1}{(1 +R)}(q_u V_{t + 1}(k+1) + q_d V_{t + 1}(k) ) \,, \\
+&amp; V_T(k) = \Phi(u^{k}d^{T-k} S_0 ) \,.
+\end{align*}\]</span></p>
+</div>
+<p>In other words, the binomial algorithm consists of the following steps:</p>
+<ol style="list-style-type: decimal">
+<li>Generate the tree of stock prices.</li>
+<li>Calculate the value of the claim at each final node.</li>
+<li>Calculate the claim values sequentially at each preceding node.</li>
+</ol>
+<p>To generate the tree of stock prices (step 1.), we can employ the following code:</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="mathematical-methods-in-finance.html#cb88-1" tabindex="-1"></a>build_tree <span class="ot">&lt;-</span> <span class="cf">function</span>(S0, u, d, n) {</span>
+<span id="cb88-2"><a href="mathematical-methods-in-finance.html#cb88-2" tabindex="-1"></a>    tree <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> n <span class="sc">+</span> <span class="dv">1</span>, <span class="at">ncol =</span> n <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb88-3"><a href="mathematical-methods-in-finance.html#cb88-3" tabindex="-1"></a>    <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>(n <span class="sc">+</span> <span class="dv">1</span>)) {</span>
+<span id="cb88-4"><a href="mathematical-methods-in-finance.html#cb88-4" tabindex="-1"></a>        k <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>(t <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb88-5"><a href="mathematical-methods-in-finance.html#cb88-5" tabindex="-1"></a>        tree[t, <span class="dv">1</span><span class="sc">:</span>t] <span class="ot">&lt;-</span> u<span class="sc">^</span>k <span class="sc">*</span> d<span class="sc">^</span>(t <span class="sc">-</span> <span class="dv">1</span> <span class="sc">-</span> k) <span class="sc">*</span> S0</span>
+<span id="cb88-6"><a href="mathematical-methods-in-finance.html#cb88-6" tabindex="-1"></a>    }</span>
+<span id="cb88-7"><a href="mathematical-methods-in-finance.html#cb88-7" tabindex="-1"></a>    tree</span>
+<span id="cb88-8"><a href="mathematical-methods-in-finance.html#cb88-8" tabindex="-1"></a>}</span></code></pre></div>
+<p>If we consider the same input data as in Example <a href="mathematical-methods-in-finance.html#exm:mulbin">7.3</a>, we obtain the following
+tree</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="mathematical-methods-in-finance.html#cb89-1" tabindex="-1"></a>tree <span class="ot">&lt;-</span> <span class="fu">build_tree</span>(<span class="dv">50</span>, <span class="fl">1.1</span>, <span class="fl">0.92</span>, <span class="dv">2</span>)</span>
+<span id="cb89-2"><a href="mathematical-methods-in-finance.html#cb89-2" tabindex="-1"></a>tree</span></code></pre></div>
+<pre><code>##       [,1] [,2] [,3]
+## [1,] 50.00  0.0  0.0
+## [2,] 46.00 55.0  0.0
+## [3,] 42.32 50.6 60.5</code></pre>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="mathematical-methods-in-finance.html#cb91-1" tabindex="-1"></a><span class="co"># Read the matrix &#39;by rows&#39; and draw the tree.</span></span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-57"></span>
+<img src="_main_files/figure-html/unnamed-chunk-57-1.png" alt="Tree for the Example 3.5." width="65%" />
+<p class="caption">
+Figure 7.7: Tree for the Example 3.5.
+</p>
+</div>
+<p>With the above tree at hand, we can evaluate the claim at the final nodes (step 2.) by simply
+taking the last row of the matrix. For instance,</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="mathematical-methods-in-finance.html#cb92-1" tabindex="-1"></a><span class="co"># X=Phi(S_T)=max(K-S_T,0)</span></span>
+<span id="cb92-2"><a href="mathematical-methods-in-finance.html#cb92-2" tabindex="-1"></a><span class="fu">pmax</span>(K <span class="sc">-</span> tree[<span class="fu">nrow</span>(tree), ], <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 12.68  4.40  0.00</code></pre>
+<p>Finally, for the recursive computations (step 3.) we can use the following code:</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="mathematical-methods-in-finance.html#cb94-1" tabindex="-1"></a>value_bin_mod <span class="ot">&lt;-</span> <span class="cf">function</span>(qu, R, tree, K) {</span>
+<span id="cb94-2"><a href="mathematical-methods-in-finance.html#cb94-2" tabindex="-1"></a>    val_tree <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="fu">nrow</span>(tree), <span class="at">ncol =</span> <span class="fu">ncol</span>(tree))</span>
+<span id="cb94-3"><a href="mathematical-methods-in-finance.html#cb94-3" tabindex="-1"></a>    val_tree[<span class="fu">nrow</span>(tree), ] <span class="ot">&lt;-</span> <span class="fu">pmax</span>(K <span class="sc">-</span> tree[<span class="fu">nrow</span>(tree), ], <span class="dv">0</span>)  <span class="co"># European put</span></span>
+<span id="cb94-4"><a href="mathematical-methods-in-finance.html#cb94-4" tabindex="-1"></a>    <span class="cf">for</span> (t <span class="cf">in</span> (<span class="fu">nrow</span>(tree) <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">:</span><span class="dv">1</span>) {</span>
+<span id="cb94-5"><a href="mathematical-methods-in-finance.html#cb94-5" tabindex="-1"></a>        <span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>t) {</span>
+<span id="cb94-6"><a href="mathematical-methods-in-finance.html#cb94-6" tabindex="-1"></a>            val_tree[t, k] <span class="ot">&lt;-</span> ((<span class="dv">1</span> <span class="sc">-</span> qu) <span class="sc">*</span> val_tree[t <span class="sc">+</span> <span class="dv">1</span>, k] <span class="sc">+</span> qu <span class="sc">*</span> val_tree[t <span class="sc">+</span></span>
+<span id="cb94-7"><a href="mathematical-methods-in-finance.html#cb94-7" tabindex="-1"></a>                <span class="dv">1</span>, k <span class="sc">+</span> <span class="dv">1</span>])<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> R)</span>
+<span id="cb94-8"><a href="mathematical-methods-in-finance.html#cb94-8" tabindex="-1"></a>        }</span>
+<span id="cb94-9"><a href="mathematical-methods-in-finance.html#cb94-9" tabindex="-1"></a>    }</span>
+<span id="cb94-10"><a href="mathematical-methods-in-finance.html#cb94-10" tabindex="-1"></a>    val_tree</span>
+<span id="cb94-11"><a href="mathematical-methods-in-finance.html#cb94-11" tabindex="-1"></a>}</span></code></pre></div>
+<p>Applying the above code to our example we obtain:</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="mathematical-methods-in-finance.html#cb95-1" tabindex="-1"></a>opt_price <span class="ot">&lt;-</span> <span class="fu">value_bin_mod</span>(qu, R, tree, K)</span>
+<span id="cb95-2"><a href="mathematical-methods-in-finance.html#cb95-2" tabindex="-1"></a>opt_price</span></code></pre></div>
+<pre><code>##        [,1]  [,2] [,3]
+## [1,]  4.131 0.000    0
+## [2,]  7.659 1.789    0
+## [3,] 12.680 4.400    0</code></pre>
+<p>Note that the price at time <span class="math inline">\(t = 0\)</span> is given by the entry <code>[1, 1]</code>, that is,</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="mathematical-methods-in-finance.html#cb97-1" tabindex="-1"></a>opt_price[<span class="dv">1</span>, <span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 4.131</code></pre>
+<div class="remark">
+<p><span id="unlabeled-div-13" class="remark"><em>Remark</em>. </span>The above code for performing the binomial algorithm was presented using a European put
+option as an example. However, it can be easily modified to price any other simple
+derivative.</p>
+</div>
+<p>It turns out that Proposition <a href="mathematical-methods-in-finance.html#prp:binalg">7.1</a>, implies the following risk-neutral
+valuation formula.</p>
+<div class="proposition">
+<p><span id="prp:riskfreeform" class="proposition"><strong>Proposition 7.2  </strong></span>The arbitrage-free price at <span class="math inline">\(t = 0\)</span> of a claim <span class="math inline">\(X\)</span> with maturity <span class="math inline">\(T\)</span> is given by
+<span class="math display">\[
+\Pi(0;X) = \frac{1}{(1+R)^T} \sum_{k = 0}^{T}\left( \begin{matrix}
+  T \\
+  k
+\end{matrix} \right) q^k_uq^{T-k}_d \Phi(S_0 u^k d^{T-k}) \,.
+\]</span></p>
+</div>
+<p>Thus, an alternative solution to Example <a href="mathematical-methods-in-finance.html#exm:mulbin">7.3</a> using the above result is the
+following:</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="mathematical-methods-in-finance.html#cb99-1" tabindex="-1"></a>pi0 <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">choose</span>(n, k) <span class="sc">*</span> qu<span class="sc">^</span>k <span class="sc">*</span> (<span class="dv">1</span> <span class="sc">-</span> qu)<span class="sc">^</span>(n <span class="sc">-</span> k) <span class="sc">*</span> phi)<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> R)<span class="sc">^</span>n</span>
+<span id="cb99-2"><a href="mathematical-methods-in-finance.html#cb99-2" tabindex="-1"></a>pi0</span></code></pre></div>
+<pre><code>## [1] 4.131</code></pre>
+<div class="remark">
+<p><span id="unlabeled-div-14" class="remark"><em>Remark</em>. </span>Sometimes, instead of <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> a volatility of the stock <span class="math inline">\(\sigma\)</span> is provided. This
+stock’s volatility is defined as the annualized standard deviation of the stock return.
+Luckily, given the volatility <span class="math inline">\(\sigma\)</span>, we can calculate <span class="math inline">\(u\)</span> and <span class="math inline">\(d\)</span> by using
+<span class="math display">\[u=\exp(\sigma/ n) \quad \mbox{and} \quad d=\exp(-\sigma/ n) = 1 / u \,,\]</span> where <span class="math inline">\(n\)</span> is the
+number of intervals over one year. One can show that when <span class="math inline">\(n\)</span> tends to infinity, the
+binomial model converges to the Black-Scholes model (to see ahead).</p>
+</div>
+<div id="r-packages-for-the-binomial-model" class="section level4 unnumbered hasAnchor">
+<h4>R packages for the binomial model<a href="mathematical-methods-in-finance.html#r-packages-for-the-binomial-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>There are some R packages that have implementations for the binomial model. However, only important examples such as call and put options
+are available. Thus, when dealing with less standard derivatives, the previous analysis is highly relevant. We will come back to more complex examples shortly, but first let us illustrate the use of the <code>derivmkts</code> package (go to RStudio and download package vignettes).</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="mathematical-methods-in-finance.html#cb101-1" tabindex="-1"></a><span class="fu">library</span>(derivmkts)</span></code></pre></div>
+<p>To compute prices of European (and American) call and put options we make use of the
+function <code>binomopt()</code>. Let us solve Example <a href="mathematical-methods-in-finance.html#exm:mulbin">7.3</a> using this function. We need
+to note the following about <code>binomopt()</code>: the risk-free rate (<code>r</code>) must be an annual
+<strong>continuously</strong> compounded rate (<span class="math inline">\(r=r_{continuous}=log(1+R)\)</span>). To price an European option we need to change the default
+value of the argument <code>american = TRUE</code> to <code>FALSE</code>. By default, the function works with a
+volatility, hence we need to use <code>specifyupdn = TRUE</code> to indicate that we will provide <span class="math inline">\(u\)</span>
+and <span class="math inline">\(d\)</span> through the arguments <code>up</code> and <code>dn</code>. We describe the rest of the arguments needed in
+the following code:</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="mathematical-methods-in-finance.html#cb102-1" tabindex="-1"></a><span class="fu">binomopt</span>(</span>
+<span id="cb102-2"><a href="mathematical-methods-in-finance.html#cb102-2" tabindex="-1"></a>  <span class="at">s =</span> <span class="dv">50</span>,</span>
+<span id="cb102-3"><a href="mathematical-methods-in-finance.html#cb102-3" tabindex="-1"></a>  <span class="co"># Initial stock price</span></span>
+<span id="cb102-4"><a href="mathematical-methods-in-finance.html#cb102-4" tabindex="-1"></a>  <span class="at">k =</span> <span class="dv">55</span>,</span>
+<span id="cb102-5"><a href="mathematical-methods-in-finance.html#cb102-5" tabindex="-1"></a>  <span class="co"># Strike price</span></span>
+<span id="cb102-6"><a href="mathematical-methods-in-finance.html#cb102-6" tabindex="-1"></a>  <span class="at">r =</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.05</span>),</span>
+<span id="cb102-7"><a href="mathematical-methods-in-finance.html#cb102-7" tabindex="-1"></a>  <span class="co"># Continuously-compounded risk-free rate</span></span>
+<span id="cb102-8"><a href="mathematical-methods-in-finance.html#cb102-8" tabindex="-1"></a>  <span class="at">tt =</span> <span class="dv">1</span>,</span>
+<span id="cb102-9"><a href="mathematical-methods-in-finance.html#cb102-9" tabindex="-1"></a>  <span class="co"># Time to maturity</span></span>
+<span id="cb102-10"><a href="mathematical-methods-in-finance.html#cb102-10" tabindex="-1"></a>  <span class="at">d =</span> <span class="dv">0</span>,</span>
+<span id="cb102-11"><a href="mathematical-methods-in-finance.html#cb102-11" tabindex="-1"></a>  <span class="co"># Dividends, in our case, we do not work with dividends, hence 0.</span></span>
+<span id="cb102-12"><a href="mathematical-methods-in-finance.html#cb102-12" tabindex="-1"></a>  <span class="at">nstep =</span> <span class="dv">2</span>,</span>
+<span id="cb102-13"><a href="mathematical-methods-in-finance.html#cb102-13" tabindex="-1"></a>  <span class="co"># Number of periods</span></span>
+<span id="cb102-14"><a href="mathematical-methods-in-finance.html#cb102-14" tabindex="-1"></a>  <span class="at">american =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb102-15"><a href="mathematical-methods-in-finance.html#cb102-15" tabindex="-1"></a>  <span class="co"># To indicate European</span></span>
+<span id="cb102-16"><a href="mathematical-methods-in-finance.html#cb102-16" tabindex="-1"></a>  <span class="at">putopt =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb102-17"><a href="mathematical-methods-in-finance.html#cb102-17" tabindex="-1"></a>  <span class="co"># To indicate a Put option</span></span>
+<span id="cb102-18"><a href="mathematical-methods-in-finance.html#cb102-18" tabindex="-1"></a>  <span class="at">specifyupdn =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb102-19"><a href="mathematical-methods-in-finance.html#cb102-19" tabindex="-1"></a>  <span class="co"># Tells the function to use u and d</span></span>
+<span id="cb102-20"><a href="mathematical-methods-in-finance.html#cb102-20" tabindex="-1"></a>  <span class="at">up =</span> <span class="fl">1.1</span>,</span>
+<span id="cb102-21"><a href="mathematical-methods-in-finance.html#cb102-21" tabindex="-1"></a>  <span class="co"># Value of u</span></span>
+<span id="cb102-22"><a href="mathematical-methods-in-finance.html#cb102-22" tabindex="-1"></a>  <span class="at">dn =</span> <span class="fl">0.92</span></span>
+<span id="cb102-23"><a href="mathematical-methods-in-finance.html#cb102-23" tabindex="-1"></a>  <span class="co"># Value of d</span></span>
+<span id="cb102-24"><a href="mathematical-methods-in-finance.html#cb102-24" tabindex="-1"></a>)</span></code></pre></div>
+<pre><code>## price 
+## 4.153</code></pre>
+<div class="remark">
+<p><span id="unlabeled-div-15" class="remark"><em>Remark</em>. </span>The value 4.153 differs from 4.131 due to the use of a continuously-compounded risk-free rate.</p>
+</div>
+<p>Moreover, <code>derivmkts</code> contains the function <code>binomplot()</code> which plots the development of the
+stock price and shows graphically the probability of being at each node (represented as the
+area of the circle at that price). The following is the plot for our example:</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="mathematical-methods-in-finance.html#cb104-1" tabindex="-1"></a><span class="fu">binomplot</span>(</span>
+<span id="cb104-2"><a href="mathematical-methods-in-finance.html#cb104-2" tabindex="-1"></a>  <span class="at">s =</span> <span class="dv">50</span>, <span class="at">k =</span> <span class="dv">55</span>, <span class="at">r =</span> <span class="fu">log</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fl">0.05</span>), <span class="at">tt =</span> <span class="dv">1</span>, <span class="at">d =</span> <span class="dv">0</span>, <span class="at">nstep =</span> <span class="dv">2</span>,</span>
+<span id="cb104-3"><a href="mathematical-methods-in-finance.html#cb104-3" tabindex="-1"></a>  <span class="at">american =</span> <span class="cn">FALSE</span>, <span class="at">putopt =</span> <span class="cn">TRUE</span>, <span class="at">specifyupdn =</span> <span class="cn">TRUE</span>, <span class="at">up =</span> <span class="fl">1.1</span>, <span class="at">dn =</span> <span class="fl">0.92</span>,</span>
+<span id="cb104-4"><a href="mathematical-methods-in-finance.html#cb104-4" tabindex="-1"></a>  <span class="at">v =</span> <span class="dv">0</span>, <span class="co"># A value of the volatility must be provided, although not used</span></span>
+<span id="cb104-5"><a href="mathematical-methods-in-finance.html#cb104-5" tabindex="-1"></a>  <span class="at">plotarrows =</span> <span class="cn">TRUE</span>, <span class="co"># Plots arrows that connect the nodes of the tree</span></span>
+<span id="cb104-6"><a href="mathematical-methods-in-finance.html#cb104-6" tabindex="-1"></a>  <span class="at">plotvalues =</span> <span class="cn">TRUE</span> <span class="co"># Plots the values of the stock prices at each node</span></span>
+<span id="cb104-7"><a href="mathematical-methods-in-finance.html#cb104-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-65-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p>Note that a horizontal line with the strike value is included in the plot. This can also be
+omitted by using <code>drawstrike = FALSE</code>. Finally, the green and red colors indicate whether or
+not the option is optimally exercised there (green if yes, red if no).</p>
+<p>We finish our discussion of the binomial model with the following more complicated example,
+which cannot be solved directly with the functions in <code>derivmkts</code>. Hence the importance of
+our early discussion.</p>
+<div class="example">
+<p><span id="exm:unlabeled-div-16" class="example"><strong>Example 7.4  </strong></span>A stock price is currently 40. Over each of the next three 5-month periods, it is expected
+to go up by 10% or down by 5%. The risk-free interest rate is 6% per annum with continuous
+compounding. Apply Proposition <a href="mathematical-methods-in-finance.html#prp:binalg">7.1</a> and a three-step binomial model to find the value of a European style derivative that pays off <span class="math inline">\(X = [\max(K - S_T, 0)]^3\)</span>, where <span class="math inline">\(S_T\)</span> is the stock price in <span class="math inline">\(15\)</span> months and <span class="math inline">\(K = 44\)</span>.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-17" class="solution"><em>Solution</em>. </span><span class="math inline">\(\,\)</span></p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="mathematical-methods-in-finance.html#cb105-1" tabindex="-1"></a>s0 <span class="ot">&lt;-</span> <span class="dv">40</span></span>
+<span id="cb105-2"><a href="mathematical-methods-in-finance.html#cb105-2" tabindex="-1"></a>u <span class="ot">&lt;-</span> <span class="fl">1.1</span></span>
+<span id="cb105-3"><a href="mathematical-methods-in-finance.html#cb105-3" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fl">0.95</span></span>
+<span id="cb105-4"><a href="mathematical-methods-in-finance.html#cb105-4" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb105-5"><a href="mathematical-methods-in-finance.html#cb105-5" tabindex="-1"></a>K <span class="ot">&lt;-</span> <span class="dv">44</span></span>
+<span id="cb105-6"><a href="mathematical-methods-in-finance.html#cb105-6" tabindex="-1"></a>tree <span class="ot">&lt;-</span> <span class="fu">build_tree</span>(s0, u, d, n)</span>
+<span id="cb105-7"><a href="mathematical-methods-in-finance.html#cb105-7" tabindex="-1"></a>tree</span></code></pre></div>
+<pre><code>##       [,1]  [,2]  [,3]  [,4]
+## [1,] 40.00  0.00  0.00  0.00
+## [2,] 38.00 44.00  0.00  0.00
+## [3,] 36.10 41.80 48.40  0.00
+## [4,] 34.29 39.71 45.98 53.24</code></pre>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="mathematical-methods-in-finance.html#cb107-1" tabindex="-1"></a><span class="fu">pmax</span>(K <span class="sc">-</span> tree[<span class="fu">nrow</span>(tree), ], <span class="dv">0</span>)</span></code></pre></div>
+<pre><code>## [1] 9.705 4.290 0.000 0.000</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="mathematical-methods-in-finance.html#cb109-1" tabindex="-1"></a>R <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="fl">0.06</span> <span class="sc">*</span> <span class="dv">5</span><span class="sc">/</span><span class="dv">12</span>) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb109-2"><a href="mathematical-methods-in-finance.html#cb109-2" tabindex="-1"></a><span class="co"># Rcont=log(1+R) &lt;=&gt; R=exp(0.06)-1 (annually) =&gt; R=exp(0.06*5/12)-1 for a</span></span>
+<span id="cb109-3"><a href="mathematical-methods-in-finance.html#cb109-3" tabindex="-1"></a><span class="co"># 5-month period.</span></span>
+<span id="cb109-4"><a href="mathematical-methods-in-finance.html#cb109-4" tabindex="-1"></a>R</span></code></pre></div>
+<pre><code>## [1] 0.02532</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="mathematical-methods-in-finance.html#cb111-1" tabindex="-1"></a>qu <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> R <span class="sc">-</span> d)<span class="sc">/</span>(u <span class="sc">-</span> d)</span>
+<span id="cb111-2"><a href="mathematical-methods-in-finance.html#cb111-2" tabindex="-1"></a>qu</span></code></pre></div>
+<pre><code>## [1] 0.5021</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="mathematical-methods-in-finance.html#cb113-1" tabindex="-1"></a><span class="co"># We cannot use the original function value_bin_mod or package derivmkts!!</span></span>
+<span id="cb113-2"><a href="mathematical-methods-in-finance.html#cb113-2" tabindex="-1"></a><span class="co"># X=phi(S_T) is now [max(K-S_T;0)]^3</span></span>
+<span id="cb113-3"><a href="mathematical-methods-in-finance.html#cb113-3" tabindex="-1"></a></span>
+<span id="cb113-4"><a href="mathematical-methods-in-finance.html#cb113-4" tabindex="-1"></a>value_bin_mod.new <span class="ot">&lt;-</span> <span class="cf">function</span>(qu, R, tree, K) {</span>
+<span id="cb113-5"><a href="mathematical-methods-in-finance.html#cb113-5" tabindex="-1"></a>    val_tree <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> <span class="fu">nrow</span>(tree), <span class="at">ncol =</span> <span class="fu">ncol</span>(tree))</span>
+<span id="cb113-6"><a href="mathematical-methods-in-finance.html#cb113-6" tabindex="-1"></a>    val_tree[<span class="fu">nrow</span>(tree), ] <span class="ot">&lt;-</span> (<span class="fu">pmax</span>(K <span class="sc">-</span> tree[<span class="fu">nrow</span>(tree), ], <span class="dv">0</span>))<span class="sc">^</span><span class="dv">3</span>  <span class="co"># given claim</span></span>
+<span id="cb113-7"><a href="mathematical-methods-in-finance.html#cb113-7" tabindex="-1"></a>    <span class="cf">for</span> (t <span class="cf">in</span> (<span class="fu">nrow</span>(tree) <span class="sc">-</span> <span class="dv">1</span>)<span class="sc">:</span><span class="dv">1</span>) {</span>
+<span id="cb113-8"><a href="mathematical-methods-in-finance.html#cb113-8" tabindex="-1"></a>        <span class="cf">for</span> (k <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>t) {</span>
+<span id="cb113-9"><a href="mathematical-methods-in-finance.html#cb113-9" tabindex="-1"></a>            val_tree[t, k] <span class="ot">&lt;-</span> ((<span class="dv">1</span> <span class="sc">-</span> qu) <span class="sc">*</span> val_tree[t <span class="sc">+</span> <span class="dv">1</span>, k] <span class="sc">+</span> qu <span class="sc">*</span> val_tree[t <span class="sc">+</span></span>
+<span id="cb113-10"><a href="mathematical-methods-in-finance.html#cb113-10" tabindex="-1"></a>                <span class="dv">1</span>, k <span class="sc">+</span> <span class="dv">1</span>])<span class="sc">/</span>(<span class="dv">1</span> <span class="sc">+</span> R)</span>
+<span id="cb113-11"><a href="mathematical-methods-in-finance.html#cb113-11" tabindex="-1"></a>        }</span>
+<span id="cb113-12"><a href="mathematical-methods-in-finance.html#cb113-12" tabindex="-1"></a>    }</span>
+<span id="cb113-13"><a href="mathematical-methods-in-finance.html#cb113-13" tabindex="-1"></a>    val_tree</span>
+<span id="cb113-14"><a href="mathematical-methods-in-finance.html#cb113-14" tabindex="-1"></a>}</span>
+<span id="cb113-15"><a href="mathematical-methods-in-finance.html#cb113-15" tabindex="-1"></a></span>
+<span id="cb113-16"><a href="mathematical-methods-in-finance.html#cb113-16" tabindex="-1"></a></span>
+<span id="cb113-17"><a href="mathematical-methods-in-finance.html#cb113-17" tabindex="-1"></a>opt_price <span class="ot">&lt;-</span> <span class="fu">value_bin_mod.new</span>(qu, R, tree, K)</span>
+<span id="cb113-18"><a href="mathematical-methods-in-finance.html#cb113-18" tabindex="-1"></a>opt_price</span></code></pre></div>
+<pre><code>##       [,1]  [,2] [,3] [,4]
+## [1,] 132.0  0.00    0    0
+## [2,] 253.1 18.62    0    0
+## [3,] 482.5 38.34    0    0
+## [4,] 914.1 78.95    0    0</code></pre>
+<p>Thus, the price of the option is</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="mathematical-methods-in-finance.html#cb115-1" tabindex="-1"></a>opt_price[<span class="dv">1</span>, <span class="dv">1</span>]</span></code></pre></div>
+<pre><code>## [1] 132</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="the-black-scholes-model" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> The Black-Scholes model<a href="mathematical-methods-in-finance.html#the-black-scholes-model" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The binomial model discussed in the previous section is a discrete-time model: the stock
+price changes at the end of each time period. Another commonly used model for option pricing
+is the Black-Scholes model, which assumes that the stock price moves continuously on time.
+The assumptions behind the Black-Scholes model are deep, and in fact, an entire course can
+be dedicated to the development of this model. In this course, it is sufficient for you to
+know how to price the options using simulations and the closed-form Black-Scholes formula.
+We start with a review of the Brownian motion, which will be used to describe the price
+movements of a stock.</p>
+<div id="preliminars-brownian-motion" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Preliminars: Brownian motion<a href="mathematical-methods-in-finance.html#preliminars-brownian-motion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div class="definition">
+<p><span id="def:unlabeled-div-18" class="definition"><strong>Definition 7.4  (Stochastic process) </strong></span>A <em>stochastic process</em> is a family of random variables <span class="math inline">\(\{X(t), ~t \in T\}\)</span> defined on a probability space <span class="math inline">\((\Omega, \mathcal{F},P)\)</span>, where:</p>
+<ul>
+<li><span class="math inline">\(t\)</span> represents, typically, the time.</li>
+<li><span class="math inline">\(T\)</span> is the set where the time parameter <span class="math inline">\(t\)</span> is defined.</li>
+<li><span class="math inline">\(\Omega\)</span> is the set of all possible outcomes.</li>
+<li><span class="math inline">\(\mathcal{F}\)</span> is a set of events.</li>
+<li><span class="math inline">\(P\)</span> is a probability function.</li>
+<li><span class="math inline">\((\Omega, \mathcal{F},P)\)</span> will become clear in ``Probability Theory and Stochastic Processes”.</li>
+</ul>
+<p>If <span class="math inline">\(T=\mathbb{N}\)</span>, we say that the process is a discrite time process; if <span class="math inline">\(T=[a,~b] \subseteq \mathbb{R}\)</span>, we say it is a continuous time process.</p>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-19" class="remark"><em>Remark</em>. </span></p>
+<ul>
+<li><span class="math inline">\(\{X(t), ~t \in T\}=\{X(t,\omega), ~t \in T, ~ \omega \in \Omega\}\)</span>.</li>
+<li><span class="math inline">\(X(t)=X_t\)</span> is called the sate or position of the process at time <span class="math inline">\(t\)</span>.</li>
+<li>The space of the states, denoted by <span class="math inline">\(\mathcal{S}\)</span>, is the space where the random variables take values.</li>
+<li>If <span class="math inline">\(\mathcal{S}=\mathbb{R}\)</span> the space is called continuous state space.</li>
+<li>If <span class="math inline">\(\mathcal{S}=\mathbb{N}\)</span> the space is called discrete state space.</li>
+<li>For each fixed <span class="math inline">\(\omega \in \Omega\)</span>, the mapping <span class="math inline">\(t \to X(t,\omega)\)</span> is called a realization, trajectory or sample path of the process.</li>
+</ul>
+</div>
+<div class="definition">
+<p><span id="def:unlabeled-div-20" class="definition"><strong>Definition 7.5  (Standard Brownian motion) </strong></span>A <em>standard Brownian motion</em> (SBM), also known as standard Wiener process, is a stochastic process <span class="math inline">\(W = (W(t))_{t \geq0}\)</span> satisfying:</p>
+<ol style="list-style-type: decimal">
+<li><span class="math inline">\(W(0) = 0\)</span>.</li>
+<li>The process has <em>independent increments</em>, i.e., for any
+<span class="math inline">\(0 \leq t_1 &lt; t_2 &lt; \cdots &lt; t_n\)</span>,
+<span class="math display">\[W(t_2) - W(t_{1}), \dots,W(t_n) - W(t_{n-1})\]</span>
+are independent random variables.</li>
+<li>For <span class="math inline">\(s &lt; t\)</span>, <span class="math inline">\(Y = W(t) - W(s) \sim N(\mu_Y = 0, \sigma^2_Y = t -s)\)</span>.</li>
+<li><span class="math inline">\(W\)</span> has continuous trajectories.</li>
+<li><span class="math inline">\(Cov(W_t,W_s)=min(t,s).\)</span></li>
+</ol>
+</div>
+<div class="remark">
+<p><span id="unlabeled-div-21" class="remark"><em>Remark</em>. </span>With <span class="math inline">\(s=0\)</span>, it follows from 3. that <span class="math inline">\(W(t) \sim N(0,t)\)</span>. Notice that the variance is proportional to the time interval.</p>
+</div>
+<p>To generate trajectories of a SBM over a time period <span class="math inline">\([0, T]\)</span>, we
+consider a “small” time increment <span class="math inline">\(\delta t &gt;0\)</span>. Then, consider the independent increments
+<span class="math display">\[\begin{align*}
+&amp; W(\delta t) - W(0) \,,\\
+&amp; W(2\delta t) - W(\delta t) \,,\\
+&amp; \ldots \,.
+\end{align*}\]</span>
+Note that these increments are <span class="math inline">\(N(0, \delta t)\)</span> distributed. Moreover, we can
+compute <span class="math inline">\(W(2\delta t)\)</span> as <span class="math display">\[
+W(2\delta t) = (W(2\delta t) - W(\delta t)) + (W(\delta t) - W(0)) \,.
+\]</span> Thus, we can repeat the same logic as above to simulate a whole process trajectory. The
+following code implements this idea:</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="mathematical-methods-in-finance.html#cb117-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb117-2"><a href="mathematical-methods-in-finance.html#cb117-2" tabindex="-1"></a>delta <span class="ot">&lt;-</span> <span class="fl">0.001</span>  <span class="co"># Time increment</span></span>
+<span id="cb117-3"><a href="mathematical-methods-in-finance.html#cb117-3" tabindex="-1"></a>t <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> delta)  <span class="co"># Time interval</span></span>
+<span id="cb117-4"><a href="mathematical-methods-in-finance.html#cb117-4" tabindex="-1"></a><span class="co"># rnorm(n, mean = 0, sd = 1)</span></span>
+<span id="cb117-5"><a href="mathematical-methods-in-finance.html#cb117-5" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="fu">length</span>(t) <span class="sc">-</span> <span class="dv">1</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(delta))  <span class="co"># iid normal distributed r.v.s</span></span>
+<span id="cb117-6"><a href="mathematical-methods-in-finance.html#cb117-6" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(w))  <span class="co"># Cumulative sum; 0 is the initial value</span></span>
+<span id="cb117-7"><a href="mathematical-methods-in-finance.html#cb117-7" tabindex="-1"></a><span class="fu">plot</span>(t, w, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;W(t)&quot;</span>, <span class="at">main =</span> <span class="st">&quot;Simulated trajectory of a SBM&quot;</span>,</span>
+<span id="cb117-8"><a href="mathematical-methods-in-finance.html#cb117-8" tabindex="-1"></a>    )</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-68-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>We now modify the code above to generate multiple trajectories:</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="mathematical-methods-in-finance.html#cb118-1" tabindex="-1"></a>nsim <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="co"># Number of simulated trajectories</span></span>
+<span id="cb118-2"><a href="mathematical-methods-in-finance.html#cb118-2" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb118-3"><a href="mathematical-methods-in-finance.html#cb118-3" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="at">n =</span> nsim<span class="sc">*</span>(<span class="fu">length</span>(t)<span class="sc">-</span><span class="dv">1</span>), <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="fu">sqrt</span>(delta)),</span>
+<span id="cb118-4"><a href="mathematical-methods-in-finance.html#cb118-4" tabindex="-1"></a>  nsim, <span class="co"># Each row is one simulated trajectory</span></span>
+<span id="cb118-5"><a href="mathematical-methods-in-finance.html#cb118-5" tabindex="-1"></a>  <span class="fu">length</span>(t) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb118-6"><a href="mathematical-methods-in-finance.html#cb118-6" tabindex="-1"></a>)</span>
+<span id="cb118-7"><a href="mathematical-methods-in-finance.html#cb118-7" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="dv">0</span>, nsim), <span class="fu">t</span>(<span class="fu">apply</span>(w, <span class="dv">1</span>, cumsum))) <span class="co"># matrix with trajectories</span></span>
+<span id="cb118-8"><a href="mathematical-methods-in-finance.html#cb118-8" tabindex="-1"></a><span class="fu">plot</span>(t, w[<span class="dv">1</span>, ], <span class="co"># Plots the first trajectory</span></span>
+<span id="cb118-9"><a href="mathematical-methods-in-finance.html#cb118-9" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb118-10"><a href="mathematical-methods-in-finance.html#cb118-10" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">3.5</span>, <span class="fl">3.5</span>),</span>
+<span id="cb118-11"><a href="mathematical-methods-in-finance.html#cb118-11" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb118-12"><a href="mathematical-methods-in-finance.html#cb118-12" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;W(t)&quot;</span>,</span>
+<span id="cb118-13"><a href="mathematical-methods-in-finance.html#cb118-13" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Simulation of SBM&quot;</span></span>
+<span id="cb118-14"><a href="mathematical-methods-in-finance.html#cb118-14" tabindex="-1"></a>)</span>
+<span id="cb118-15"><a href="mathematical-methods-in-finance.html#cb118-15" tabindex="-1"></a><span class="fu">apply</span>(w[<span class="sc">-</span><span class="dv">1</span>, ], <span class="dv">1</span>, <span class="cf">function</span>(x, t) <span class="fu">lines</span>(t, x), <span class="at">t =</span> t) <span class="co"># Plots the remaining trajectories</span></span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-69-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>The standard Brownian motion can be generalized to the <em>arithmetic Brownian motion</em>, which
+scales and shifts the former. More specifically, <span class="math inline">\(X(t)\)</span> is an arithmetic Brownian motion if
+<span class="math display">\[X(t) = \mu t + \sigma W(t),\]</span>
+where <span class="math inline">\(W(t)\)</span> is a standard Brownian motion, <span class="math inline">\(\mu \in \mathbb{R}\)</span> and <span class="math inline">\(\sigma \in \mathbb{R}^+\)</span>. Moreover, note that for <span class="math inline">\(s &lt; t\)</span>,
+<span class="math display">\[X(t)-X(s)\sim N(\mu (t - s), \sigma^2(t - s)).\]</span>
+To simulate from a standard Brownian motion an easier way is to modify in our code above and generate independent
+<span class="math inline">\(N(\mu \delta t, \sigma^2\delta t)\)</span> random variables. The following code implements the simulation:</p>
+<ul>
+<li>first we simulate data:</li>
+</ul>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="mathematical-methods-in-finance.html#cb119-1" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb119-2"><a href="mathematical-methods-in-finance.html#cb119-2" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="fl">0.5</span></span>
+<span id="cb119-3"><a href="mathematical-methods-in-finance.html#cb119-3" tabindex="-1"></a>nsim <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb119-4"><a href="mathematical-methods-in-finance.html#cb119-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="at">n =</span> nsim <span class="sc">*</span> (<span class="fu">length</span>(t) <span class="sc">-</span> <span class="dv">1</span>), <span class="at">mean =</span> mu <span class="sc">*</span> delta, <span class="at">sd =</span> <span class="fu">sqrt</span>(delta <span class="sc">*</span></span>
+<span id="cb119-5"><a href="mathematical-methods-in-finance.html#cb119-5" tabindex="-1"></a>    sigma2)), nsim, <span class="fu">length</span>(t) <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb119-6"><a href="mathematical-methods-in-finance.html#cb119-6" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="dv">0</span>, nsim), <span class="fu">t</span>(<span class="fu">apply</span>(x, <span class="dv">1</span>, cumsum)))</span></code></pre></div>
+<ul>
+<li>secondly, we plot data:</li>
+</ul>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="mathematical-methods-in-finance.html#cb120-1" tabindex="-1"></a><span class="fu">plot</span>(t, x[<span class="dv">1</span>, ],</span>
+<span id="cb120-2"><a href="mathematical-methods-in-finance.html#cb120-2" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb120-3"><a href="mathematical-methods-in-finance.html#cb120-3" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">2</span>),</span>
+<span id="cb120-4"><a href="mathematical-methods-in-finance.html#cb120-4" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb120-5"><a href="mathematical-methods-in-finance.html#cb120-5" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;X(t)&quot;</span>,</span>
+<span id="cb120-6"><a href="mathematical-methods-in-finance.html#cb120-6" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Simulation of arithmetic Brownian motion&quot;</span></span>
+<span id="cb120-7"><a href="mathematical-methods-in-finance.html#cb120-7" tabindex="-1"></a>)</span>
+<span id="cb120-8"><a href="mathematical-methods-in-finance.html#cb120-8" tabindex="-1"></a><span class="fu">apply</span>(x[<span class="sc">-</span><span class="dv">1</span>, ], <span class="dv">1</span>, <span class="cf">function</span>(x, t) <span class="fu">lines</span>(t, x), <span class="at">t =</span> t)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-71-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>Experiment with different <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma^2\)</span> values:</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="mathematical-methods-in-finance.html#cb121-1" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb121-2"><a href="mathematical-methods-in-finance.html#cb121-2" tabindex="-1"></a>sigma2 <span class="ot">&lt;-</span> <span class="fl">0.2</span></span>
+<span id="cb121-3"><a href="mathematical-methods-in-finance.html#cb121-3" tabindex="-1"></a>nsim <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb121-4"><a href="mathematical-methods-in-finance.html#cb121-4" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(</span>
+<span id="cb121-5"><a href="mathematical-methods-in-finance.html#cb121-5" tabindex="-1"></a>  <span class="fu">rnorm</span>(<span class="at">n =</span> nsim <span class="sc">*</span> (<span class="fu">length</span>(t) <span class="sc">-</span> <span class="dv">1</span>), <span class="at">mean =</span> mu <span class="sc">*</span> delta, <span class="at">sd =</span> <span class="fu">sqrt</span>(delta <span class="sc">*</span> sigma2)),</span>
+<span id="cb121-6"><a href="mathematical-methods-in-finance.html#cb121-6" tabindex="-1"></a>  nsim,</span>
+<span id="cb121-7"><a href="mathematical-methods-in-finance.html#cb121-7" tabindex="-1"></a>  <span class="fu">length</span>(t) <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb121-8"><a href="mathematical-methods-in-finance.html#cb121-8" tabindex="-1"></a>)</span>
+<span id="cb121-9"><a href="mathematical-methods-in-finance.html#cb121-9" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">cbind</span>(<span class="fu">rep</span>(<span class="dv">0</span>, nsim), <span class="fu">t</span>(<span class="fu">apply</span>(x, <span class="dv">1</span>, cumsum)))</span>
+<span id="cb121-10"><a href="mathematical-methods-in-finance.html#cb121-10" tabindex="-1"></a><span class="fu">plot</span>(t, x[<span class="dv">1</span>, ],</span>
+<span id="cb121-11"><a href="mathematical-methods-in-finance.html#cb121-11" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb121-12"><a href="mathematical-methods-in-finance.html#cb121-12" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">3</span>),</span>
+<span id="cb121-13"><a href="mathematical-methods-in-finance.html#cb121-13" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb121-14"><a href="mathematical-methods-in-finance.html#cb121-14" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;X(t)&quot;</span>,</span>
+<span id="cb121-15"><a href="mathematical-methods-in-finance.html#cb121-15" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Simulation of arithmetic Brownian motion&quot;</span></span>
+<span id="cb121-16"><a href="mathematical-methods-in-finance.html#cb121-16" tabindex="-1"></a>)</span>
+<span id="cb121-17"><a href="mathematical-methods-in-finance.html#cb121-17" tabindex="-1"></a><span class="fu">apply</span>(x[<span class="sc">-</span><span class="dv">1</span>, ], <span class="dv">1</span>, <span class="cf">function</span>(x, t) <span class="fu">lines</span>(t, x), <span class="at">t =</span> t)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-72-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>Note that the arithmetic Brownian motion can take negative values. Hence, using it for
+modeling stock prices is questionable. Instead, we now introduce the so-called called
+<em>geometric Brownian motion</em>, which can only take non-negative values. More precisely, a
+geometric Brownian motion, denoted by <span class="math inline">\(S(t)\)</span>, is a stochastic process of the form
+<span class="math display">\[S(t) = S(0)\exp \left( X(t) \right) = S(0)\exp \left( \mu t + \sigma W(t) \right),\]</span> where <span class="math inline">\(S(0)&gt;0\)</span> is some known starting value, and <span class="math inline">\(X(t)\)</span> is an arithmetic Brownian motion. The following code generates some trajectories of this process using the previous implementation:</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="mathematical-methods-in-finance.html#cb122-1" tabindex="-1"></a>s0 <span class="ot">&lt;-</span> <span class="dv">2</span></span>
+<span id="cb122-2"><a href="mathematical-methods-in-finance.html#cb122-2" tabindex="-1"></a>s <span class="ot">&lt;-</span> s0 <span class="sc">*</span> <span class="fu">exp</span>(x)</span>
+<span id="cb122-3"><a href="mathematical-methods-in-finance.html#cb122-3" tabindex="-1"></a><span class="fu">plot</span>(t, s[<span class="dv">1</span>, ],</span>
+<span id="cb122-4"><a href="mathematical-methods-in-finance.html#cb122-4" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb122-5"><a href="mathematical-methods-in-finance.html#cb122-5" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">40</span>),</span>
+<span id="cb122-6"><a href="mathematical-methods-in-finance.html#cb122-6" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb122-7"><a href="mathematical-methods-in-finance.html#cb122-7" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;S(t)&quot;</span>,</span>
+<span id="cb122-8"><a href="mathematical-methods-in-finance.html#cb122-8" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Simulation of geometric Brownian motion&quot;</span></span>
+<span id="cb122-9"><a href="mathematical-methods-in-finance.html#cb122-9" tabindex="-1"></a>)</span>
+<span id="cb122-10"><a href="mathematical-methods-in-finance.html#cb122-10" tabindex="-1"></a><span class="fu">apply</span>(s[<span class="sc">-</span><span class="dv">1</span>, ], <span class="dv">1</span>, <span class="cf">function</span>(x, t) <span class="fu">lines</span>(t, x), <span class="at">t =</span> t)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-73-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>Note that in particular,
+<span class="math display">\[\dfrac{S(t)}{S(0)}\sim LN(\mu t, \sigma^2 t),\]</span>
+and more generally, for <span class="math inline">\(s &lt; t\)</span>,
+<span class="math display">\[\dfrac{S(t)}{S(s)}\sim LN(\mu (t - s), \sigma^2(t - s)).\]</span>
+Remember: <span class="math inline">\(Y \sim LN(.,.) \iff \log(Y) \sim N(.,.).\)</span></p>
+<p>Finally, one can show (to see next year!) that a geometric Brownian motion of the form</p>
+<p><span class="math display">\[S(t) = S_0\exp \left( \left( \mu - \frac{\sigma^2}{2}\right) t + \sigma W(t) \right)  \,,\]</span>
+satisfies the <em>stochastic differential equation</em> (SDE)
+<span class="math display">\[
+dS(t) = \mu S(t) dt + \sigma S(t)dW(t), \quad S(0)=S_0 \,,
+\]</span>
+known as the Black-Scholes model.</p>
+</div>
+<div id="the-black-scholes-formula" class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> The Black-Scholes formula<a href="mathematical-methods-in-finance.html#the-black-scholes-formula" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As in the binomial model, the Black–Scholes model assumes that the prices of these two assets satisfy
+<span class="math display" id="eq:BSM-P">\[\begin{align}
+&amp; dB(t) = r B(t) dt \,, \nonumber \\
+&amp; dS(t) = r S(t) dt + \sigma S(t) d\overline{W}(t), \quad S(0)=S_0 \,,\tag{7.1}
+\end{align}\]</span>
+where</p>
+<ul>
+<li><span class="math inline">\(B(t)\)</span> represents the deterministic price of a riskless asset (a bond or a bank deposit);</li>
+<li><span class="math inline">\(S(t)\)</span> is the stochastic price process of a risky asset (a stock or an index);</li>
+<li><span class="math inline">\(\overline{W}\)</span> is a standard Brownian motion with respect to the original probability measure <span class="math inline">\(P\)</span>;</li>
+<li><span class="math inline">\(r\)</span> is the risk-free interest rate;</li>
+<li><span class="math inline">\(\sigma\)</span> represents the volatility of the risky asset, and</li>
+<li><span class="math inline">\(S_0\)</span> is the (known) initial condition.</li>
+</ul>
+<p>The solution of <a href="mathematical-methods-in-finance.html#eq:BSM-P">(7.1)</a> is the geometric Brownian motion:</p>
+<p><span class="math display">\[S(t) = S_0\exp \left( \left( r - \frac{\sigma^2}{2}\right) t + \sigma \overline{W}(t) \right).\]</span></p>
+<p>Now, we consider a contingent claim (a financial derivative) of the form
+<span class="math display">\[X = \Phi(S(T)) \,.\]</span>
+It can be shown that the arbitrage-free price <span class="math inline">\(\Pi(0;X)\)</span> of <span class="math inline">\(X\)</span> is given by the risk-neutral evaluation formula</p>
+<span class="math display" id="eq:rneva">\[\begin{equation}
+\Pi(0;X) = e^{- r T} \mathbb{E}^{Q}\left[ \Phi(S(T)) \right] \,,
+  \tag{7.2}
+\end{equation}\]</span>
+<p>where the behavior of <span class="math inline">\(S\)</span> under <span class="math inline">\(Q\)</span> is described by the SDE <span class="math display">\[
+dS(t) = r S(t) dt + \sigma S(t)dW(t) \,,
+\]</span> whose solution is the geometric Brownian motion and where <span class="math inline">\(W(t)\)</span> denotes the Brownian motion under the measure <span class="math inline">\(Q\)</span>. In particular, we have that <span class="math inline">\(S(T)\)</span> is
+explicit and given by</p>
+<span class="math display" id="eq:gmb">\[\begin{equation}
+S(T) = S_0\exp \left( \left( r - \frac{\sigma^2}{2}\right) T + \sigma W(T) \right).
+  \tag{7.3}
+\end{equation}\]</span>
+<p>When considering a European call option, that is, <span class="math inline">\(\Phi(x) = \max(x - K, 0)\)</span>,
+<a href="mathematical-methods-in-finance.html#eq:rneva">(7.2)</a> and <a href="mathematical-methods-in-finance.html#eq:gmb">(7.3)</a> lead to the famous <strong>Black–Scholes formula</strong> as follows:</p>
+<div class="proposition">
+<p><span id="prp:unlabeled-div-22" class="proposition"><strong>Proposition 7.3  (Black-Scholes formula) </strong></span>The price of an European call option <span class="math inline">\(C(0)\)</span> with strike price <span class="math inline">\(K\)</span> and time of maturity <span class="math inline">\(T\)</span> is
+given by</p>
+<span class="math display" id="eq:bscall">\[\begin{equation}
+C(0) = S_0 N(d_1) - K e^{-rT}N(d_2) \,,
+  \tag{7.4}
+\end{equation}\]</span>
+<p>where N is the cumulative distribution function for the <span class="math inline">\(N(0, 1)\)</span>
+distribution and <span class="math display">\[\begin{align*}
+&amp; d_1 = \frac{1}{\sigma \sqrt{T}}\left( \log\left(\frac{S_0}{K}\right) + \left( r + \frac{1}{2} \sigma^2 \right) T \right) \,,\\
+&amp; d_2 = d_1 - \sigma \sqrt{T} \,.
+\end{align*}\]</span></p>
+<p>Similarly, the price of a European put option <span class="math inline">\(P(0)\)</span> with strike price <span class="math inline">\(K\)</span> and time of
+maturity <span class="math inline">\(T\)</span> is given by <span class="math display">\[
+P(0) = K e^{-rT}N(-d_2) - S(0) N(-d_1) \,,
+\]</span> with <span class="math inline">\(d_1\)</span> and <span class="math inline">\(d_2\)</span> as above.</p>
+</div>
+<p><span class="math inline">\(N(d_1)\)</span> and <span class="math inline">\(N(d_2)\)</span> are obtained in R as and .</p>
+<div class="remark">
+<p><span id="unlabeled-div-23" class="remark"><em>Remark</em>. </span>Using Itô’s formula (next year, stochastic calculus), one can get an expression for the BS formula as a PDE (already seen in MMF – Part I).</p>
+</div>
+<p>In R, the Black–Scholes formula to price European call and put option is available in the
+<code>derivmkts</code> package under the functions <code>bscall()</code> and <code>bsput()</code>, respectively. We illustrate
+its use with an example.</p>
+<div class="example">
+<p><span id="exm:bs" class="example"><strong>Example 7.5  </strong></span>Consider a European call option over a stock with a current price S(0) = 50 and volatility
+0.25. Moreover, the risk-free interest rate with continuous compounding is 6% per annum, the
+strike price is 45, and the option’s time to maturity is 6 months. Find the price of the
+option.</p>
+</div>
+<div class="solution">
+<p><span id="unlabeled-div-24" class="solution"><em>Solution</em>. </span><span class="math inline">\(\,\)</span></p>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="mathematical-methods-in-finance.html#cb123-1" tabindex="-1"></a><span class="co"># bscall(s, k, v, r, tt, d) s: Price of the underlying asset k: Strike price v:</span></span>
+<span id="cb123-2"><a href="mathematical-methods-in-finance.html#cb123-2" tabindex="-1"></a><span class="co"># Volatility of the asset price, defined as the annualized standard deviation</span></span>
+<span id="cb123-3"><a href="mathematical-methods-in-finance.html#cb123-3" tabindex="-1"></a><span class="co"># of the continuously-compounded return r: Annual continuously-compounded</span></span>
+<span id="cb123-4"><a href="mathematical-methods-in-finance.html#cb123-4" tabindex="-1"></a><span class="co"># risk-free interest rate tt: Time to maturity in years d: Dividend yield,</span></span>
+<span id="cb123-5"><a href="mathematical-methods-in-finance.html#cb123-5" tabindex="-1"></a><span class="co"># annualized, continuously-compounded</span></span>
+<span id="cb123-6"><a href="mathematical-methods-in-finance.html#cb123-6" tabindex="-1"></a></span>
+<span id="cb123-7"><a href="mathematical-methods-in-finance.html#cb123-7" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb123-8"><a href="mathematical-methods-in-finance.html#cb123-8" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">45</span></span>
+<span id="cb123-9"><a href="mathematical-methods-in-finance.html#cb123-9" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="fl">0.25</span></span>
+<span id="cb123-10"><a href="mathematical-methods-in-finance.html#cb123-10" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fl">0.06</span></span>
+<span id="cb123-11"><a href="mathematical-methods-in-finance.html#cb123-11" tabindex="-1"></a>tt <span class="ot">&lt;-</span> <span class="dv">6</span><span class="sc">/</span><span class="dv">12</span></span>
+<span id="cb123-12"><a href="mathematical-methods-in-finance.html#cb123-12" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="dv">0</span>  <span class="co"># No dividends</span></span>
+<span id="cb123-13"><a href="mathematical-methods-in-finance.html#cb123-13" tabindex="-1"></a></span>
+<span id="cb123-14"><a href="mathematical-methods-in-finance.html#cb123-14" tabindex="-1"></a><span class="fu">bscall</span>(s, k, v, r, tt, d)</span></code></pre></div>
+<pre><code>## [1] 7.382</code></pre>
+</div>
+</div>
+<div id="greeks" class="section level3 hasAnchor" number="7.3.3">
+<h3><span class="header-section-number">7.3.3</span> Greeks<a href="mathematical-methods-in-finance.html#greeks" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Greeks represent sensitivities of a derivative value to changes in the underlying parameters
+used to determine its price. More specifically, if we denote by <span class="math inline">\(V\)</span> be the price of a
+derivative, which depends on the underlying stock price <span class="math inline">\(S\)</span>, a risk-free rate <span class="math inline">\(r\)</span>, a
+volatility <span class="math inline">\(\sigma\)</span> and with maturity <span class="math inline">\(T\)</span>, then the Greeks are defined as follows:</p>
+<div class="definition">
+<p><span id="def:unlabeled-div-25" class="definition"><strong>Definition 7.6  (Greeks) </strong></span><span class="math inline">\(\,\)</span></p>
+<p><em>Delta</em>, <span class="math inline">\(\Delta\)</span>: Measures the rate of change of the option price with respect to changes
+in the underlying stock price. [similar to velocity]</p>
+<p><span class="math display">\[\Delta=\frac{\partial V}{\partial S}\,.\]</span></p>
+<p><em>Gamma</em>, <span class="math inline">\(\Gamma\)</span>: Measures the rate of change in <span class="math inline">\(\Delta\)</span> with respect to changes in the
+underlying stock price. [similar to acceleration]</p>
+<p><span class="math display">\[\Gamma=\frac{\partial^2 V}{\partial S^2}=\frac{\partial \Delta}{\partial S}\,.\]</span></p>
+<p><em>Vega</em>, <span class="math inline">\(\nu\)</span>: Measures sensitivity with respect to changes in the volatility <span class="math inline">\(\sigma\)</span>.</p>
+<p><span class="math display">\[\nu = \frac{\partial V}{\partial \sigma}\,.\]</span></p>
+<p><em>Rho</em>, <span class="math inline">\(\rho\)</span>: Measures sensitivity with respect to changes in the risk-free interest rate.</p>
+<p><span class="math display">\[\rho=\frac{\partial V}{\partial r}\,.\]</span></p>
+<p><em>Theta</em>, <span class="math inline">\(\Theta\)</span>: Measures the sensitivity of the value of the derivative to the passage
+of time. [Theta is generally expressed as a negative number and can be thought of as the amount by which an option’s value declines every day.]</p>
+<p><span class="math display">\[\Theta=-\frac{\partial V}{\partial T }\,.\]</span></p>
+<p><em>Elasticity or Lambda</em>, <span class="math inline">\(\lambda\)</span>: Is the percentage change in option value per percentage
+change in the underlying price (a measure of leverage).</p>
+<p><span class="math display">\[\lambda=\frac{\partial V}{\partial S} \frac{S}{V}=\Delta \times \frac{S}{V}\,.\]</span></p>
+<p><em>Psi</em>, <span class="math inline">\(\psi\)</span>: Is the percentage change in option value per percentage change in the
+underlying dividend yield (<span class="math inline">\(q\)</span>).</p>
+<p><span class="math display">\[\psi =\frac {\partial V}{\partial q}\,.\]</span></p>
+</div>
+<p>In particular, for a European call option with strike price <span class="math inline">\(K\)</span> and time of maturity <span class="math inline">\(T\)</span> we
+have the following explicit expressions:</p>
+<span class="math display">\[\begin{align*}
+&amp;\Delta=N(d_1)\,, \\
+&amp;\Gamma=\frac{N^\prime(d_1)}{S\sigma \sqrt{T}}\,,\\
+&amp;\nu =S\sqrt{T}N^\prime(d_1) \,, \\
+&amp;\rho=KTe^{-rT}N(d_2)\,, \\
+&amp;\Theta=-\frac{S(0)N^\prime(d_1)\sigma}{2\sqrt{T}}-rKe^{-rT}N(d_2)\,.
+\end{align*}\]</span>
+<p>The <code>derivmkts</code> R package allows us to compute the Greeks for a financial derivative via the
+function <code>greeks()</code>. For instance, the Greeks for the option in Example <a href="mathematical-methods-in-finance.html#exm:bs">7.5</a> can
+be computed as follows:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="mathematical-methods-in-finance.html#cb125-1" tabindex="-1"></a><span class="fu">greeks</span>(<span class="fu">bscall</span>(s, k, v, r, tt, <span class="at">d =</span> <span class="dv">0</span>))</span></code></pre></div>
+<pre><code>##              bscall
+## Premium     7.38194
+## Delta       0.80348
+## Gamma       0.03134
+## Vega        0.09794
+## Rho         0.16396
+## Theta      -0.01210
+## Psi        -0.20087
+## Elasticity  5.44217</code></pre>
+<p>Furthermore, <code>greeks()</code> accepts vector inputs, which in particular allow us to visualize the
+Greeks.</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="mathematical-methods-in-finance.html#cb127-1" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="fl">0.5</span>, <span class="dv">80</span>, <span class="at">by =</span> <span class="fl">0.5</span>)</span>
+<span id="cb127-2"><a href="mathematical-methods-in-finance.html#cb127-2" tabindex="-1"></a>call_greeks <span class="ot">&lt;-</span> <span class="fu">greeks</span>(<span class="fu">bscall</span>(s, k, v, r, tt, <span class="at">d =</span> <span class="dv">0</span>))</span>
+<span id="cb127-3"><a href="mathematical-methods-in-finance.html#cb127-3" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">rownames</span>(call_greeks)) {</span>
+<span id="cb127-4"><a href="mathematical-methods-in-finance.html#cb127-4" tabindex="-1"></a>    <span class="fu">plot</span>(s, call_greeks[i, ], <span class="at">main =</span> <span class="fu">paste</span>(i), <span class="at">ylab =</span> i, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb127-5"><a href="mathematical-methods-in-finance.html#cb127-5" tabindex="-1"></a>}</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-76-1.png" width="50%" style="display: block; margin: auto;" /><img src="_main_files/figure-html/unnamed-chunk-76-2.png" width="50%" style="display: block; margin: auto;" /><img src="_main_files/figure-html/unnamed-chunk-76-3.png" width="50%" style="display: block; margin: auto;" /><img src="_main_files/figure-html/unnamed-chunk-76-4.png" width="50%" style="display: block; margin: auto;" /><img src="_main_files/figure-html/unnamed-chunk-76-5.png" width="50%" style="display: block; margin: auto;" /><img src="_main_files/figure-html/unnamed-chunk-76-6.png" width="50%" style="display: block; margin: auto;" /><img src="_main_files/figure-html/unnamed-chunk-76-7.png" width="50%" style="display: block; margin: auto;" /><img src="_main_files/figure-html/unnamed-chunk-76-8.png" width="50%" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="graphics-in-r-exploratory-learning.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="exercises.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

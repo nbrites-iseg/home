@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Exercises | Mathematical Methods in Finance</title>
+  <meta name="description" content="8 Exercises | Mathematical Methods in Finance" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Exercises | Mathematical Methods in Finance" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Exercises | Mathematical Methods in Finance" />
+  
+  
+  
+
+<meta name="author" content="Nuno M. Brites" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="mathematical-methods-in-finance.html"/>
+
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#about-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> About R and RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#the-prompt"><i class="fa fa-check"></i><b>1.3</b> The prompt</a></li>
+<li class="chapter" data-level="1.4" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#assignments"><i class="fa fa-check"></i><b>1.4</b> Assignments</a></li>
+<li class="chapter" data-level="1.5" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#rules-for-defining-variables"><i class="fa fa-check"></i><b>1.5</b> Rules for defining variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basic-operations"><i class="fa fa-check"></i><b>2.1</b> Basic operations</a></li>
+<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#precision"><i class="fa fa-check"></i><b>2.2</b> Precision</a></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#infinity-or-not-defined-and-missings"><i class="fa fa-check"></i><b>2.3</b> Infinity or not defined, and missings</a></li>
+<li class="chapter" data-level="2.4" data-path="r-basics.html"><a href="r-basics.html#important-commands"><i class="fa fa-check"></i><b>2.4</b> Important commands</a></li>
+<li class="chapter" data-level="2.5" data-path="r-basics.html"><a href="r-basics.html#internal-help-function"><i class="fa fa-check"></i><b>2.5</b> Internal help function</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3</b> Data structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structures.html"><a href="data-structures.html#vector"><i class="fa fa-check"></i><b>3.1</b> Vector</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-structures.html"><a href="data-structures.html#constructing-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Constructing vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-structures.html"><a href="data-structures.html#index-and-logical-index"><i class="fa fa-check"></i><b>3.1.2</b> Index and logical index</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-structures.html"><a href="data-structures.html#matrix"><i class="fa fa-check"></i><b>3.2</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structures.html"><a href="data-structures.html#constructing-matrices"><i class="fa fa-check"></i><b>3.2.1</b> Constructing matrices</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structures.html"><a href="data-structures.html#index-and-logical-index-1"><i class="fa fa-check"></i><b>3.2.2</b> Index and logical index</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-structures.html"><a href="data-structures.html#properties-of-vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Properties of vectors and matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-structures.html"><a href="data-structures.html#naming-rows-and-columns-in-a-matrix"><i class="fa fa-check"></i><b>3.2.4</b> Naming rows and columns in a matrix</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-structures.html"><a href="data-structures.html#matrix-multiplication"><i class="fa fa-check"></i><b>3.2.5</b> Matrix multiplication</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-structures.html"><a href="data-structures.html#additional-functions"><i class="fa fa-check"></i><b>3.2.6</b> Additional functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structures.html"><a href="data-structures.html#simple-functions"><i class="fa fa-check"></i><b>3.3</b> Simple Functions</a></li>
+<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html#default-arguments"><i class="fa fa-check"></i><b>3.4</b> Default arguments</a></li>
+<li class="chapter" data-level="3.5" data-path="data-structures.html"><a href="data-structures.html#integrals-and-derivatives"><i class="fa fa-check"></i><b>3.5</b> Integrals and derivatives</a></li>
+<li class="chapter" data-level="3.6" data-path="data-structures.html"><a href="data-structures.html#simple-plots"><i class="fa fa-check"></i><b>3.6</b> Simple plots</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-structures.html"><a href="data-structures.html#histogram-and-boxplot"><i class="fa fa-check"></i><b>3.6.1</b> Histogram and boxplot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html"><i class="fa fa-check"></i><b>4</b> Loops and flow control</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#loops-with-for"><i class="fa fa-check"></i><b>4.1</b> Loops with <code>for</code></a></li>
+<li class="chapter" data-level="4.2" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#flow-control-if-and-if-else-statements"><i class="fa fa-check"></i><b>4.2</b> Flow control: if and if else statements</a></li>
+<li class="chapter" data-level="4.3" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#while-loop-example"><i class="fa fa-check"></i><b>4.3</b> While loop example</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>5</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="simulation.html"><a href="simulation.html#the-set.seedfunction"><i class="fa fa-check"></i><b>5.1</b> The <code>set.seed()</code>function</a></li>
+<li class="chapter" data-level="5.2" data-path="simulation.html"><a href="simulation.html#random-numbers-and-probability-distributions"><i class="fa fa-check"></i><b>5.2</b> Random numbers and probability distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#monte-carlo-integration-example"><i class="fa fa-check"></i><b>5.3</b> Monte Carlo integration (example)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphics-in-r-exploratory-learning.html"><a href="graphics-in-r-exploratory-learning.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (exploratory learning)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="graphics-in-r-exploratory-learning.html"><a href="graphics-in-r-exploratory-learning.html#base"><i class="fa fa-check"></i><b>6.1</b> <code>base</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html"><i class="fa fa-check"></i><b>7</b> Mathematical Methods in Finance</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-binomial-model"><i class="fa fa-check"></i><b>7.2</b> The binomial model</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#one-period-binomial-model"><i class="fa fa-check"></i><b>7.2.1</b> One-period binomial model</a></li>
+<li class="chapter" data-level="7.2.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#multiperiod-binomial-model"><i class="fa fa-check"></i><b>7.2.2</b> Multiperiod binomial model</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-black-scholes-model"><i class="fa fa-check"></i><b>7.3</b> The Black-Scholes model</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#preliminars-brownian-motion"><i class="fa fa-check"></i><b>7.3.1</b> Preliminars: Brownian motion</a></li>
+<li class="chapter" data-level="7.3.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-black-scholes-formula"><i class="fa fa-check"></i><b>7.3.2</b> The Black-Scholes formula</a></li>
+<li class="chapter" data-level="7.3.3" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#greeks"><i class="fa fa-check"></i><b>7.3.3</b> Greeks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exercises.html"><a href="exercises.html#related-to-chapters-1-to-6"><i class="fa fa-check"></i><b>8.1</b> Related to Chapters 1 to 6</a></li>
+<li class="chapter" data-level="8.2" data-path="exercises.html"><a href="exercises.html#related-to-chapter-7"><i class="fa fa-check"></i><b>8.2</b> Related to Chapter 7</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Mathematical Methods in Finance</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="exercises" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Exercises<a href="exercises.html#exercises" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="related-to-chapters-1-to-6" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Related to Chapters 1 to 6<a href="exercises.html#related-to-chapters-1-to-6" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>1</strong>. Write an R code to determine the result of the following computation:</p>
+<p><span class="math display">\[
+e^{\pi}\left( \log_2(10) + \frac{5^2 + \sin(8)}{\sqrt{2}}\right)^{-3} \,.
+\]</span></p>
+<p><strong>2</strong>. Without using R, determine the result of the following logical computation</p>
+<pre><code>((!(4 == 3) | (abs(-3) &lt;= 2)) &amp; ((2^2 &gt; 4) &amp; (TRUE))) | ((!FALSE | (4+2) == 5) &amp; (0.5 &gt;= (1/2)))</code></pre>
+<p>Verify your result by typing the code in R.</p>
+<p><strong>3</strong>. Find the errors in the following lines of code:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\,\)</span></li>
+</ol>
+<pre><code>2 +     3 *4 + sqrt[100]
+</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\,\)</span></li>
+</ol>
+<pre><code>(2 + i)  / 3  + {1e1 + 4.0i}
+</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\,\)</span></li>
+</ol>
+<pre><code>time.To.Maturity &lt;- 6
+Interest.rate &lt;- 0.05
+{1e-0 + interest.rate}^{-time.To.Maturity}</code></pre>
+<p><strong>4</strong>. Without using R, determine the result of the following computation:</p>
+<pre><code>x &lt;- c(1, 2, 3)
+x[2] / x[2]^2 - 1 + 3 * x[3] - x[2 - 1]</code></pre>
+<p>Verify your result by typing the code in R.</p>
+<p><strong>5</strong>. Write an R code to calculate the amount of money owed after <span class="math inline">\(n\)</span> years, where <span class="math inline">\(n\)</span> varies from <span class="math inline">\(1\)</span> to <span class="math inline">\(10\)</span> in yearly increments, assuming that the money lent originally is <span class="math inline">\(2350\)</span> and the interest rate remains constant throughout the period at <span class="math inline">\(5\%\)</span>.</p>
+<p><strong>6</strong>. Consider the vector <code>1:N</code>, where <code>N</code> is a positive integer. Write an R code that determines how many elements in the vector are exactly divisible by <span class="math inline">\(4\)</span>. Test your code with <code>N &lt;- 40</code>.</p>
+<p><strong>7</strong>. Compute the mean of:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(v=(0, 1, NA, 2, 7).\)</span></li>
+<li><span class="math inline">\(u=(-Inf, 0, 1, NA, 2, 7, Inf).\)</span></li>
+</ol>
+<p><strong>8</strong>. Create:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>a vector with values <span class="math inline">\(e^x\cos(x)\)</span> at <span class="math inline">\(x=3, 3.1, 3.2, \ldots, 6.\)</span></p></li>
+<li><p>a vector with values <span class="math inline">\(\left(2,\frac{2^2}{2},\frac{2^3}{3}, \ldots, \frac{2^{25}}{25}\right).\)</span></p></li>
+</ol>
+<p><strong>9</strong>. Compute:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p><span class="math display">\[\sum_{j=10}^{100}{j^3+4j^2}.\]</span></p></li>
+<li><p><span class="math display">\[\sum_{j=1}^{25}{\frac{2^j}{j}+\frac{3^j}{j^2}}.\]</span></p></li>
+</ol>
+<p><strong>10</strong>. Create the vectors:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\((1,2,3,\ldots,19,20)\)</span>.</li>
+<li><span class="math inline">\((20,19,\ldots,2,1)\)</span>.</li>
+<li><span class="math inline">\((1,2,3,\ldots,19,20,19,18,\ldots,2,1)\)</span>.</li>
+<li><span class="math inline">\((1,2,3, 1,2,3,\ldots,1,2,3)\)</span> where there are 10 occurrences of 1.</li>
+<li><span class="math inline">\((1,1,\ldots,1, 2,2,\ldots,2, 3,3,\ldots,3)\)</span> where there are 10 occurrences of 1, 20 occurrences of 2 and 30 occurrences of 3.</li>
+<li><span class="math inline">\((0.1^30.2^1,0.1^60.2^4,\ldots,0.1^{36}0.2^{34})\)</span>.</li>
+</ol>
+<p><strong>11</strong>. Use the function <code>paste</code> to create the following character vector of length 20:</p>
+<p><span class="math display">\[
+\left(\text{&quot;label 1&quot;},\text{&quot;label 2&quot;},\ldots,\text{&quot;label 20&quot;}\right)
+\]</span></p>
+<p><strong>12</strong>. Set the vector <code>v2</code> equal to the following: “A” “A” “B” “B” “C” “C” “D” “D” “E” “E” (note the letters are all uppercase).</p>
+<p><strong>13</strong>. Set the vector <code>v3</code> equal to the following: “a” “b” “c” “d” “e” “a” “b” “c” “d” “e” (note the letters are all lowercase).</p>
+<p><strong>14</strong>. Set the vector <code>v4</code> equal to the words “dog” 10 times, “cat” 9 times, “fish” 6 times, and “fox” 1 time.</p>
+<p><strong>15</strong>. Run the following lines:</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="exercises.html#cb133-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">50</span>)</span>
+<span id="cb133-2"><a href="exercises.html#cb133-2" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">999</span>, <span class="dv">250</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb133-3"><a href="exercises.html#cb133-3" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">999</span>, <span class="dv">250</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Explain the meaning of x and y.</p></li>
+<li><p>Denote by <span class="math inline">\(x_i\)</span> and <span class="math inline">\(y_i\)</span> the entries of the vectors <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, respectively. Create vectors <span class="math inline">\((y_2-x_1,\ldots,y_n-x_{n-1})\)</span> and <span class="math inline">\(\left(\frac{\sin(y_1)}{\cos(x_2)},\ldots,\frac{\sin(y_{n-1})}{\cos(x_n)}\right).\)</span></p></li>
+<li><p>Compute <span class="math display">\[ \sum_{i=1}^{n-1}\frac{e^{-x_{i+1}}}{x_i+10}.\]</span></p></li>
+<li><p>Denote by <span class="math inline">\(\overline{x}\)</span> the mean of the vector <span class="math inline">\(x\)</span> and compute <span class="math display">\[\sum_{i=1}^n|x_i-\bar{x}|^{1/2}.\]</span></p></li>
+<li><p>Extract the values of <span class="math inline">\(x\)</span> which correspond to the values of <span class="math inline">\(y\)</span> which are <span class="math inline">\(&gt; 500\)</span>.</p></li>
+<li><p>How many values of <span class="math inline">\(x\)</span> are above the mean of <span class="math inline">\(y\)</span>?</p></li>
+<li><p>How many values of <span class="math inline">\(x\)</span> are smaller than the minimum value of <span class="math inline">\(y\)</span>?</p></li>
+<li><p>How many values of <span class="math inline">\(x\)</span> are divisible by <span class="math inline">\(2\)</span>?</p></li>
+<li><p>Extract the 1st minimum value of <span class="math inline">\(x\)</span>, the 4th minimum value of <span class="math inline">\(x\)</span>, the 7th minimum value of <span class="math inline">\(x\)</span>, etc.</p></li>
+</ol>
+<p><strong>16</strong>. Create a random sequence of length 100 taking values “low”, “medium” and “high”. Consult the help of <code>sample</code>.</p>
+<p><strong>17</strong>. Create a vector containing the following student grades: 70, 80, 55, 67, 90, 92, 83, 74, 100, 87, 49. Using logical operators and vector functions, answer the following question:</p>
+<ol style="list-style-type: lower-alpha">
+<li>What is the average grade of the whole group?</li>
+<li>How many students have grades less than 65?</li>
+<li>What is the average grade of those students with grades between 60 and 80 (including 60 and 80)?</li>
+<li>Assume that we add three new students with grades 65, 98, 54. Repeat questions a)-c) with the new vector of grades.</li>
+</ol>
+<p><strong>18</strong>. Write an R program to compute the alternating harmonic series
+<span class="math display">\[
+1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + \cdots = \sum_{n = 1}^{\infty } \frac{(-1)^{n-1}}{n} \,,
+\]</span>
+up to a finite number of summands <span class="math inline">\(N\)</span>. Test your code with <span class="math inline">\(N = 100\)</span> and compare with <span class="math inline">\(\log(2)\)</span>.</p>
+<p><strong>19</strong>. The function <code>cov()</code> computer the sample covariance of two vectors. Recall that for two vectors <span class="math inline">\(\mathbf{x} = (x_1, \dots, x_n)\)</span> and <span class="math inline">\(\mathbf{y} = (y_1, \dots, y_n)\)</span> the sample covariance is given by
+<span class="math display">\[
+\mbox{Cov}(\mathbf{x}, \mathbf{y}) = \frac{1}{n-1} \sum_{i = 1}^{n} (x_i - \bar{x})(y_i - \bar{y})
+\]</span>
+Write an R program to compute the sample correlation without using the <code>cov()</code> function.
+Test your code with the following vectors: <code>x &lt;- c(1, 2, 3, 4)</code> and <code>y &lt;- c(2, 2, 3, 5)</code>.
+Verify your result using <code>cov(x, y)</code>.</p>
+<p><strong>20</strong>. Create three vectors of length 3, with content and names of your choice. Next, combine the three vectors into a <span class="math inline">\(3 \times 3\)</span> matrix where each column represents one of your vectors. Finally, compute the determinant (<code>det()</code> - is your matrix invertible?) and the transpose of your matrix.</p>
+<p><strong>21</strong>. Consider the following matrix:</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb134-1"><a href="exercises.html#cb134-1" tabindex="-1"></a><span class="fu">matrix</span>(<span class="fu">c</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">1</span>), <span class="fu">c</span>(<span class="dv">0</span>, <span class="sc">-</span><span class="dv">1</span>, <span class="fl">0.5</span>), <span class="fu">c</span>(<span class="fl">1.5</span>, <span class="fl">0.2</span>, <span class="sc">-</span><span class="dv">2</span>)), <span class="at">ncol =</span> <span class="dv">3</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,] -4.0  2.0  1.0
+## [2,]  0.0 -1.0  0.5
+## [3,]  1.5  0.2 -2.0</code></pre>
+<p>Compute the sum of rows (that is, you have to return a vector of length three with first entry -1) via the following three methods:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Using the <code>rowSums()</code> function (see help for more information).</li>
+<li>Using the <code>apply()</code> function.</li>
+<li>Using matrix multiplication. <em>Hint</em>: This can be done by multiplying the above matrix with an appropriate vector.</li>
+</ol>
+<p><strong>22</strong>. Write an R program to:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Create a numeric vector called <code>rates</code> with values: 0.043, 0.045, 0.041, 0.049, 0.05, 0.055, 0.048, 0.0495, 0.051, 0.044, 0.045, 0.0455.</li>
+<li>Create a character vector called <code>months</code> with values: “Jan”, “Feb”, “Mar”, “Apr”, “May”, “Jun”, “Jul”, “Aug”, “Sep”, “Oct”, “Nov”, “Dec”.</li>
+<li>Create a data frame called <code>monthly_rates</code> using <code>months</code> and <code>rates</code>.</li>
+<li>Add a new column to your data frame called <code>year</code> with values 2021 for all rows.</li>
+<li>Extract the rows where the rates are above 5%.</li>
+<li>Extract the rows where the rates are below the mean of the whole year.</li>
+</ol>
+<p><strong>23</strong>. Assume a group of students with ages</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="exercises.html#cb136-1" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">18</span>, <span class="dv">20</span>, <span class="dv">18</span>, <span class="dv">19</span>, <span class="dv">19</span>, <span class="dv">20</span>)</span></code></pre></div>
+<p>and grades</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="exercises.html#cb137-1" tabindex="-1"></a>grade <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">90</span>, <span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">87</span>, <span class="dv">74</span>, <span class="dv">93</span>, <span class="dv">100</span>, <span class="dv">66</span>, <span class="dv">71</span>, <span class="dv">89</span>)</span></code></pre></div>
+<p>Let us imagine that we want to compute the average grade by age. We can use the <code>tapply()</code> function to do so.
+Look at the documentation of <code>tapply()</code> (<code>?tapply</code>) and solve the above problem.</p>
+<p><strong>24</strong>. Consider the matrix</p>
+<p><span class="math display">\[A = \begin{bmatrix}
+    1  &amp; 1  &amp; 3 \\
+    5  &amp; 2  &amp; 6 \\
+    -2 &amp; -1 &amp; -3
+\end{bmatrix}\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Verify that <span class="math inline">\(A^3=0\)</span>.</p></li>
+<li><p>Replace the third column by the sum of column 1 and column 2.</p></li>
+</ol>
+<p><strong>25</strong>. Consider the matrix</p>
+<p><span class="math display">\[ M = \begin{bmatrix}
+33 &amp; 51 &amp; 60    \\[0.3em]
+20 &amp; 35 &amp; 17    \\[0.3em]
+15 &amp; 27 &amp; 24    \\[0.3em]
+15 &amp; 21 &amp; 28    \\[0.3em]
+14 &amp; 25 &amp; 29    \\[0.3em]
+10 &amp; 53 &amp; 24    \\[0.3em]
+\end{bmatrix},\]</span></p>
+<p>and replace even numbers by <span class="math inline">\(-1\)</span>.</p>
+<p><strong>26</strong>. Solve the linear system</p>
+<p><span class="math display">\[\begin{cases}
+2y+x-z=1\\
+2z-x-y=0\\
+x+1+y+2z=1
+\end{cases}\]</span></p>
+<p><strong>27</strong>. Run the following lines:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb138-1"><a href="exercises.html#cb138-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">75</span>)</span>
+<span id="cb138-2"><a href="exercises.html#cb138-2" tabindex="-1"></a><span class="sc">&gt;</span> M <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">sample</span>(<span class="dv">10</span>, <span class="at">size =</span> <span class="dv">60</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>), <span class="at">nrow =</span> <span class="dv">6</span>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li><p>Explain the output.</p></li>
+<li><p>Find the number of entries in each row which are greater than 4.</p></li>
+<li><p>Which rows contain exactly two occurrences of the number 7?</p></li>
+<li><p>Denote by <span class="math inline">\(M_{i,j}\)</span> the entries of the <span class="math inline">\(n\times m\)</span> matrix <span class="math inline">\(M\)</span> and compute the following means and sums of squares:
+<span class="math display">\[\begin{align*}
+  \mu&amp;=\frac{1}{n\times m}\sum_{i,j}M_{i,j}\\
+  \mu_i&amp;=\frac{1}{m}\sum_{j}M_{i,j},\quad i=1,\ldots,n\\
+  SS_1&amp;=\sum_i (\mu-\mu_i)^2\\
+  SS_2&amp;=\sum_{i,j}(M_{i,j}-\mu_i)^2\\
+  SS_3&amp;=\sum_{i,j}(M_{i,j}-\mu)^2
+\end{align*}\]</span></p></li>
+</ol>
+<p><strong>28</strong>. Install and load the package <code>DAAG</code>. Execute:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Type <code>library(help="DAAG")</code> to get the information on this package.</p></li>
+<li><p>Consider the dataset <code>carprice</code>and apply the convenient <code>R</code> command to check the structure of the dataset.</p></li>
+<li><p>Set a name for <code>carprice</code>, say <code>x</code>.</p></li>
+<li><p>Explain the meaning of <code>table(x$Type)</code>.</p></li>
+<li><p>Replace all column names.</p></li>
+<li><p>Compute the mean, variance, standard deviation, range, maximum and minimum of the maximum price variable.</p></li>
+<li><p>Drop all the rows with maximum price higher than 24.8 m.u.</p></li>
+<li><p>Drop all the rows with minimum price lower than 14.0 m.u.</p></li>
+</ol>
+<p><strong>29</strong>. Create a list with information about 3 workers as follows:</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>The list should have 4 vectors as components: name, age, gender and a boolean variable (it assumes values 0 or 1 that defines whether the person works or not).</p></li>
+<li><p>Create a data frame with the information from the previous list.</p></li>
+<li><p>Add a vector to the previous data frame with information about the person’s job.</p></li>
+<li><p>Compute the mean, variance, standard deviation, range, maximum and minimum of the age.</p></li>
+</ol>
+<p><strong>30</strong>. Run the following lines:</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="exercises.html#cb139-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">75</span>)</span>
+<span id="cb139-2"><a href="exercises.html#cb139-2" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb139-3"><a href="exercises.html#cb139-3" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">10</span>, <span class="at">size =</span> <span class="dv">10</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<ol style="list-style-type: lower-alpha">
+<li>Create a list whose elements are the vectors <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> with names “sample1” and “sample2”, respectively.</li>
+<li>Create a list with the mean and standard deviation of each sample.</li>
+</ol>
+<p><strong>31</strong>. Create a list:</p>
+<ol style="list-style-type: lower-alpha">
+<li>with years from 2005 to 2016, 12 months and 31 days.</li>
+<li>replace year by <code>c(2000:2010)</code>.</li>
+<li>delete the value 4 of the month.</li>
+</ol>
+<p><strong>32</strong>. Write a function called <code>my_add</code> that adds two numbers (<code>x</code> and <code>y</code>) together and returns the results. Run <code>my_add(5,7)</code>.</p>
+<p><strong>33</strong>. Copy the function <code>my_add</code> above and add an error message that returns “x and y must be numbers” if <code>x</code> or <code>y</code> are not both numbers.</p>
+<p><strong>34</strong>.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Write a function that accepts a numerical vector <span class="math inline">\((x_1,x_2,\ldots,x_n)\)</span> as argument and returns the vector <span class="math display">\[\left(x_1,\frac{x_2^2}{2},\ldots,\frac{x_n^n}{n}\right).\]</span> Run for <code>1:4</code>.</p></li>
+<li><p>Write a function that accepts a single number <span class="math inline">\(x\)</span> and a positive integer <span class="math inline">\(n\)</span> and returns the sum <span class="math display">\[1+x+\frac{x^2}{2}+\frac{x^3}{3}+\cdots+\frac{x^n}{n}.\]</span> Run for <span class="math inline">\(x=\sqrt{2}\)</span> and <span class="math inline">\(n=5\)</span>.</p></li>
+<li><p>Write a function which takes a matrix as single argument and returns a matrix which is the same as the function argument but every odd entry is doubled. Run for <code>matrix(sample(1:10),2,5)</code>.</p></li>
+<li><p>Write a function to convert the temperature measured in Celsius (°C) to Fahrenheit (°F). Check that <code>f.d(0) = 32</code> and <code>f.d(-40) = -40</code>.</p></li>
+<li><p>Write a function that takes a single integer argument <span class="math inline">\(n\)</span> and returns the sum of its divisors, e.g., if <span class="math inline">\(n=6\)</span>, then the function returns <span class="math inline">\(1+2+3+6\)</span>.</p></li>
+<li><p>Write a function that takes arguments <span class="math inline">\(a,b,c\in\mathbb{R}\)</span> and returns the roots of the polynomial <span class="math inline">\(ax^2+bx+c\)</span>. The output should be a list containing the two roots. In case the roots are complex conjugated, the output of each root should be a list of its real and imaginary parts. Find the solutions of <span class="math inline">\(x^2-4x+4=0\)</span> and <span class="math inline">\(3x^2-x+4=0\)</span>.</p></li>
+</ol>
+<p><strong>35</strong>. Consider the function</p>
+<p><span class="math display">\[
+f(x)=\begin{cases}
+2e^{-2x}, &amp; x \geq 0 \\
+0, &amp; x&lt;0
+\end{cases}.
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Show that <span class="math inline">\(f\)</span> is a density probability function (dpf).</p></li>
+<li><p>Let <span class="math inline">\(X\)</span> be a r.v. with dpf <span class="math inline">\(f\)</span> and compute <span class="math inline">\(P(X&gt;1)\)</span>. Show the value with 2 decimal places.</p></li>
+<li><p>Compute <span class="math inline">\(P(0.3&lt;X&lt;0.7)\)</span>. Show the value with 3 decimal places.</p></li>
+<li><p>Compute <span class="math inline">\(E[X]\)</span>. Show the value with 1 decimal place.</p></li>
+</ol>
+<p><strong>36</strong>. Plot a graphic of <span class="math inline">\(f(x)=1-\frac{1}{x}sin(x)\)</span> for <span class="math inline">\(0&lt;x&lt;5\)</span> and for <span class="math inline">\(0&lt;x&lt;50\)</span>.</p>
+<p><strong>37</strong>. Consider a random variable <span class="math inline">\(X\)</span> with probability density function (pdf)</p>
+<p><span class="math display">\[
+    f_X(x)=\frac{x}{4}e^{-\frac{x^2}{8}},\,\,\,x\geq 0
+\]</span></p>
+<ol style="list-style-type: lower-alpha">
+<li>Write an R function to compute the above pdf.</li>
+<li>Check whether this function is indeed a pdf (i.e., that it integrates 1) by:</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>A sum approximation of the form <span class="math inline">\(\sum f(x_i) \Delta(x)\)</span>, where <span class="math inline">\(\Delta(x)\)</span> is a “small” increment. <em>Hint</em>: create a sequence vector (over a relatively large interval and with a small increment), evaluate your function in a) on the sequence vector, multiply the evaluation by the increment and finally sum.</li>
+<li>Using the <code>integrate(f, lower, upper)</code> function. <em>Note</em>: <code>$value</code> gives the value of the integral.</li>
+</ol>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Compute the expected value and the variance of <span class="math inline">\(X\)</span>.</li>
+<li>Modify your function in a) so that an error message is displayed if a negative value is given as input.</li>
+</ol>
+<p><strong>38</strong>. We know that
+<span class="math display">\[
+    1 + \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots  = \sum_{n=0}^{\infty} \frac{1}{2^n} = 2 \,.
+\]</span>
+Using a <code>while</code> loop, find a value <span class="math inline">\(N\)</span> such that
+<span class="math display">\[
+     2 - \sum_{n=0}^{N} \frac{1}{2^n} \leq \epsilon \,,
+\]</span>
+where <span class="math inline">\(\epsilon = 0.00001\)</span>.</p>
+<p><strong>39</strong>. Write a function that performs the inner product of two vectors using for loops.
+Using <code>microbenchmark()</code> compare the performance of your implementation with the inner product using the <code>%*%</code> operator. Try with large vectors, let’s say length 100, and <code>times = 10000</code>.</p>
+<p><strong>40</strong>. Consider the data set “EuStockMarkets” in R corresponding to the “Daily Closing Prices of Major European Stock Indices, 1991-1998”.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Write an R program to plot a histogram of “DAX”. <em>Note</em>: to access “DAX” use EuStockMarkets[, 1].</p></li>
+<li><p>Compute the log-returns of “DAX”. Recall that the log-returns are computed as</p></li>
+</ol>
+<p><span class="math display">\[
+\log(P_t/P_{t-1}) \,,
+\]</span>
+where <span class="math inline">\(P_t\)</span> are the closing prices.</p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li><p>Compute the mean and standard deviation of the log-returns.</p></li>
+<li><p>Plot a histogram of the log-returns.</p></li>
+<li><p>In your plot in d), add the density function of a normal distributed random variable with mean and standard deviation the values computed in c).</p></li>
+<li><p>Plot “DAX” versus “SMI” and compute their correlation.</p></li>
+</ol>
+<p><strong>41</strong>. Let <span class="math inline">\(X\)</span> be a normal random variable with mean <span class="math inline">\(2\)</span> and variance <span class="math inline">\(9\)</span>, that is, <span class="math inline">\(X\sim\mathcal{N}(2,9)\)</span>. Compute:</p>
+<ol style="list-style-type: lower-alpha">
+<li><span class="math inline">\(\mathbb{P}(|X|\leq 2.4)\)</span>.</li>
+<li>The 95% quantile of the given distribution.</li>
+</ol>
+<p><strong>42</strong>. Consider the <code>cars</code> data set in R.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Compute the correlation between <code>speed</code> and <code>dist</code>, and create a scatter plot to compare <code>speed</code> vs <code>dist</code>. Do you see any relationship?</li>
+<li>Fit a linear regression model to explain distance in terms of speed.</li>
+<li>Add the regression line to your plot in a). <em>Hint:</em> this can be done using the <code>abline()</code> function applied to your regression model in b).</li>
+<li>Predict <code>dist</code> for values of <code>speed</code> of 28 and 30.</li>
+<li>Does the model seem to satisfy the assumptions of mean zero, constant variance, and normality for the residuals?</li>
+</ol>
+</div>
+<div id="related-to-chapter-7" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Related to Chapter 7<a href="exercises.html#related-to-chapter-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>43</strong>. A stock price is currently 20. It is known that at the end of 1 year it will go up by 10% or down by 5%. The risk-free interest rate is 8% per annum with annual compounding. Write the R code to find the initial value of a 1-year European put option with a strike of 20.</p>
+<p><strong>44</strong>. A stock price is currently 40. It is known that at the end of 9 months, it will either be 45 or 35. The risk-free interest rate with continuous compounding is 10% per annum.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Write the R code to find the initial value of a 9-month European call option on the stock with an exercise price of 40.</p></li>
+<li><p>Describe the hedging portfolio for the option.</p></li>
+</ol>
+<p><strong>45</strong>. A stock price is currently 30. Over each of the next two 4-month periods, it is expected to go up by 8% or down by 10%. The risk-free interest rate is 12% per annum with quarterly compounding.
+Write an R code to find the initial value of an 8-month European call option with a strike price of 34.</p>
+<p><strong>46</strong>. A stock price is currently 100. During each three-month period for the next six months, it will increase by 10% or decrease by 10%. The risk-free interest rate is 8% per annum with quarterly compounding.</p>
+<ol style="list-style-type: lower-alpha">
+<li>Write an R program that gives the binomial tree evolution of the stock price.</li>
+<li>Write an R code to find the initial value of a six-month European put option with strike K = 105.</li>
+</ol>
+<p><strong>47</strong>. A stock is currently priced at 30. Over each of the next two 2-month periods, it is expected to increase by 8% or decrease by 10%. The risk-free interest rate is 10% per annum with continuous compounding. What is the initial value of a 4-month derivative with strike <span class="math inline">\(K = 30\)</span> and that pays off <span class="math inline">\(X = \max(S_T^2 -K,0)\)</span>, where <span class="math inline">\(S_T\)</span> is the stock price in four months?</p>
+<p><strong>48</strong>. A stock price is currently 40. In two months, it will either be 42 or 38, and during this period, the risk-free interest rate is 6% per annum with monthly compounding. If it rises to 42 in two months, then it will either be 48 or 40 after another two months. If it drops to 38 after the first two months, then after another two months, it will either be 42 or 34. The risk-free interest rate is 10% per annum with monthly compounding during the second two-month period. Write an R program to calculate the initial value of a derivative that pays off <span class="math inline">\(\frac{1}{2}\left(\max(44 - S_T, 0 )\right)^2\)</span>, where <span class="math inline">\(S_T\)</span> is the stock price in four months.</p>
+<p><strong>49</strong>. It is known that for any <span class="math inline">\(a \in \mathbb{R}\)</span>, the standard Brownian motion satisfies that <span class="math inline">\(W(t) &gt; a\)</span> with probability 1 for some <span class="math inline">\(t&gt;0\)</span>. Note that in the lecture notes, we simulated a standard BM over a fixed time period <span class="math inline">\(T\)</span>. In this exercise, we let the time vary, and we fix a threshold <span class="math inline">\(a &gt;0\)</span>, then simulate a standard BM until it reaches the given threshold. Write an R program to plot one trajectory of a standard Brownian motion until it reaches <span class="math inline">\(a = 1\)</span>. <em>Hint</em>: Use a while loop to generate normal distributed increments until the condition is satisfied.</p>
+<p><strong>50</strong>. Via simulations, approximate the probability that an arithmetic Brownian motion with drift 0.5 and volatility 0.1 is above 1 at time 2. Compare your result with the theoretical probability.</p>
+<p><strong>51</strong>. Consider a European put option on a non-dividend-paying stock with current price is 40. The strike price is 38, the risk-free interest rate is 12% per annum with continuous compounding, the volatility is 30% per annum, and the time to maturity is three months:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Find the price of the option using the BS formula.</li>
+<li>Approximate the price of the option using simulations (10000).</li>
+<li>Approximate the option’s price using a binomial model with 1000 steps.</li>
+</ol>
+<p><strong>52</strong>. A stock has current price <span class="math inline">\(S(0) = 1416\)</span>. What is the value of an 8-month European call option on that stock with a strike price of <span class="math inline">\(1450\)</span> if the volatility is 0.42 and the risk-free interest rate is 5% per annum with continuous compounding? Find the greeks for the corresponding option. Plot vega again the initial stock price <span class="math inline">\(S(0)\)</span> ranging from 0.5 to 2000.</p>
+<p> </p>
+<p><strong>Copyright: All rights reserved. No parts of the content of this website may be reproduced or distributed without the prior written permission of the author. Without prior written permission, it is not permitted to copy, download or reproduce the text, code, and images in any way whatsoever.</strong></p>
+<p style="text-align: left;">
+<span>2024 <span class="math inline">\(|\)</span> Nuno M. Brites <span class="math inline">\(|\)</span> <a href="mailto:nbrites@iseg.ulisboa.pt" class="email">nbrites@iseg.ulisboa.pt</a></span>
+</p>
+<p> </p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="mathematical-methods-in-finance.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

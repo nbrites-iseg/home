@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Graphics in R (exploratory learning) | Mathematical Methods in Finance</title>
+  <meta name="description" content="6 Graphics in R (exploratory learning) | Mathematical Methods in Finance" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Graphics in R (exploratory learning) | Mathematical Methods in Finance" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Graphics in R (exploratory learning) | Mathematical Methods in Finance" />
+  
+  
+  
+
+<meta name="author" content="Nuno M. Brites" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="simulation.html"/>
+<link rel="next" href="mathematical-methods-in-finance.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html"><i class="fa fa-check"></i><b>1</b> R and RStudio</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#about-r-and-rstudio"><i class="fa fa-check"></i><b>1.1</b> About R and RStudio</a></li>
+<li class="chapter" data-level="1.2" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#installing-r-and-rstudio"><i class="fa fa-check"></i><b>1.2</b> Installing R and RStudio</a></li>
+<li class="chapter" data-level="1.3" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#the-prompt"><i class="fa fa-check"></i><b>1.3</b> The prompt</a></li>
+<li class="chapter" data-level="1.4" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#assignments"><i class="fa fa-check"></i><b>1.4</b> Assignments</a></li>
+<li class="chapter" data-level="1.5" data-path="r-and-rstudio.html"><a href="r-and-rstudio.html#rules-for-defining-variables"><i class="fa fa-check"></i><b>1.5</b> Rules for defining variables</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="r-basics.html"><a href="r-basics.html"><i class="fa fa-check"></i><b>2</b> R basics</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="r-basics.html"><a href="r-basics.html#basic-operations"><i class="fa fa-check"></i><b>2.1</b> Basic operations</a></li>
+<li class="chapter" data-level="2.2" data-path="r-basics.html"><a href="r-basics.html#precision"><i class="fa fa-check"></i><b>2.2</b> Precision</a></li>
+<li class="chapter" data-level="2.3" data-path="r-basics.html"><a href="r-basics.html#infinity-or-not-defined-and-missings"><i class="fa fa-check"></i><b>2.3</b> Infinity or not defined, and missings</a></li>
+<li class="chapter" data-level="2.4" data-path="r-basics.html"><a href="r-basics.html#important-commands"><i class="fa fa-check"></i><b>2.4</b> Important commands</a></li>
+<li class="chapter" data-level="2.5" data-path="r-basics.html"><a href="r-basics.html#internal-help-function"><i class="fa fa-check"></i><b>2.5</b> Internal help function</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-structures.html"><a href="data-structures.html"><i class="fa fa-check"></i><b>3</b> Data structures</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="data-structures.html"><a href="data-structures.html#vector"><i class="fa fa-check"></i><b>3.1</b> Vector</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="data-structures.html"><a href="data-structures.html#constructing-vectors"><i class="fa fa-check"></i><b>3.1.1</b> Constructing vectors</a></li>
+<li class="chapter" data-level="3.1.2" data-path="data-structures.html"><a href="data-structures.html#index-and-logical-index"><i class="fa fa-check"></i><b>3.1.2</b> Index and logical index</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="data-structures.html"><a href="data-structures.html#matrix"><i class="fa fa-check"></i><b>3.2</b> Matrix</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="data-structures.html"><a href="data-structures.html#constructing-matrices"><i class="fa fa-check"></i><b>3.2.1</b> Constructing matrices</a></li>
+<li class="chapter" data-level="3.2.2" data-path="data-structures.html"><a href="data-structures.html#index-and-logical-index-1"><i class="fa fa-check"></i><b>3.2.2</b> Index and logical index</a></li>
+<li class="chapter" data-level="3.2.3" data-path="data-structures.html"><a href="data-structures.html#properties-of-vectors-and-matrices"><i class="fa fa-check"></i><b>3.2.3</b> Properties of vectors and matrices</a></li>
+<li class="chapter" data-level="3.2.4" data-path="data-structures.html"><a href="data-structures.html#naming-rows-and-columns-in-a-matrix"><i class="fa fa-check"></i><b>3.2.4</b> Naming rows and columns in a matrix</a></li>
+<li class="chapter" data-level="3.2.5" data-path="data-structures.html"><a href="data-structures.html#matrix-multiplication"><i class="fa fa-check"></i><b>3.2.5</b> Matrix multiplication</a></li>
+<li class="chapter" data-level="3.2.6" data-path="data-structures.html"><a href="data-structures.html#additional-functions"><i class="fa fa-check"></i><b>3.2.6</b> Additional functions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="data-structures.html"><a href="data-structures.html#simple-functions"><i class="fa fa-check"></i><b>3.3</b> Simple Functions</a></li>
+<li class="chapter" data-level="3.4" data-path="data-structures.html"><a href="data-structures.html#default-arguments"><i class="fa fa-check"></i><b>3.4</b> Default arguments</a></li>
+<li class="chapter" data-level="3.5" data-path="data-structures.html"><a href="data-structures.html#integrals-and-derivatives"><i class="fa fa-check"></i><b>3.5</b> Integrals and derivatives</a></li>
+<li class="chapter" data-level="3.6" data-path="data-structures.html"><a href="data-structures.html#simple-plots"><i class="fa fa-check"></i><b>3.6</b> Simple plots</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="data-structures.html"><a href="data-structures.html#histogram-and-boxplot"><i class="fa fa-check"></i><b>3.6.1</b> Histogram and boxplot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html"><i class="fa fa-check"></i><b>4</b> Loops and flow control</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#loops-with-for"><i class="fa fa-check"></i><b>4.1</b> Loops with <code>for</code></a></li>
+<li class="chapter" data-level="4.2" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#flow-control-if-and-if-else-statements"><i class="fa fa-check"></i><b>4.2</b> Flow control: if and if else statements</a></li>
+<li class="chapter" data-level="4.3" data-path="loops-and-flow-control.html"><a href="loops-and-flow-control.html#while-loop-example"><i class="fa fa-check"></i><b>4.3</b> While loop example</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>5</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="simulation.html"><a href="simulation.html#the-set.seedfunction"><i class="fa fa-check"></i><b>5.1</b> The <code>set.seed()</code>function</a></li>
+<li class="chapter" data-level="5.2" data-path="simulation.html"><a href="simulation.html#random-numbers-and-probability-distributions"><i class="fa fa-check"></i><b>5.2</b> Random numbers and probability distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="simulation.html"><a href="simulation.html#monte-carlo-integration-example"><i class="fa fa-check"></i><b>5.3</b> Monte Carlo integration (example)</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="graphics-in-r-exploratory-learning.html"><a href="graphics-in-r-exploratory-learning.html"><i class="fa fa-check"></i><b>6</b> Graphics in R (exploratory learning)</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="graphics-in-r-exploratory-learning.html"><a href="graphics-in-r-exploratory-learning.html#base"><i class="fa fa-check"></i><b>6.1</b> <code>base</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html"><i class="fa fa-check"></i><b>7</b> Mathematical Methods in Finance</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#introduction"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-binomial-model"><i class="fa fa-check"></i><b>7.2</b> The binomial model</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#one-period-binomial-model"><i class="fa fa-check"></i><b>7.2.1</b> One-period binomial model</a></li>
+<li class="chapter" data-level="7.2.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#multiperiod-binomial-model"><i class="fa fa-check"></i><b>7.2.2</b> Multiperiod binomial model</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-black-scholes-model"><i class="fa fa-check"></i><b>7.3</b> The Black-Scholes model</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#preliminars-brownian-motion"><i class="fa fa-check"></i><b>7.3.1</b> Preliminars: Brownian motion</a></li>
+<li class="chapter" data-level="7.3.2" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#the-black-scholes-formula"><i class="fa fa-check"></i><b>7.3.2</b> The Black-Scholes formula</a></li>
+<li class="chapter" data-level="7.3.3" data-path="mathematical-methods-in-finance.html"><a href="mathematical-methods-in-finance.html#greeks"><i class="fa fa-check"></i><b>7.3.3</b> Greeks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="exercises.html"><a href="exercises.html"><i class="fa fa-check"></i><b>8</b> Exercises</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="exercises.html"><a href="exercises.html#related-to-chapters-1-to-6"><i class="fa fa-check"></i><b>8.1</b> Related to Chapters 1 to 6</a></li>
+<li class="chapter" data-level="8.2" data-path="exercises.html"><a href="exercises.html#related-to-chapter-7"><i class="fa fa-check"></i><b>8.2</b> Related to Chapter 7</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Mathematical Methods in Finance</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="graphics-in-r-exploratory-learning" class="section level1 hasAnchor" number="6">
+<h1><span class="header-section-number">6</span> Graphics in R (exploratory learning)<a href="graphics-in-r-exploratory-learning.html#graphics-in-r-exploratory-learning" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="base" class="section level2 hasAnchor" number="6.1">
+<h2><span class="header-section-number">6.1</span> <code>base</code><a href="graphics-in-r-exploratory-learning.html#base" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>The original (default) graphics system in R.</li>
+<li>Highly customizable.</li>
+<li>Complex plots require many code lines.</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="graphics-in-r-exploratory-learning.html#cb51-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">demo</span>(graphics)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="graphics-in-r-exploratory-learning.html#cb52-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">demo</span>(persp)</span></code></pre></div>
+<ul>
+<li>All the code. Try it!</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="graphics-in-r-exploratory-learning.html#cb53-1" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(datasets)</span>
+<span id="cb53-2"><a href="graphics-in-r-exploratory-learning.html#cb53-2" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(grDevices)</span>
+<span id="cb53-3"><a href="graphics-in-r-exploratory-learning.html#cb53-3" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(graphics)</span>
+<span id="cb53-4"><a href="graphics-in-r-exploratory-learning.html#cb53-4" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">library</span>(gridGraphics)</span>
+<span id="cb53-5"><a href="graphics-in-r-exploratory-learning.html#cb53-5" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-6"><a href="graphics-in-r-exploratory-learning.html#cb53-6" tabindex="-1"></a><span class="er">&gt;</span> </span>
+<span id="cb53-7"><a href="graphics-in-r-exploratory-learning.html#cb53-7" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo1</span></span>
+<span id="cb53-8"><a href="graphics-in-r-exploratory-learning.html#cb53-8" tabindex="-1"></a><span class="er">&gt;</span> x <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">rnorm</span>(<span class="dv">50</span>)</span>
+<span id="cb53-9"><a href="graphics-in-r-exploratory-learning.html#cb53-9" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">bg =</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb53-10"><a href="graphics-in-r-exploratory-learning.html#cb53-10" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(x, <span class="at">ann =</span> <span class="cn">FALSE</span>, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>)</span>
+<span id="cb53-11"><a href="graphics-in-r-exploratory-learning.html#cb53-11" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">col =</span> <span class="fu">gray</span>(<span class="fl">0.9</span>))</span>
+<span id="cb53-12"><a href="graphics-in-r-exploratory-learning.html#cb53-12" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lines</span>(x, <span class="at">col =</span> <span class="st">&quot;green4&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;dotted&quot;</span>)</span>
+<span id="cb53-13"><a href="graphics-in-r-exploratory-learning.html#cb53-13" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">points</span>(x, <span class="at">bg =</span> <span class="st">&quot;limegreen&quot;</span>, <span class="at">pch =</span> <span class="dv">21</span>)</span>
+<span id="cb53-14"><a href="graphics-in-r-exploratory-learning.html#cb53-14" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Simple Use of Color In a Plot&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Just a Whisper of a Label&quot;</span>,</span>
+<span id="cb53-15"><a href="graphics-in-r-exploratory-learning.html#cb53-15" tabindex="-1"></a><span class="sc">+</span>     <span class="at">col.main =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">col.lab =</span> <span class="fu">gray</span>(<span class="fl">0.8</span>), <span class="at">cex.main =</span> <span class="fl">1.2</span>, <span class="at">cex.lab =</span> <span class="dv">1</span>, <span class="at">font.main =</span> <span class="dv">4</span>,</span>
+<span id="cb53-16"><a href="graphics-in-r-exploratory-learning.html#cb53-16" tabindex="-1"></a><span class="sc">+</span>     <span class="at">font.lab =</span> <span class="dv">3</span>)</span>
+<span id="cb53-17"><a href="graphics-in-r-exploratory-learning.html#cb53-17" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-18"><a href="graphics-in-r-exploratory-learning.html#cb53-18" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo2</span></span>
+<span id="cb53-19"><a href="graphics-in-r-exploratory-learning.html#cb53-19" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">par</span>(<span class="at">bg =</span> <span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb53-20"><a href="graphics-in-r-exploratory-learning.html#cb53-20" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pie</span>(<span class="fu">rep</span>(<span class="dv">1</span>, <span class="dv">24</span>), <span class="at">col =</span> <span class="fu">rainbow</span>(<span class="dv">24</span>), <span class="at">radius =</span> <span class="fl">0.9</span>)</span>
+<span id="cb53-21"><a href="graphics-in-r-exploratory-learning.html#cb53-21" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;A Sample Color Wheel&quot;</span>, <span class="at">cex.main =</span> <span class="fl">1.4</span>, <span class="at">font.main =</span> <span class="dv">3</span>)</span>
+<span id="cb53-22"><a href="graphics-in-r-exploratory-learning.html#cb53-22" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab =</span> <span class="st">&quot;(Use this as a test of monitor linearity)&quot;</span>, <span class="at">cex.lab =</span> <span class="fl">0.8</span>, <span class="at">font.lab =</span> <span class="dv">3</span>)</span>
+<span id="cb53-23"><a href="graphics-in-r-exploratory-learning.html#cb53-23" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-24"><a href="graphics-in-r-exploratory-learning.html#cb53-24" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo3</span></span>
+<span id="cb53-25"><a href="graphics-in-r-exploratory-learning.html#cb53-25" tabindex="-1"></a><span class="er">&gt;</span> pie.sales <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.12</span>, <span class="fl">0.3</span>, <span class="fl">0.26</span>, <span class="fl">0.16</span>, <span class="fl">0.04</span>, <span class="fl">0.12</span>)</span>
+<span id="cb53-26"><a href="graphics-in-r-exploratory-learning.html#cb53-26" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">names</span>(pie.sales) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Blueberry&quot;</span>, <span class="st">&quot;Cherry&quot;</span>, <span class="st">&quot;Apple&quot;</span>, <span class="st">&quot;Boston Cream&quot;</span>, <span class="st">&quot;Other&quot;</span>, <span class="st">&quot;Vanilla Cream&quot;</span>)</span>
+<span id="cb53-27"><a href="graphics-in-r-exploratory-learning.html#cb53-27" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">pie</span>(pie.sales, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;purple&quot;</span>, <span class="st">&quot;violetred1&quot;</span>, <span class="st">&quot;green3&quot;</span>, <span class="st">&quot;cornsilk&quot;</span>, <span class="st">&quot;cyan&quot;</span>, <span class="st">&quot;white&quot;</span>))</span>
+<span id="cb53-28"><a href="graphics-in-r-exploratory-learning.html#cb53-28" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;January Pie Sales&quot;</span>, <span class="at">cex.main =</span> <span class="fl">1.8</span>, <span class="at">font.main =</span> <span class="dv">1</span>)</span>
+<span id="cb53-29"><a href="graphics-in-r-exploratory-learning.html#cb53-29" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab =</span> <span class="st">&quot;(Don&#39;t try this at home kids)&quot;</span>, <span class="at">cex.lab =</span> <span class="fl">0.8</span>, <span class="at">font.lab =</span> <span class="dv">3</span>)</span>
+<span id="cb53-30"><a href="graphics-in-r-exploratory-learning.html#cb53-30" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-31"><a href="graphics-in-r-exploratory-learning.html#cb53-31" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo4</span></span>
+<span id="cb53-32"><a href="graphics-in-r-exploratory-learning.html#cb53-32" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">par</span>(<span class="at">bg =</span> <span class="st">&quot;cornsilk&quot;</span>)</span>
+<span id="cb53-33"><a href="graphics-in-r-exploratory-learning.html#cb53-33" tabindex="-1"></a><span class="sc">&gt;</span> n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb53-34"><a href="graphics-in-r-exploratory-learning.html#cb53-34" tabindex="-1"></a><span class="sc">&gt;</span> g <span class="ot">&lt;-</span> <span class="fu">gl</span>(n, <span class="dv">100</span>, n <span class="sc">*</span> <span class="dv">100</span>)</span>
+<span id="cb53-35"><a href="graphics-in-r-exploratory-learning.html#cb53-35" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(n <span class="sc">*</span> <span class="dv">100</span>) <span class="sc">+</span> <span class="fu">sqrt</span>(<span class="fu">as.numeric</span>(g))</span>
+<span id="cb53-36"><a href="graphics-in-r-exploratory-learning.html#cb53-36" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">boxplot</span>(<span class="fu">split</span>(x, g), <span class="at">col =</span> <span class="st">&quot;lavender&quot;</span>, <span class="at">notch =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb53-37"><a href="graphics-in-r-exploratory-learning.html#cb53-37" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;Notched Boxplots&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Group&quot;</span>, <span class="at">font.main =</span> <span class="dv">4</span>, <span class="at">font.lab =</span> <span class="dv">1</span>)</span>
+<span id="cb53-38"><a href="graphics-in-r-exploratory-learning.html#cb53-38" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-39"><a href="graphics-in-r-exploratory-learning.html#cb53-39" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo5</span></span>
+<span id="cb53-40"><a href="graphics-in-r-exploratory-learning.html#cb53-40" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">par</span>(<span class="at">bg =</span> <span class="st">&quot;white&quot;</span>)</span>
+<span id="cb53-41"><a href="graphics-in-r-exploratory-learning.html#cb53-41" tabindex="-1"></a><span class="sc">&gt;</span> n <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb53-42"><a href="graphics-in-r-exploratory-learning.html#cb53-42" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(n)))</span>
+<span id="cb53-43"><a href="graphics-in-r-exploratory-learning.html#cb53-43" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">cumsum</span>(<span class="fu">rnorm</span>(n)))</span>
+<span id="cb53-44"><a href="graphics-in-r-exploratory-learning.html#cb53-44" tabindex="-1"></a><span class="sc">&gt;</span> xx <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span><span class="sc">:</span>n, n<span class="sc">:</span><span class="dv">0</span>)</span>
+<span id="cb53-45"><a href="graphics-in-r-exploratory-learning.html#cb53-45" tabindex="-1"></a><span class="sc">&gt;</span> yy <span class="ot">&lt;-</span> <span class="fu">c</span>(x, <span class="fu">rev</span>(y))</span>
+<span id="cb53-46"><a href="graphics-in-r-exploratory-learning.html#cb53-46" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(xx, yy, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Distance&quot;</span>)</span>
+<span id="cb53-47"><a href="graphics-in-r-exploratory-learning.html#cb53-47" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">polygon</span>(xx, yy, <span class="at">col =</span> <span class="st">&quot;gray&quot;</span>)</span>
+<span id="cb53-48"><a href="graphics-in-r-exploratory-learning.html#cb53-48" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="st">&quot;Distance Between Brownian Motions&quot;</span>)</span>
+<span id="cb53-49"><a href="graphics-in-r-exploratory-learning.html#cb53-49" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-50"><a href="graphics-in-r-exploratory-learning.html#cb53-50" tabindex="-1"></a><span class="er">&gt;</span> </span>
+<span id="cb53-51"><a href="graphics-in-r-exploratory-learning.html#cb53-51" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo6</span></span>
+<span id="cb53-52"><a href="graphics-in-r-exploratory-learning.html#cb53-52" tabindex="-1"></a><span class="er">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.4</span>, <span class="fl">0.86</span>, <span class="fl">0.85</span>, <span class="fl">0.69</span>, <span class="fl">0.48</span>, <span class="fl">0.54</span>, <span class="fl">1.09</span>, <span class="fl">1.11</span>, <span class="fl">1.73</span>, <span class="fl">2.05</span>, <span class="fl">2.02</span>)</span>
+<span id="cb53-53"><a href="graphics-in-r-exploratory-learning.html#cb53-53" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">bg =</span> <span class="st">&quot;lightgray&quot;</span>)</span>
+<span id="cb53-54"><a href="graphics-in-r-exploratory-learning.html#cb53-54" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(x, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">ann =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb53-55"><a href="graphics-in-r-exploratory-learning.html#cb53-55" tabindex="-1"></a><span class="sc">&gt;</span> usr <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>)</span>
+<span id="cb53-56"><a href="graphics-in-r-exploratory-learning.html#cb53-56" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rect</span>(usr[<span class="dv">1</span>], usr[<span class="dv">3</span>], usr[<span class="dv">2</span>], usr[<span class="dv">4</span>], <span class="at">col =</span> <span class="st">&quot;cornsilk&quot;</span>, <span class="at">border =</span> <span class="st">&quot;black&quot;</span>)</span>
+<span id="cb53-57"><a href="graphics-in-r-exploratory-learning.html#cb53-57" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lines</span>(x, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb53-58"><a href="graphics-in-r-exploratory-learning.html#cb53-58" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">points</span>(x, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;lightcyan&quot;</span>, <span class="at">cex =</span> <span class="fl">1.25</span>)</span>
+<span id="cb53-59"><a href="graphics-in-r-exploratory-learning.html#cb53-59" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">col.axis =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">las =</span> <span class="dv">1</span>)</span>
+<span id="cb53-60"><a href="graphics-in-r-exploratory-learning.html#cb53-60" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="at">lab =</span> month.abb, <span class="at">col.axis =</span> <span class="st">&quot;blue&quot;</span>)</span>
+<span id="cb53-61"><a href="graphics-in-r-exploratory-learning.html#cb53-61" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">box</span>()</span>
+<span id="cb53-62"><a href="graphics-in-r-exploratory-learning.html#cb53-62" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;The Level of Interest in R&quot;</span>, <span class="at">font.main =</span> <span class="dv">4</span>, <span class="at">col.main =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb53-63"><a href="graphics-in-r-exploratory-learning.html#cb53-63" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab =</span> <span class="st">&quot;1996&quot;</span>, <span class="at">col.lab =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb53-64"><a href="graphics-in-r-exploratory-learning.html#cb53-64" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-65"><a href="graphics-in-r-exploratory-learning.html#cb53-65" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo7</span></span>
+<span id="cb53-66"><a href="graphics-in-r-exploratory-learning.html#cb53-66" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">par</span>(<span class="at">bg =</span> <span class="st">&quot;cornsilk&quot;</span>)</span>
+<span id="cb53-67"><a href="graphics-in-r-exploratory-learning.html#cb53-67" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb53-68"><a href="graphics-in-r-exploratory-learning.html#cb53-68" tabindex="-1"></a><span class="sc">&gt;</span> x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb53-69"><a href="graphics-in-r-exploratory-learning.html#cb53-69" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">hist</span>(x, <span class="at">xlim =</span> <span class="fu">range</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, x), <span class="at">col =</span> <span class="st">&quot;lavender&quot;</span>, <span class="at">main =</span> <span class="st">&quot;&quot;</span>)</span>
+<span id="cb53-70"><a href="graphics-in-r-exploratory-learning.html#cb53-70" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">main =</span> <span class="st">&quot;1000 Normal Random Variates&quot;</span>, <span class="at">font.main =</span> <span class="dv">3</span>)</span>
+<span id="cb53-71"><a href="graphics-in-r-exploratory-learning.html#cb53-71" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-72"><a href="graphics-in-r-exploratory-learning.html#cb53-72" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo8</span></span>
+<span id="cb53-73"><a href="graphics-in-r-exploratory-learning.html#cb53-73" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pairs</span>(iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">main =</span> <span class="st">&quot;Edgar Anderson&#39;s Iris Data&quot;</span>, <span class="at">font.main =</span> <span class="dv">4</span>, <span class="at">pch =</span> <span class="dv">19</span>)</span>
+<span id="cb53-74"><a href="graphics-in-r-exploratory-learning.html#cb53-74" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-75"><a href="graphics-in-r-exploratory-learning.html#cb53-75" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo9</span></span>
+<span id="cb53-76"><a href="graphics-in-r-exploratory-learning.html#cb53-76" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">pairs</span>(iris[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>], <span class="at">main =</span> <span class="st">&quot;Edgar Anderson&#39;s Iris Data&quot;</span>, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green3&quot;</span>,</span>
+<span id="cb53-77"><a href="graphics-in-r-exploratory-learning.html#cb53-77" tabindex="-1"></a><span class="sc">+</span>     <span class="st">&quot;blue&quot;</span>)[<span class="fu">unclass</span>(iris<span class="sc">$</span>Species)])</span>
+<span id="cb53-78"><a href="graphics-in-r-exploratory-learning.html#cb53-78" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-79"><a href="graphics-in-r-exploratory-learning.html#cb53-79" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo10</span></span>
+<span id="cb53-80"><a href="graphics-in-r-exploratory-learning.html#cb53-80" tabindex="-1"></a><span class="er">&gt;</span> x <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">*</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(volcano)</span>
+<span id="cb53-81"><a href="graphics-in-r-exploratory-learning.html#cb53-81" tabindex="-1"></a><span class="sc">&gt;</span> y <span class="ot">&lt;-</span> <span class="dv">10</span> <span class="sc">*</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(volcano)</span>
+<span id="cb53-82"><a href="graphics-in-r-exploratory-learning.html#cb53-82" tabindex="-1"></a><span class="sc">&gt;</span> lev <span class="ot">&lt;-</span> <span class="fu">pretty</span>(<span class="fu">range</span>(volcano), <span class="dv">10</span>)</span>
+<span id="cb53-83"><a href="graphics-in-r-exploratory-learning.html#cb53-83" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">par</span>(<span class="at">bg =</span> <span class="st">&quot;lightcyan&quot;</span>)</span>
+<span id="cb53-84"><a href="graphics-in-r-exploratory-learning.html#cb53-84" tabindex="-1"></a><span class="sc">&gt;</span> pin <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;pin&quot;</span>)</span>
+<span id="cb53-85"><a href="graphics-in-r-exploratory-learning.html#cb53-85" tabindex="-1"></a><span class="sc">&gt;</span> xdelta <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">range</span>(x))</span>
+<span id="cb53-86"><a href="graphics-in-r-exploratory-learning.html#cb53-86" tabindex="-1"></a><span class="sc">&gt;</span> ydelta <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">range</span>(y))</span>
+<span id="cb53-87"><a href="graphics-in-r-exploratory-learning.html#cb53-87" tabindex="-1"></a><span class="sc">&gt;</span> xscale <span class="ot">&lt;-</span> pin[<span class="dv">1</span>]<span class="sc">/</span>xdelta</span>
+<span id="cb53-88"><a href="graphics-in-r-exploratory-learning.html#cb53-88" tabindex="-1"></a><span class="sc">&gt;</span> yscale <span class="ot">&lt;-</span> pin[<span class="dv">2</span>]<span class="sc">/</span>ydelta</span>
+<span id="cb53-89"><a href="graphics-in-r-exploratory-learning.html#cb53-89" tabindex="-1"></a><span class="sc">&gt;</span> scale <span class="ot">&lt;-</span> <span class="fu">min</span>(xscale, yscale)</span>
+<span id="cb53-90"><a href="graphics-in-r-exploratory-learning.html#cb53-90" tabindex="-1"></a><span class="sc">&gt;</span> xadd <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> (pin[<span class="dv">1</span>]<span class="sc">/</span>scale <span class="sc">-</span> xdelta)</span>
+<span id="cb53-91"><a href="graphics-in-r-exploratory-learning.html#cb53-91" tabindex="-1"></a><span class="sc">&gt;</span> yadd <span class="ot">&lt;-</span> <span class="fl">0.5</span> <span class="sc">*</span> (pin[<span class="dv">2</span>]<span class="sc">/</span>scale <span class="sc">-</span> ydelta)</span>
+<span id="cb53-92"><a href="graphics-in-r-exploratory-learning.html#cb53-92" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">plot</span>(<span class="fu">numeric</span>(<span class="dv">0</span>), <span class="fu">numeric</span>(<span class="dv">0</span>), <span class="at">xlim =</span> <span class="fu">range</span>(x) <span class="sc">+</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> xadd, <span class="at">ylim =</span> <span class="fu">range</span>(y) <span class="sc">+</span></span>
+<span id="cb53-93"><a href="graphics-in-r-exploratory-learning.html#cb53-93" tabindex="-1"></a><span class="sc">+</span>     <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">*</span> yadd, <span class="at">type =</span> <span class="st">&quot;n&quot;</span>, <span class="at">ann =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb53-94"><a href="graphics-in-r-exploratory-learning.html#cb53-94" tabindex="-1"></a><span class="sc">&gt;</span> usr <span class="ot">&lt;-</span> <span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>)</span>
+<span id="cb53-95"><a href="graphics-in-r-exploratory-learning.html#cb53-95" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">rect</span>(usr[<span class="dv">1</span>], usr[<span class="dv">3</span>], usr[<span class="dv">2</span>], usr[<span class="dv">4</span>], <span class="at">col =</span> <span class="st">&quot;green3&quot;</span>)</span>
+<span id="cb53-96"><a href="graphics-in-r-exploratory-learning.html#cb53-96" tabindex="-1"></a><span class="sc">&gt;</span> clines <span class="ot">&lt;-</span> <span class="fu">contourLines</span>(x, y, volcano, <span class="at">levels =</span> lev)</span>
+<span id="cb53-97"><a href="graphics-in-r-exploratory-learning.html#cb53-97" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">lapply</span>(clines, lines, <span class="at">col =</span> <span class="st">&quot;yellow&quot;</span>, <span class="at">lty =</span> <span class="st">&quot;solid&quot;</span>)</span>
+<span id="cb53-98"><a href="graphics-in-r-exploratory-learning.html#cb53-98" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">box</span>()</span>
+<span id="cb53-99"><a href="graphics-in-r-exploratory-learning.html#cb53-99" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="st">&quot;A Topographic Map of Maunga Whau&quot;</span>, <span class="at">font =</span> <span class="dv">4</span>)</span>
+<span id="cb53-100"><a href="graphics-in-r-exploratory-learning.html#cb53-100" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">title</span>(<span class="at">xlab =</span> <span class="st">&quot;Meters North&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Meters West&quot;</span>, <span class="at">font =</span> <span class="dv">3</span>)</span>
+<span id="cb53-101"><a href="graphics-in-r-exploratory-learning.html#cb53-101" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">mtext</span>(<span class="st">&quot;10 Meter Contour Spacing&quot;</span>, <span class="at">side =</span> <span class="dv">3</span>, <span class="at">line =</span> <span class="fl">0.35</span>, <span class="at">outer =</span> <span class="cn">FALSE</span>, <span class="at">at =</span> <span class="fu">mean</span>(<span class="fu">par</span>(<span class="st">&quot;usr&quot;</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>]),</span>
+<span id="cb53-102"><a href="graphics-in-r-exploratory-learning.html#cb53-102" tabindex="-1"></a><span class="sc">+</span>     <span class="at">cex =</span> <span class="fl">0.7</span>, <span class="at">font =</span> <span class="dv">3</span>)</span>
+<span id="cb53-103"><a href="graphics-in-r-exploratory-learning.html#cb53-103" tabindex="-1"></a><span class="sc">&gt;</span> </span>
+<span id="cb53-104"><a href="graphics-in-r-exploratory-learning.html#cb53-104" tabindex="-1"></a><span class="er">&gt;</span> <span class="co"># demo11</span></span>
+<span id="cb53-105"><a href="graphics-in-r-exploratory-learning.html#cb53-105" tabindex="-1"></a><span class="er">&gt;</span> <span class="fu">par</span>(<span class="at">bg =</span> <span class="st">&quot;cornsilk&quot;</span>)</span>
+<span id="cb53-106"><a href="graphics-in-r-exploratory-learning.html#cb53-106" tabindex="-1"></a><span class="sc">&gt;</span> <span class="fu">coplot</span>(lat <span class="sc">~</span> long <span class="sc">|</span> depth, <span class="at">data =</span> quakes, <span class="at">pch =</span> <span class="dv">21</span>, <span class="at">bg =</span> <span class="st">&quot;green3&quot;</span>)</span></code></pre></div>
+<hr />
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mathematical-methods-in-finance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
